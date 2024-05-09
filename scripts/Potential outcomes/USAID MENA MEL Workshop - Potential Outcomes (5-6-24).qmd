@@ -6,12 +6,13 @@ format:
   revealjs:
     #logo: "USAID logo.png"
     slide-number: true
+    slide-level: 3
     transition: slide
     #transition-speed: fast
     background-transition: fade
     incremental: true
     footer: "USAID MENA Advanced MEL Workshop"
-    theme: [default, usaid.scss]
+    theme: [default, usaid notepad.scss]
     title-slide-attributes: 
       data-background-image: "USAID logo.png"
       data-background-position: top left
@@ -30,19 +31,20 @@ source("../../../Methods Corner/misc/prep.r")
 
 ```
 
-## Welcome!
+### Welcome!
 
 -   Who we are
 -   What we do
 -   How we hope to help you
 
-## Objectives of impact evaluation sessions
+### Objectives of impact evaluation sessions
 
 -   Understand the need for impact estimation of USAID activities
 -   Understand how impact estimation fits into the Agency performance management framework
 -   Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs
 
-## Benchmarks for success
+
+### Benchmarks for success
 
 By the end of this session, participants will be able to:
 
@@ -52,11 +54,17 @@ By the end of this session, participants will be able to:
 
 -   Relive unpleasant schoolhood memories of having to learn algebra
 
-- *Bonus content:* Is causal inference a two-body or three-body problem?
+### Benchmarks for success
 
-## [The Fundamental Problem]{style="color:white;"} {background-color="#002F6C"}
+*Bonus content:*
 
-## Measuring social benefit
+-   Is causal inference a two-body or three-body problem?
+
+-   How has causal inference developed out of traditions from MENA region?
+
+### [The Fundamental Problem]{style="color:white;"} {background-color="#002F6C"} 
+
+### Measuring social benefit
 
 We want to know the causal effect of a project on its beneficiaries
 
@@ -66,37 +74,38 @@ We want to know the causal effect of a project on its beneficiaries
 
 -   Humanitarian assistance on food security
 
-## Identifying a treatment assignment
+### Identifying a treatment assignment
 
-Consider an indicator for a *potential* beneficiary, $D_i$
+- Consider an indicator for a *potential* beneficiary, $D_i$
 
-$D$ tells us whether there is an activity, or a "treatment"
+- $D$ tells us whether there is an activity, or a "treatment"
 
-The subscript $i$ denotes a single individual who is either treated or not treated
+- The subscript $i$ denotes a single individual who is either treated or not treated
 
-$D_i$ = 1 means participation in an activity
+    - $D_i$ = 1 means participation in an activity
 
-$D_i$ = 0 means no participation in an activity
+    - $D_i$ = 0 means no participation in an activity
+ 
 
-## Identifying an outcome
+### Identifying an outcome
 
 Now consider an indicator for the outcome of a potential beneficiary, $Y_i$, where $i$ denotes each person or unit under study.
 
-$Y_i^1$ is the outcome after activity participation ($D_i=1$)
+- $Y_i^1$ is the outcome after activity participation ($D_i=1$)
 
-$Y_i^0$ is the outcome without the activity ($D_i=0$)
+- $Y_i^0$ is the outcome without the activity ($D_i=0$)
 
-Note that $Y_1$ and $Y_0$ denote *possibilities* for the *same person*, unit i!
+- Note that $Y_1$ and $Y_0$ denote *possibilities* for the *same person*, unit i!
 
-## Switching across treated and untreated outcomes
+### Switching across treated and untreated outcomes
 
 We use what is called a 'switching equation' to connect a treatment assignment to a realized outcome
 
-$Y_i=D_iY_i^1+(1-D_i)Y_i^0$
+- $Y_i=D_iY_i^1+(1-D_i)Y_i^0$
 
 (Plug in $D_i=1$ and $D_i=0$ and see what you end up with)
 
-## ALGEBRA ALERT
+### ALGEBRA ALERT
 
 $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=1$
 
@@ -106,7 +115,7 @@ $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=1$
 
 -   $Y_i=Y_i^1$
 
-## ALGEBRA ALERT
+### ALGEBRA ALERT
 
 $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=0$
 
@@ -116,49 +125,65 @@ $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=0$
 
 -   $Y_i=Y_i^0$
 
-## Switching across treated and untreated outcomes
+### Difference between assignment and mechanism
 
-We can also write this same equation this way:
+- The switching equation determines where (to whom) treatment is assigned
 
-$Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i$
+- We call this the treatment assignment
 
-This equation makes it easier to notice our treatment effect, which is $Y_i^1-Y_i^0$, or the difference between the treated and untreated outcome
+- The switching equation does **NOT** address **HOW** treatment is assigned
 
-We call the difference $Y_i^1-Y_i^0$ $delta$, or $\delta_i$
+- We call this the treatment assignment *mechanism*
 
-Again notice that the treatment effect $\delta_i$ refers to the *same* individual!
+### From assignment to treatment effect
 
-## What a conundrum
+We can also write the switching equation this way:
 
-To recap: the effect of the activity (treatment effect) on person $i$ is the difference between the two potential outcomes
+- $Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i$
 
-Treatment effect = $Y_i^1 - Y_i^0$, or $\delta_i$
+- Notice our treatment effect $Y_i^1-Y_i^0$, or the difference between the treated and untreated outcome
 
-This is the difference in potential outcomes for the *same person*
+- We call the difference $Y_i^1-Y_i^0$ $delta$, or $\delta_i$
 
-A person participates in an activity, and then goes back in time and does not participate in the activity
+- Remember that the treatment effect $\delta_i$ refers to the *same* individual!
 
-## You ask the impossible
+### Recap:
 
-But how can one person be both treated and untreated?
+- The effect of the activity (treatment effect) on person $i$ is the difference between the two potential outcomes
 
-In the real world, person $i$ experiences one of the potential outcomes, but not both
+- Treatment effect = $Y_i^1 - Y_i^0$, or $\delta_i$
 
-If $D_i=1$, the potential outcome of $Y_i$ becomes $Y_i^1$ in fact and the potential outcome of $Y_i^0$ is unobserved
+- This is the difference in potential outcomes for the *same person*
 
-If $D_i=0$, the potential outcome of $Y_i$ becomes $Y_i^0$ in fact and the potential outcome of $Y_i^1$ is unobserved
+- A person participates in an activity, and then goes back in time and does not participate in the activity
 
-## The fundamental problem of causal inference
+### You ask the impossible
 
-This is the fundamental problem of causal inference:
+```{r fig.align="right", fig.height=2, fig.width=3}
 
-We observe only one outcome, but we need both outcomes to describe the effect of the project
+#include_graphics("luke impossible.jpg")
 
-We refer to the outcome that didn't happen as the *counterfactual*, or what would have happened in the absence of the project
+```
 
-## [The Missing Data Problem]{style="color:white;"} {background-color="#002F6C"}
+- But how can one person be both treated and untreated?
 
-## Something is missing
+- In the real world, person $i$ experiences one of the potential outcomes, but not both
+
+- If $D_i=1$, the potential outcome of $Y_i$ becomes $Y_i^1$ in fact and the potential outcome of $Y_i^0$ is unobserved
+
+- If $D_i=0$, the potential outcome of $Y_i$ becomes $Y_i^0$ in fact and the potential outcome of $Y_i^1$ is unobserved
+
+### The fundamental problem of causal inference
+
+- This is the fundamental problem of causal inference
+
+- We observe only one outcome, but we need both outcomes to describe the effect of the project
+
+- We refer to the outcome that didn't happen as the *counterfactual*, or what would have happened in the absence of the project
+
+### [The Missing Data Problem]{style="color:white;"} {background-color="#002F6C"} 
+
+### Something is missing
 
 ```{r}
 Group <- c("Treatment","Control")
@@ -171,18 +196,19 @@ t1 <- cbind(Group, Yi1, Yi0) %>%
 flextable(t1)
 ```
 
--   Researchers sometimes refer to impact evaluation as a "missing data problem"
--   We are missing two pieces of information about what happens with or without the treatment
+- Researchers sometimes refer to impact evaluation as a "missing data problem"
 
-## What do we do now?
+- We are missing two pieces of information about what happens with or without the treatment
 
-How do we estimate the effect of a project, if we cannot observe the same person go through both potential outcomes?
+### What do we do now?
 
-We must compare a person who was treated with a person who was not treated
+- How do we estimate the effect of a project, if we cannot observe the same person go through both potential outcomes?
 
-But, what are the differences between those two people? How do we know that project participation is the only difference between them?
+- We must compare a person who was treated with a person who was not treated
 
-## CLIFFHANGER
+- But, what are the differences between those two people? How do we know that project participation is the only difference between them?
+
+### CLIFFHANGER
 
 Tune into the next session for a resolution of the Fundamental Problem of Causal Inference!
 
@@ -191,10 +217,24 @@ Teaser:
 -   Experimental impact evaluation
 -   Quasi-experimental impact evaluation
 -   Prediction via machine learning
--   Getting an answer through Artificial General Intelligence (AGI)
+-   Artificial General Intelligence (AGI)
 
-## End credits
+### Bonus content
 
-## Post-credit scene
+- Causal inference as a two-body or a three-body problem
+- Causal inference from traditions in Middle East and North Africa
 
-## [The Three-Body Problem]{style="color:white;"} {background-color="#002F6C"}
+### [The Three-Body Problem]{style="color:white;"} {background-color="#002F6C"}
+
+```{r fig.align="left", fig.height=4, fig.width=4.5}
+include_graphics("Three body Newton.png")
+```
+
+
+![](three body lines.png){.absolute bottom=10 right=100 height="300" width="200"}
+
+![](three body celestial.png){.absolute top=100 right=10 height="200" width="300"}
+
+### Causal inference in the MENA tradition
+
+

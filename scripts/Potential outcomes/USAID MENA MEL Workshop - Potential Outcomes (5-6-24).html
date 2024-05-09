@@ -338,37 +338,44 @@
 
   <p class="date">2024-05-01</p>
 </section>
-<section id="welcome" class="slide level2">
-<h2>Welcome!</h2>
+<section id="welcome" class="slide level3">
+<h3>Welcome!</h3>
 <ul>
 <li class="fragment">Who we are</li>
 <li class="fragment">What we do</li>
 <li class="fragment">How we hope to help you</li>
 </ul>
 </section>
-<section id="objectives-of-impact-evaluation-sessions" class="slide level2">
-<h2>Objectives of impact evaluation sessions</h2>
+<section id="objectives-of-impact-evaluation-sessions" class="slide level3">
+<h3>Objectives of impact evaluation sessions</h3>
 <ul>
 <li class="fragment">Understand the need for impact estimation of USAID activities</li>
 <li class="fragment">Understand how impact estimation fits into the Agency performance management framework</li>
 <li class="fragment">Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs</li>
 </ul>
 </section>
-<section id="benchmarks-for-success" class="slide level2">
-<h2>Benchmarks for success</h2>
+<section id="benchmarks-for-success" class="slide level3">
+<h3>Benchmarks for success</h3>
 <p>By the end of this session, participants will be able to:</p>
 <ul>
 <li class="fragment"><p>Explain the fundamental problem of causal inference</p></li>
 <li class="fragment"><p>Explain how impact estimation can be seen as a problem of missing data</p></li>
 <li class="fragment"><p>Relive unpleasant schoolhood memories of having to learn algebra</p></li>
-<li class="fragment"><p><em>Bonus content:</em> Is causal inference a two-body or three-body problem?</p></li>
 </ul>
 </section>
-<section id="the-fundamental-problem" class="slide level2" data-background-color="#002F6C">
-<h2><span style="color:white;">The Fundamental Problem</span></h2>
+<section id="benchmarks-for-success-1" class="slide level3">
+<h3>Benchmarks for success</h3>
+<p><em>Bonus content:</em></p>
+<ul>
+<li class="fragment"><p>Is causal inference a two-body or three-body problem?</p></li>
+<li class="fragment"><p>How has causal inference developed out of traditions from MENA region?</p></li>
+</ul>
 </section>
-<section id="measuring-social-benefit" class="slide level2">
-<h2>Measuring social benefit</h2>
+<section id="the-fundamental-problem" class="slide level3" data-background-color="#002F6C">
+<h3><span style="color:white;">The Fundamental Problem</span></h3>
+</section>
+<section id="measuring-social-benefit" class="slide level3">
+<h3>Measuring social benefit</h3>
 <p>We want to know the causal effect of a project on its beneficiaries</p>
 <ul>
 <li class="fragment"><p>Job training on earnings and employment</p></li>
@@ -376,29 +383,37 @@
 <li class="fragment"><p>Humanitarian assistance on food security</p></li>
 </ul>
 </section>
-<section id="identifying-a-treatment-assignment" class="slide level2">
-<h2>Identifying a treatment assignment</h2>
-<p>Consider an indicator for a <em>potential</em> beneficiary, <span class="math inline">\(D_i\)</span></p>
-<p><span class="math inline">\(D\)</span> tells us whether there is an activity, or a “treatment”</p>
-<p>The subscript <span class="math inline">\(i\)</span> denotes a single individual who is either treated or not treated</p>
-<p><span class="math inline">\(D_i\)</span> = 1 means participation in an activity</p>
-<p><span class="math inline">\(D_i\)</span> = 0 means no participation in an activity</p>
+<section id="identifying-a-treatment-assignment" class="slide level3">
+<h3>Identifying a treatment assignment</h3>
+<ul>
+<li class="fragment"><p>Consider an indicator for a <em>potential</em> beneficiary, <span class="math inline">\(D_i\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(D\)</span> tells us whether there is an activity, or a “treatment”</p></li>
+<li class="fragment"><p>The subscript <span class="math inline">\(i\)</span> denotes a single individual who is either treated or not treated</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(D_i\)</span> = 1 means participation in an activity</p></li>
+<li class="fragment"><p><span class="math inline">\(D_i\)</span> = 0 means no participation in an activity</p></li>
+</ul></li>
+</ul>
 </section>
-<section id="identifying-an-outcome" class="slide level2">
-<h2>Identifying an outcome</h2>
+<section id="identifying-an-outcome" class="slide level3">
+<h3>Identifying an outcome</h3>
 <p>Now consider an indicator for the outcome of a potential beneficiary, <span class="math inline">\(Y_i\)</span>, where <span class="math inline">\(i\)</span> denotes each person or unit under study.</p>
-<p><span class="math inline">\(Y_i^1\)</span> is the outcome after activity participation (<span class="math inline">\(D_i=1\)</span>)</p>
-<p><span class="math inline">\(Y_i^0\)</span> is the outcome without the activity (<span class="math inline">\(D_i=0\)</span>)</p>
-<p>Note that <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_0\)</span> denote <em>possibilities</em> for the <em>same person</em>, unit i!</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(Y_i^1\)</span> is the outcome after activity participation (<span class="math inline">\(D_i=1\)</span>)</p></li>
+<li class="fragment"><p><span class="math inline">\(Y_i^0\)</span> is the outcome without the activity (<span class="math inline">\(D_i=0\)</span>)</p></li>
+<li class="fragment"><p>Note that <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_0\)</span> denote <em>possibilities</em> for the <em>same person</em>, unit i!</p></li>
+</ul>
 </section>
-<section id="switching-across-treated-and-untreated-outcomes" class="slide level2">
-<h2>Switching across treated and untreated outcomes</h2>
+<section id="switching-across-treated-and-untreated-outcomes" class="slide level3">
+<h3>Switching across treated and untreated outcomes</h3>
 <p>We use what is called a ‘switching equation’ to connect a treatment assignment to a realized outcome</p>
-<p><span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span></p>
+<ul>
+<li class="fragment"><span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span></li>
+</ul>
 <p>(Plug in <span class="math inline">\(D_i=1\)</span> and <span class="math inline">\(D_i=0\)</span> and see what you end up with)</p>
 </section>
-<section id="algebra-alert" class="slide level2">
-<h2>ALGEBRA ALERT</h2>
+<section id="algebra-alert" class="slide level3">
+<h3>ALGEBRA ALERT</h3>
 <p><span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span> where <span class="math inline">\(D_i=1\)</span></p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(Y_i=1*Y_i^1+1*Y_i^0-1*Y_i^0\)</span></p></li>
@@ -406,8 +421,8 @@
 <li class="fragment"><p><span class="math inline">\(Y_i=Y_i^1\)</span></p></li>
 </ul>
 </section>
-<section id="algebra-alert-1" class="slide level2">
-<h2>ALGEBRA ALERT</h2>
+<section id="algebra-alert-1" class="slide level3">
+<h3>ALGEBRA ALERT</h3>
 <p><span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span> where <span class="math inline">\(D_i=0\)</span></p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(Y_i=0*Y_i^1+1*Y_i^0-0*Y_i^0\)</span></p></li>
@@ -415,74 +430,108 @@
 <li class="fragment"><p><span class="math inline">\(Y_i=Y_i^0\)</span></p></li>
 </ul>
 </section>
-<section id="switching-across-treated-and-untreated-outcomes-1" class="slide level2">
-<h2>Switching across treated and untreated outcomes</h2>
-<p>We can also write this same equation this way:</p>
-<p><span class="math inline">\(Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i\)</span></p>
-<p>This equation makes it easier to notice our treatment effect, which is <span class="math inline">\(Y_i^1-Y_i^0\)</span>, or the difference between the treated and untreated outcome</p>
-<p>We call the difference <span class="math inline">\(Y_i^1-Y_i^0\)</span> <span class="math inline">\(delta\)</span>, or <span class="math inline">\(\delta_i\)</span></p>
-<p>Again notice that the treatment effect <span class="math inline">\(\delta_i\)</span> refers to the <em>same</em> individual!</p>
+<section id="difference-between-assignment-and-mechanism" class="slide level3">
+<h3>Difference between assignment and mechanism</h3>
+<ul>
+<li class="fragment"><p>The switching equation determines where (to whom) treatment is assigned</p></li>
+<li class="fragment"><p>We call this the treatment assignment</p></li>
+<li class="fragment"><p>The switching equation does <strong>NOT</strong> address <strong>HOW</strong> treatment is assigned</p></li>
+<li class="fragment"><p>We call this the treatment assignment <em>mechanism</em></p></li>
+</ul>
 </section>
-<section id="what-a-conundrum" class="slide level2">
-<h2>What a conundrum</h2>
-<p>To recap: the effect of the activity (treatment effect) on person <span class="math inline">\(i\)</span> is the difference between the two potential outcomes</p>
-<p>Treatment effect = <span class="math inline">\(Y_i^1 - Y_i^0\)</span>, or <span class="math inline">\(\delta_i\)</span></p>
-<p>This is the difference in potential outcomes for the <em>same person</em></p>
-<p>A person participates in an activity, and then goes back in time and does not participate in the activity</p>
+<section id="from-assignment-to-treatment-effect" class="slide level3">
+<h3>From assignment to treatment effect</h3>
+<p>We can also write the switching equation this way:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i\)</span></p></li>
+<li class="fragment"><p>Notice our treatment effect <span class="math inline">\(Y_i^1-Y_i^0\)</span>, or the difference between the treated and untreated outcome</p></li>
+<li class="fragment"><p>We call the difference <span class="math inline">\(Y_i^1-Y_i^0\)</span> <span class="math inline">\(delta\)</span>, or <span class="math inline">\(\delta_i\)</span></p></li>
+<li class="fragment"><p>Remember that the treatment effect <span class="math inline">\(\delta_i\)</span> refers to the <em>same</em> individual!</p></li>
+</ul>
 </section>
-<section id="you-ask-the-impossible" class="slide level2">
-<h2>You ask the impossible</h2>
-<p>But how can one person be both treated and untreated?</p>
-<p>In the real world, person <span class="math inline">\(i\)</span> experiences one of the potential outcomes, but not both</p>
-<p>If <span class="math inline">\(D_i=1\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^1\)</span> in fact and the potential outcome of <span class="math inline">\(Y_i^0\)</span> is unobserved</p>
-<p>If <span class="math inline">\(D_i=0\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^0\)</span> in fact and the potential outcome of <span class="math inline">\(Y_i^1\)</span> is unobserved</p>
+<section id="recap" class="slide level3">
+<h3>Recap:</h3>
+<ul>
+<li class="fragment"><p>The effect of the activity (treatment effect) on person <span class="math inline">\(i\)</span> is the difference between the two potential outcomes</p></li>
+<li class="fragment"><p>Treatment effect = <span class="math inline">\(Y_i^1 - Y_i^0\)</span>, or <span class="math inline">\(\delta_i\)</span></p></li>
+<li class="fragment"><p>This is the difference in potential outcomes for the <em>same person</em></p></li>
+<li class="fragment"><p>A person participates in an activity, and then goes back in time and does not participate in the activity</p></li>
+</ul>
 </section>
-<section id="the-fundamental-problem-of-causal-inference" class="slide level2">
-<h2>The fundamental problem of causal inference</h2>
-<p>This is the fundamental problem of causal inference:</p>
-<p>We observe only one outcome, but we need both outcomes to describe the effect of the project</p>
-<p>We refer to the outcome that didn’t happen as the <em>counterfactual</em>, or what would have happened in the absence of the project</p>
+<section id="you-ask-the-impossible" class="slide level3">
+<h3>You ask the impossible</h3>
+<ul>
+<li class="fragment"><p>But how can one person be both treated and untreated?</p></li>
+<li class="fragment"><p>In the real world, person <span class="math inline">\(i\)</span> experiences one of the potential outcomes, but not both</p></li>
+<li class="fragment"><p>If <span class="math inline">\(D_i=1\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^1\)</span> in fact and the potential outcome of <span class="math inline">\(Y_i^0\)</span> is unobserved</p></li>
+<li class="fragment"><p>If <span class="math inline">\(D_i=0\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^0\)</span> in fact and the potential outcome of <span class="math inline">\(Y_i^1\)</span> is unobserved</p></li>
+</ul>
 </section>
-<section id="the-missing-data-problem" class="slide level2" data-background-color="#002F6C">
-<h2><span style="color:white;">The Missing Data Problem</span></h2>
+<section id="the-fundamental-problem-of-causal-inference" class="slide level3">
+<h3>The fundamental problem of causal inference</h3>
+<ul>
+<li class="fragment"><p>This is the fundamental problem of causal inference</p></li>
+<li class="fragment"><p>We observe only one outcome, but we need both outcomes to describe the effect of the project</p></li>
+<li class="fragment"><p>We refer to the outcome that didn’t happen as the <em>counterfactual</em>, or what would have happened in the absence of the project</p></li>
+</ul>
 </section>
-<section id="something-is-missing" class="slide level2">
-<h2>Something is missing</h2>
+<section id="the-missing-data-problem" class="slide level3" data-background-color="#002F6C">
+<h3><span style="color:white;">The Missing Data Problem</span></h3>
+</section>
+<section id="something-is-missing" class="slide level3">
+<h3>Something is missing</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-2b5c4742{}.cl-2b552b10{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2b580c72{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2b5820c2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2b5820c3{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2b5820cc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2b5c4742"><thead><tr style="overflow-wrap:break-word;"><th class="cl-2b5820c2"><p class="cl-2b580c72"><span class="cl-2b552b10">Group</span></p></th><th class="cl-2b5820c2"><p class="cl-2b580c72"><span class="cl-2b552b10">Yi1</span></p></th><th class="cl-2b5820c2"><p class="cl-2b580c72"><span class="cl-2b552b10">Yi0</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-2b5820c3"><p class="cl-2b580c72"><span class="cl-2b552b10">Treatment</span></p></td><td class="cl-2b5820c3"><p class="cl-2b580c72"><span class="cl-2b552b10">Observed</span></p></td><td class="cl-2b5820c3"><p class="cl-2b580c72"><span class="cl-2b552b10">Counterfactual</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2b5820cc"><p class="cl-2b580c72"><span class="cl-2b552b10">Control</span></p></td><td class="cl-2b5820cc"><p class="cl-2b580c72"><span class="cl-2b552b10">Counterfactual</span></p></td><td class="cl-2b5820cc"><p class="cl-2b580c72"><span class="cl-2b552b10">Observed</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-8c9760cc{}.cl-8c900124{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8c930b8a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8c93243a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8c932444{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8c93244e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-8c9760cc"><thead><tr style="overflow-wrap:break-word;"><th class="cl-8c93243a"><p class="cl-8c930b8a"><span class="cl-8c900124">Group</span></p></th><th class="cl-8c93243a"><p class="cl-8c930b8a"><span class="cl-8c900124">Yi1</span></p></th><th class="cl-8c93243a"><p class="cl-8c930b8a"><span class="cl-8c900124">Yi0</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8c932444"><p class="cl-8c930b8a"><span class="cl-8c900124">Treatment</span></p></td><td class="cl-8c932444"><p class="cl-8c930b8a"><span class="cl-8c900124">Observed</span></p></td><td class="cl-8c932444"><p class="cl-8c930b8a"><span class="cl-8c900124">Counterfactual</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8c93244e"><p class="cl-8c930b8a"><span class="cl-8c900124">Control</span></p></td><td class="cl-8c93244e"><p class="cl-8c930b8a"><span class="cl-8c900124">Counterfactual</span></p></td><td class="cl-8c93244e"><p class="cl-8c930b8a"><span class="cl-8c900124">Observed</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <ul>
-<li class="fragment">Researchers sometimes refer to impact evaluation as a “missing data problem”</li>
-<li class="fragment">We are missing two pieces of information about what happens with or without the treatment</li>
+<li class="fragment"><p>Researchers sometimes refer to impact evaluation as a “missing data problem”</p></li>
+<li class="fragment"><p>We are missing two pieces of information about what happens with or without the treatment</p></li>
 </ul>
 </section>
-<section id="what-do-we-do-now" class="slide level2">
-<h2>What do we do now?</h2>
-<p>How do we estimate the effect of a project, if we cannot observe the same person go through both potential outcomes?</p>
-<p>We must compare a person who was treated with a person who was not treated</p>
-<p>But, what are the differences between those two people? How do we know that project participation is the only difference between them?</p>
+<section id="what-do-we-do-now" class="slide level3">
+<h3>What do we do now?</h3>
+<ul>
+<li class="fragment"><p>How do we estimate the effect of a project, if we cannot observe the same person go through both potential outcomes?</p></li>
+<li class="fragment"><p>We must compare a person who was treated with a person who was not treated</p></li>
+<li class="fragment"><p>But, what are the differences between those two people? How do we know that project participation is the only difference between them?</p></li>
+</ul>
 </section>
-<section id="cliffhanger" class="slide level2">
-<h2>CLIFFHANGER</h2>
+<section id="cliffhanger" class="slide level3">
+<h3>CLIFFHANGER</h3>
 <p>Tune into the next session for a resolution of the Fundamental Problem of Causal Inference!</p>
 <p>Teaser:</p>
 <ul>
 <li class="fragment">Experimental impact evaluation</li>
 <li class="fragment">Quasi-experimental impact evaluation</li>
 <li class="fragment">Prediction via machine learning</li>
-<li class="fragment">Getting an answer through Artificial General Intelligence (AGI)</li>
+<li class="fragment">Artificial General Intelligence (AGI)</li>
 </ul>
 </section>
-<section id="end-credits" class="slide level2">
-<h2>End credits</h2>
+<section id="bonus-content" class="slide level3">
+<h3>Bonus content</h3>
+<ul>
+<li class="fragment">Causal inference as a two-body or a three-body problem</li>
+<li class="fragment">Causal inference from traditions in Middle East and North Africa</li>
+</ul>
 </section>
-<section id="post-credit-scene" class="slide level2">
-<h2>Post-credit scene</h2>
+<section id="the-three-body-problem" class="slide level3" data-background-color="#002F6C">
+<h3><span style="color:white;">The Three-Body Problem</span></h3>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="Three%20body%20Newton.png" class="quarto-figure quarto-figure-left" width="580"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img data-src="three%20body%20lines.png" class="absolute" style="bottom: 10px; right: 100px; width: 200px; height: 300px; "></p>
+<p><img data-src="three%20body%20celestial.png" class="absolute" style="top: 100px; right: 10px; width: 300px; height: 200px; "></p>
 </section>
-<section id="the-three-body-problem" class="slide level2" data-background-color="#002F6C">
-<h2><span style="color:white;">The Three-Body Problem</span></h2>
+<section id="causal-inference-in-the-mena-tradition" class="slide level3">
+<h3>Causal inference in the MENA tradition</h3>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>USAID MENA Advanced MEL Workshop</p>
