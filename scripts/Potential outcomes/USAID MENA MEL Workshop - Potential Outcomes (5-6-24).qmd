@@ -66,7 +66,7 @@ By the end of this session, participants will be able to:
 
 ### Measuring social benefit
 
-We want to know the causal effect of a project on its beneficiaries
+We want to know the causal effect of an activity on its beneficiaries
 
 -   Job training on earnings and employment
 
@@ -95,7 +95,7 @@ Now consider an indicator for the outcome of a potential beneficiary, $Y_i$, whe
 
 - $Y_i^0$ is the outcome without the activity ($D_i=0$)
 
-- Note that $Y_1$ and $Y_0$ denote *possibilities* for the *same person*, unit i!
+- Note that $Y_1$ and $Y_0$ denote *possibilities* for the *same unit*, unit *i*!
 
 ### Switching across treated and untreated outcomes
 
@@ -145,15 +145,15 @@ We can also write the switching equation this way:
 
 - We call the difference $Y_i^1-Y_i^0$ $delta$, or $\delta_i$
 
-- Remember that the treatment effect $\delta_i$ refers to the *same* individual!
+- Remember that the treatment effect $\delta_i$ refers to a *single* unit or person!
 
 ### Recap:
 
-- The effect of the activity (treatment effect) on person $i$ is the difference between the two potential outcomes
+- The effect of the activity (treatment effect) on unit $i$ is the difference between the two potential outcomes
 
 - Treatment effect = $Y_i^1 - Y_i^0$, or $\delta_i$
 
-- This is the difference in potential outcomes for the *same person*
+- This is the difference in potential outcomes for the *same unit or person*
 
 - A person participates in an activity, and then goes back in time and does not participate in the activity
 
@@ -177,9 +177,9 @@ We can also write the switching equation this way:
 
 - This is the fundamental problem of causal inference
 
-- We observe only one outcome, but we need both outcomes to describe the effect of the project
+- We observe only one outcome, but we need both outcomes to describe the effect of the activity
 
-- We refer to the outcome that didn't happen as the *counterfactual*, or what would have happened in the absence of the project
+- We refer to the outcome that didn't happen as the *counterfactual*, or what would have happened in the absence of the activity
 
 ### [The Missing Data Problem]{style="color:white;"} {background-color="#002F6C"} 
 
@@ -202,11 +202,11 @@ flextable(t1)
 
 ### What do we do now?
 
-- How do we estimate the effect of a project, if we cannot observe the same person go through both potential outcomes?
+- How do we estimate the effect of a activity, if we cannot observe the same person go through both potential outcomes?
 
 - We must compare a person who was treated with a person who was not treated
 
-- But, what are the differences between those two people? How do we know that project participation is the only difference between them?
+- But, what are the differences between those two people? How do we know that activity participation is the only difference between them?
 
 ### CLIFFHANGER
 
@@ -216,7 +216,7 @@ Teaser:
 
 -   Experimental impact evaluation
 -   Quasi-experimental impact evaluation
--   Prediction via machine learning
+-   Machine learning
 -   Artificial General Intelligence (AGI)
 
 ### Bonus content
@@ -226,15 +226,29 @@ Teaser:
 
 ### [The Three-Body Problem]{style="color:white;"} {background-color="#002F6C"}
 
-```{r fig.align="left", fig.height=4, fig.width=4.5}
+```{r fig.align="left", fig.height=4.5, fig.width=5}
 include_graphics("Three body Newton.png")
 ```
 
+![](three body problem novel.jpg){.absolute bottom=80 right=15 height="250" width="150"}
 
-![](three body lines.png){.absolute bottom=10 right=100 height="300" width="200"}
+![](three body lines.png){.absolute bottom=40 right=200 height="300" width="200"}
 
-![](three body celestial.png){.absolute top=100 right=10 height="200" width="300"}
+![](three body celestial.png){.absolute top=80 right=20 height="220" width="350"}
 
 ### Causal inference in the MENA tradition
+
+- Al-Ghazali: The Incoherence of the Philosophers 
+  
+- Ibn Rushd: The Incoherence of the Incoherence 
+
+- Scientific method
+  - Al-Biruni (Astronomy)
+  - Al-Haythem (Optics)
+
+Who else .. ?
+
+  
+
 
 
