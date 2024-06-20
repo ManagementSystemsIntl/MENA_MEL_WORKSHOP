@@ -43,7 +43,6 @@ source("../../../Methods Corner/misc/prep.r")
 -   Understand how impact estimation fits into the Agency performance management framework
 -   Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs
 
-
 ### Benchmarks for success
 
 By the end of this session, participants will be able to:
@@ -62,7 +61,7 @@ By the end of this session, participants will be able to:
 
 -   How has causal inference developed out of traditions from MENA region?
 
-### [The Fundamental Problem]{style="color:white;"} {background-color="#002F6C"} 
+### [The Fundamental Problem]{style="color:white;"} {background-color="#002F6C"}
 
 ### Measuring social benefit
 
@@ -76,32 +75,31 @@ We want to know the causal effect of an activity on its beneficiaries
 
 ### Identifying a treatment assignment
 
-- Consider an indicator for a *potential* beneficiary, $D_i$
+-   Consider an indicator for a *potential* beneficiary, $D_i$
 
-- $D$ tells us whether there is an activity, or a "treatment"
+-   $D$ tells us whether there is an activity, or a "treatment"
 
-- The subscript $i$ denotes a single individual who is either treated or not treated
+-   The subscript $i$ denotes a single individual who is either treated or not treated
 
-    - $D_i$ = 1 means participation in an activity
+    -   $D_i$ = 1 means participation in an activity
 
-    - $D_i$ = 0 means no participation in an activity
- 
+    -   $D_i$ = 0 means no participation in an activity
 
 ### Identifying an outcome
 
 Now consider an indicator for the outcome of a potential beneficiary, $Y_i$, where $i$ denotes each person or unit under study.
 
-- $Y_i^1$ is the outcome after activity participation ($D_i=1$)
+-   $Y_i^1$ is the outcome after activity participation ($D_i=1$)
 
-- $Y_i^0$ is the outcome without the activity ($D_i=0$)
+-   $Y_i^0$ is the outcome without the activity ($D_i=0$)
 
-- Note that $Y_1$ and $Y_0$ denote *possibilities* for the *same unit*, unit *i*!
+-   Note that $Y_1$ and $Y_0$ denote *possibilities* for the *same unit*, unit *i*!
 
 ### Switching across treated and untreated outcomes
 
 We use what is called a 'switching equation' to connect a treatment assignment to a realized outcome
 
-- $Y_i=D_iY_i^1+(1-D_i)Y_i^0$
+-   $Y_i=D_iY_i^1+(1-D_i)Y_i^0$
 
 (Plug in $D_i=1$ and $D_i=0$ and see what you end up with)
 
@@ -127,35 +125,35 @@ $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=0$
 
 ### Difference between assignment and mechanism
 
-- The switching equation determines where (to whom) treatment is assigned
+-   The switching equation determines where (to whom) treatment is assigned
 
-- We call this the treatment assignment
+-   We call this the treatment assignment
 
-- The switching equation does **NOT** address **HOW** treatment is assigned
+-   The switching equation does **NOT** address **HOW** treatment is assigned
 
-- We call this the treatment assignment *mechanism*
+-   We call this the treatment assignment *mechanism*
 
 ### From assignment to treatment effect
 
 We can also write the switching equation this way:
 
-- $Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i$
+-   $Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i$
 
-- Notice our treatment effect $Y_i^1-Y_i^0$, or the difference between the treated and untreated outcome
+-   Notice our treatment effect $Y_i^1-Y_i^0$, or the difference between the treated and untreated outcome
 
-- We call the difference $Y_i^1-Y_i^0$ $delta$, or $\delta_i$
+-   We call the difference $Y_i^1-Y_i^0$ $delta$, or $\delta_i$
 
-- Remember that the treatment effect $\delta_i$ refers to a *single* unit or person!
+-   Remember that the treatment effect $\delta_i$ refers to a *single* unit or person!
 
 ### Recap:
 
-- The effect of the activity (treatment effect) on unit $i$ is the difference between the two potential outcomes
+-   The effect of the activity (treatment effect) on unit $i$ is the difference between the two potential outcomes
 
-- Treatment effect = $Y_i^1 - Y_i^0$, or $\delta_i$
+-   Treatment effect = $Y_i^1 - Y_i^0$, or $\delta_i$
 
-- This is the difference in potential outcomes for the *same unit or person*
+-   This is the difference in potential outcomes for the *same unit or person*
 
-- A person participates in an activity, and then goes back in time and does not participate in the activity
+-   A person participates in an activity, and then goes back in time and does not participate in the activity
 
 ### You ask the impossible
 
@@ -165,23 +163,23 @@ We can also write the switching equation this way:
 
 ```
 
-- But how can one person be both treated and untreated?
+-   But how can one person be both treated and untreated?
 
-- In the real world, person $i$ experiences one of the potential outcomes, but not both
+-   In the real world, person $i$ experiences one of the potential outcomes, but not both
 
-- If $D_i=1$, the potential outcome of $Y_i$ becomes $Y_i^1$ in fact and the potential outcome of $Y_i^0$ is unobserved
+-   If $D_i=1$, the potential outcome of $Y_i$ becomes $Y_i^1$ in fact and the potential outcome of $Y_i^0$ is unobserved
 
-- If $D_i=0$, the potential outcome of $Y_i$ becomes $Y_i^0$ in fact and the potential outcome of $Y_i^1$ is unobserved
+-   If $D_i=0$, the potential outcome of $Y_i$ becomes $Y_i^0$ in fact and the potential outcome of $Y_i^1$ is unobserved
 
 ### The fundamental problem of causal inference
 
-- This is the fundamental problem of causal inference
+-   This is the fundamental problem of causal inference
 
-- We observe only one outcome, but we need both outcomes to describe the effect of the activity
+-   We observe only one outcome, but we need both outcomes to describe the effect of the activity
 
-- We refer to the outcome that didn't happen as the *counterfactual*, or what would have happened in the absence of the activity
+-   We refer to the outcome that didn't happen as the *counterfactual*, or what would have happened in the absence of the activity
 
-### [The Missing Data Problem]{style="color:white;"} {background-color="#002F6C"} 
+### [The Missing Data Problem]{style="color:white;"} {background-color="#002F6C"}
 
 ### Something is missing
 
@@ -196,17 +194,17 @@ t1 <- cbind(Group, Yi1, Yi0) %>%
 flextable(t1)
 ```
 
-- Researchers sometimes refer to impact evaluation as a "missing data problem"
+-   Researchers sometimes refer to impact evaluation as a "missing data problem"
 
-- We are missing two pieces of information about what happens with or without the treatment
+-   We are missing two pieces of information about what happens with or without the treatment
 
 ### What do we do now?
 
-- How do we estimate the effect of a activity, if we cannot observe the same person go through both potential outcomes?
+-   How do we estimate the effect of a activity, if we cannot observe the same person go through both potential outcomes?
 
-- We must compare a person who was treated with a person who was not treated
+-   We must compare a person who was treated with a person who was not treated
 
-- But, what are the differences between those two people? How do we know that activity participation is the only difference between them?
+-   But, what are the differences between those two people? How do we know that activity participation is the only difference between them?
 
 ### CLIFFHANGER
 
@@ -221,8 +219,8 @@ Teaser:
 
 ### Bonus content
 
-- Causal inference as a two-body or a three-body problem
-- Causal inference from traditions in Middle East and North Africa
+-   Causal inference as a two-body or a three-body problem
+-   Causal inference from traditions in Middle East and North Africa
 
 ### [The Three-Body Problem]{style="color:white;"} {background-color="#002F6C"}
 
@@ -230,25 +228,21 @@ Teaser:
 include_graphics("Three body Newton.png")
 ```
 
-![](three body problem novel.jpg){.absolute bottom=80 right=15 height="250" width="150"}
+![](three%20body%20problem%20novel.jpg){.absolute bottom="80" right="15" height="250" width="150"}
 
-![](three body lines.png){.absolute bottom=40 right=200 height="300" width="200"}
+![](three%20body%20lines.png){.absolute bottom="40" right="200" height="300" width="200"}
 
-![](three body celestial.png){.absolute top=80 right=20 height="220" width="350"}
+![](three%20body%20celestial.png){.absolute top="80" right="20" height="220" width="350"}
 
 ### Causal inference in the MENA tradition
 
-- Al-Ghazali: The Incoherence of the Philosophers 
-  
-- Ibn Rushd: The Incoherence of the Incoherence 
+-   Al-Ghazali: The Incoherence of the Philosophers
 
-- Scientific method
-  - Al-Biruni (Astronomy)
-  - Al-Haythem (Optics)
+-   Ibn Rushd: The Incoherence of the Incoherence
+
+-   Scientific method
+
+    -   Al-Biruni (Astronomy)
+    -   Al-Haythem (Optics)
 
 Who else .. ?
-
-  
-
-
-
