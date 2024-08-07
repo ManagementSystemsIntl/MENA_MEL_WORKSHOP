@@ -77,11 +77,11 @@ We want to know the causal effect of an activity on its beneficiaries
 
 ### Identifying a treatment assignment
 
-- We established indicators for treatment assignment $D_i$ and an outcome of interest $Y_i$
+-   We established indicators for treatment assignment $D_i$ and an outcome of interest $Y_i$
 
-- We established the switching equation $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ mapping a potential treatment assignment to a realized outcome
+-   We established the switching equation $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ mapping a potential treatment assignment to a realized outcome
 
-- We re-wrote the switching equation to $Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i$ in order to highlight the individual treatment effect term $\delta_i=Y_i^1-Y_i^0$
+-   We re-wrote the switching equation to $Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i$ in order to highlight the individual treatment effect term $\delta_i=Y_i^1-Y_i^0$
 
 ### The treatment assignment mechanism
 
@@ -97,15 +97,15 @@ We want to know the causal effect of an activity on its beneficiaries
 
 -   We can't just compare these participants to a randomly selected member of the population!
 
-### Capturing the treatment assignment mechanism 
+### Capturing the treatment assignment mechanism
 
-- We start with the individual treatment effect $\delta_i=Y_i^1-Y_i^0$
+-   We start with the individual treatment effect $\delta_i=Y_i^1-Y_i^0$
 
-- We take the average of all individual treatment effects
+-   We take the average of all individual treatment effects
 
 $E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$
 
-- We take the difference in averages, rather than the average of the differences
+-   We take the difference in averages, rather than the average of the differences
 
 $E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$
 
@@ -125,13 +125,13 @@ $E\bigr[\delta\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=18-14=4$
 
 ### Difference-in-means estimator
 
-- Finally, we incorporate the treatment assignment indicator $D_i$ and call it the *difference-in-means estimator*
+-   Finally, we incorporate the treatment assignment indicator $D_i$ and call it the *difference-in-means estimator*
 
-$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$ 
+$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$
 
-$E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$ 
+$E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$
 
-$E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$ 
+$E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
 
 ### Real world data!
 
@@ -145,9 +145,9 @@ t2.2 %>%
 
 ```
 
-$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$ 
+$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$
 
-$E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$ 
+$E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$
 
 $E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
 
@@ -155,13 +155,13 @@ $=20-17.5=2.5$
 
 ### Decomposing the difference in means
 
-What do we know about the treatment assignment mechanism for these groups? 
+What do we know about the treatment assignment mechanism for these groups?
 
-To find out, we decompose the *difference-in-means* estimator into the following: 
+To find out, we decompose the *difference-in-means* estimator into the following:
 
 $E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
 
-$=E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]$ 
+$=E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]$
 
 $+E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
 
@@ -169,27 +169,76 @@ $+(1-\pi)(ATT-ATU)$
 
 ### Decomposing the difference-in-means
 
-$E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]$ 
-Average Treatment Effect (ATE)
+$E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]$ Average Treatment Effect (ATE)
 
-$E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$ 
-Selection bias
+$E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$ Selection bias
 
-$(1-\pi)(ATT-ATU)$ 
-Heterogneous treatment effects
+$(1-\pi)(ATT-ATU)$ Heterogeneous treatment effects
+
+Why did we just do this? 
+
+To demonstrate that we need to know the treatment assignment mechanism in order to know how each of these terms are affected
+
+-   Let's not talk about heterogeneous treatment effects bias just yet
+
+### wut
+
+
+Under random assignment of treatment, the simple difference-in-means design estimates the average treatment effect (it is unbiased)
+
+We must know the treatment assignment mechanism, in order to know if our estimates are unbiased, and if not how they may be biased away from the true estimate 
+
+### Selection bias
+
+We are hoping to estimate the average treatment effect, but there are bias terms to worry about
+
+Which means we need the selection bias term to be zero
+
+The selection bias term says that the difference in the pre-treatment outcome in the treatment group $(E\bigr[Y^0|D=1])$ and the pre-treatment outcome among the control group $(E\bigr[Y^0|D=1])$ is zero 
+
+But is it..?
 
 ### Randomization solves the selection problem
 
+Under randomization, the answer is yes! 
+
+If we have the opportunity to randomize the assignment of treatment, it means that any other characteristics, both observed and unobserved, will be approximately equal across the two groups!
+
+So the selection bias term drops out (it equals zero), leaving us with only the average treatment effect
+
+Let's test this out
+
+### Observable characteristics under randomization
 
 
+# wut 
 
 
+Under random assignment of treatment, the simple difference-in-means design estimates the average treatment effect (it is unbiased)
 
+We must know the treatment assignment mechanism, in order to know if our estimates are unbiased, and if not how they may be biased away from the true estimate 
 
+In this example, the treatment assignment mechanism is randomization of treatment
 
+### From difference-in-mean to difference-in-differences
 
+The difference-in-means estimator is easy - all we have to do is compare the post-treatment outcomes
 
+Difference-in-means is easy, but is a better design available? 
 
+Yes - the difference-in-differences (DD) design
+
+Under difference-in-differences design, we include a pre-treatment measurement in addition to a post-treatment measurement
+
+### Difference-in-differences
+
+Imagine that the outcome is a test of knowledge, and we have the opportunity to test knowledge before the intervention starts
+
+What if the treatment effect depends on their prior level of knowledge? 
+
+If we knew the prior level of knowledge, we can be more sure about our treatment effect estimates
+  - AND we would identify heterogeneous treatment effects if they existed
+  
 
 
 

@@ -26,11 +26,10 @@ knitr::opts_chunk$set(echo=F, message=F, warning=F, fig.height=10, fig.width=6)
 
 library(here)
 library(knitr)
-
-source("../../../Methods Corner/misc/prep.r")
+getwd()
+source("../../../../Methods Corner/misc/prep.r")
 
 ```
-
 
 ### Welcome!
 
@@ -43,7 +42,6 @@ source("../../../Methods Corner/misc/prep.r")
 -   Introduce advanced-level content around Monitoring, Evaluation, and Learning (MEL)
 -   Review current trends in data analytics, causal inference, machine learning, and Artificial General Intelligence (AGI)
 
-
 ### Benchmarks for success
 
 By the end of this session, participants will be able to:
@@ -52,8 +50,7 @@ By the end of this session, participants will be able to:
 
 -   Introduce new analytical developments that can extend USAID practice of causal modeling and link it to impact evaluation and learning agendas
 
--  Identify management opportunities to incorporate best practice and new trends into activity implementation
-
+-   Identify management opportunities to incorporate best practice and new trends into activity implementation
 
 ### Benchmarks for success
 
@@ -65,48 +62,47 @@ By the end of this session, participants will be able to:
 
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
-How does USAID do causal modeling? 
+How does USAID do causal modeling?
 
--  [ADS 201](https://www.usaid.gov/sites/default/files/2024-05/201_051524_1.pdf)
--  [How-To Note: Developing a Project Logic Model](https://usaidlearninglab.org/system/files/resource/files/project_logic_model_how_to_note_final_sep1.pdf)
--  [Technical Note: The Logical Framework](https://pdf.usaid.gov/pdf_docs/pbaab555.pdf)
--  [In Defense of Logic Models](https://blog.fracturedatlas.org/in-defense-of-logic-models-31b8fa387cfd)
+-   [ADS 201](https://www.usaid.gov/sites/default/files/2024-05/201_051524_1.pdf)
+-   [How-To Note: Developing a Project Logic Model](https://usaidlearninglab.org/system/files/resource/files/project_logic_model_how_to_note_final_sep1.pdf)
+-   [Technical Note: The Logical Framework](https://pdf.usaid.gov/pdf_docs/pbaab555.pdf)
+-   [In Defense of Logic Models](https://blog.fracturedatlas.org/in-defense-of-logic-models-31b8fa387cfd)
 
 ### Logic model
 
--  A graphic or visual depiction of a theory of change that illustrates the connection between what a strategy, project, or activity will do and what it hopes to achieve
+-   A graphic or visual depiction of a theory of change that illustrates the connection between what a strategy, project, or activity will do and what it hopes to achieve
 
--  There are a wide range of logic models
-  -  Results Framework
-  -  LogFrame
-  -  Causal loop diagram
-  
-### LogFrame
+-   There are a wide range of logic models
 
-- Complements the CDCS Results Framework by carrying the development hypothesis through from the overall program/project to the supporting activities
-- LogFrame replicates the causal linkages, but starting from a Development Objective and ending with activity inputs
-- While the Results Framework is a strategic planning tool, an activity's Logical Framework defines exactly what resources are needed to achieve results
+    -   Results Framework
+    -   LogFrame
+    -   Causal loop diagram
 
 ### Results Framework
 
-- A type of logic model representing the development hypothesis of a USAID mission's strategy
-- Diagrams the causal links between the strategy's Goal, Development Objectives (DOs), and Intermediate Results (IRs)
+-   A type of logic model representing the development hypothesis of a USAID mission's strategy
+-   Diagrams the causal links between the strategy's Goal, Development Objectives (DOs), and Intermediate Results (IRs)
+
+### LogFrame
+
+-   Complements the CDCS Results Framework by carrying the development hypothesis through from the overall program/project to the supporting activities
+-   LogFrame replicates the causal linkages, but starting from a Development Objective and ending with activity inputs
+-   While the Results Framework is a strategic planning tool, an activity's Logical Framework defines exactly what resources are needed to achieve results
 
 ### Causal loop diagram
 
-- Identifies the primary variables of a complex system and visualizes their relationships 
+-   Identifies the primary variables of a complex system and visualizes their relationships
 
 ### [New directions]{style="color:white;"} {background-color="#002F6C"}
 
-Directed Acyclic Graphs (DAGs) 
+Directed Acyclic Graphs (DAGs)
 
-
-### The four confounds 
+### The four confounds
 
 ```{r fig.align="center", fig.height=4.5, fig.width=5}
 include_graphics("DAG confounds 2.png")
 ```
-
 
 ### The Fork
 
@@ -126,12 +122,8 @@ include_graphics("DAG pipe crop.png")
 include_graphics("DAG collider crop.png")
 ```
 
-
 ### The Descendant
 
 ```{r fig.align="center", fig.height=4.5, fig.width=5}
 include_graphics("DAG descendant crop.png")
 ```
-
-
-
