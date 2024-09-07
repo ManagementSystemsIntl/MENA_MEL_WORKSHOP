@@ -1,5 +1,5 @@
 ---
-title: "Randomized Controlled Trials (RCT)"
+title: "Quasi-experimental impact evaluation"
 subtitle: "USAID MENA Advanced MEL Workshop"
 date: "Latest version: `r Sys.Date()`"
 format: 
