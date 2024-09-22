@@ -10,7 +10,7 @@
 <link href="Rescuing impact measurements in conflict-affected environments_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <meta name="dcterms.date" content="2024-09-06">
+  <meta name="dcterms.date" content="2024-09-19">
   <title>Rescuing impact measurements</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -34,6 +34,8 @@
   <link href="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -336,7 +338,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-09-06</p>
+  <p class="date">2024-09-19</p>
 </section>
 <section id="outline-of-presentation" class="slide level3">
 <h3>Outline of presentation</h3>
@@ -456,24 +458,23 @@
 <h3>Two treatment groups, early and late</h3>
 <p>Let’s take a single step from two time periods to three, where treatment can be adopted at either t = 2 or t = 3</p>
 
-<img data-src="Baker%20fig%20two%20timings.png" width="672" class="r-stretch"><p>Any design with multiple treatment timings will have <span class="math inline">\(k^2\)</span> groups, where <em>k</em> is the number of timings.</p>
-</section>
+<img data-src="Baker%20three%20timings%20replication.png" width="1050" class="r-stretch"></section>
 <section id="not-a-problem" class="slide level3">
 <h3>Not a problem</h3>
 
-<img data-src="Baker%20panel%20a.png" width="340" class="r-stretch"></section>
+<img data-src="Baker%20panel%20a%20replication.png" width="1050" class="r-stretch"></section>
 <section id="not-a-problem-1" class="slide level3">
 <h3>Not a problem</h3>
 
-<img data-src="Baker%20panel%20b.png" width="331" class="r-stretch"></section>
+<img data-src="Baker%20panel%20b%20replication.png" width="1050" class="r-stretch"></section>
 <section id="not-a-problem-2" class="slide level3">
 <h3>Not a problem</h3>
 
-<img data-src="Baker%20panel%20c.png" width="339" class="r-stretch"></section>
+<img data-src="Baker%20panel%20c%20replication.png" width="1050" class="r-stretch"></section>
 <section id="could-be-problem" class="slide level3">
 <h3>COULD BE PROBLEM!</h3>
 
-<img data-src="Baker%20panel%20d.png" width="331" class="r-stretch"></section>
+<img data-src="Baker%20panel%20d%20replication.png" width="1050" class="r-stretch"></section>
 <section id="where-does-this-leave-us" class="slide level3">
 <h3>Where does this leave us?</h3>
 <ul>
@@ -493,10 +494,10 @@
 <li>heterogeneous treatment effects across sub-groups within a treated group</li>
 </ul>
 </section>
-<section class="slide level3">
+<section id="definitely-a-problem" class="slide level3">
+<h3>Definitely a problem</h3>
 
-
-<img data-src="g-b%20fig%203%20trend%20break.png" width="471" class="r-stretch"></section>
+<img data-src="dynamic%20treatment%20effects%20biases%20TWFE.png" width="1050" class="r-stretch"></section>
 <section class="slide level3">
 
 <ul>
@@ -668,6 +669,7 @@
   <script src="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="Rescuing impact measurements in conflict-affected environments_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -688,7 +690,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -859,7 +862,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

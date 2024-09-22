@@ -1,5 +1,5 @@
 ---
-title: "Quasi-experimental impact evaluation"
+title: "Quasi-experimental evaluation design"
 subtitle: "USAID MENA Advanced MEL Workshop"
 date: "Latest version: `r Sys.Date()`"
 format: 
@@ -49,19 +49,17 @@ By the end of this session, participants will be able to:
 
 -   Understand selection bias as a fundamental difficulty in identifying a valid counterfactual
 
--   Identify randomization as the most effective means of identifying the counterfactual
+-   Identify strategies for generating 'as-if' randomization
 
--   Understand the key validity threats to Randomized Controlled Trials (RCTs)
-
--   Identify the key points in the RCT management cycle to identify and mitigate these threats
+-   Understand the relative strengths and weaknesses of different designs
 
 ### Benchmarks for success
 
 *Bonus content:*
 
--   Randomization vs. Optimization
+- Machine learning  
 
--   Longitudinal data
+- Causal AI
 
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
@@ -85,94 +83,21 @@ We want to know the causal effect of an activity on its beneficiaries
 
 ### The treatment assignment mechanism
 
--   We stressed a distinction between treatment *assignment* and the treatment assignment *mechanism*
+- We establish that the intervention could not be randomly assigned
 
--   Why is this distinction so important?
+- In the absence of randomization, it becomes critically important to understand the data generating process that applies the switching equation 
 
--   Because many activities we evaluate target specific sub-samples of a broader population
+- With a deep knowledge of the environment we are operating in, we may be able to adopt some tactics to help with evaluation
 
-    -   The poor
-    -   The marginalized
-    -   The conflict-affected
+### Approximating as-if randomization
 
--   We can't just compare these participants to a randomly selected member of the population!
+- Adjust for confounders (statistical matching)
 
-### Capturing the treatment assignment mechanism
+- Use trends over time to remove bias (difference-in-differences, interrupted time series) 
 
--   We start with the individual treatment effect $\delta_i=Y_i^1-Y_i^0$
+- Utilize an intervention's scoring system (regression discontinuity)
 
--   We take the average of all individual treatment effects
+- Use features of the natural world (instrumental variables)
 
-$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$
 
--   We take the difference in averages, rather than the average of the differences
 
-$E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$
-
-### Averages of effects
-
-```{r}
-avs <- read_excel("effect averages.xlsx")
-
-avs %>%
-  flextable()
-
-```
-
-$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]=E\bigr[6,-2,13,-1\bigr]=4$
-
-$E\bigr[\delta\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=18-14=4$
-
-### Difference-in-means estimator
-
--   Finally, we incorporate the treatment assignment indicator $D_i$ and call it the *difference-in-means estimator*
-
-$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$
-
-$E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$
-
-$E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
-
-### Real world data!
-
-```{r}
-
-t2.2 <- read_csv("table 2.2 mod.csv",
-                 show_col_types = F)
-
-t2.2 %>%
-  flextable()
-
-```
-
-$E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$
-
-$E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$
-
-$E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
-
-$=20-17.5=2.5$
-
-### Decomposing the difference in means
-
-What do we know about the treatment assignment mechanism for these groups?
-
-To find out, we decompose the *difference-in-means* estimator into the following:
-
-$E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
-
-$=E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]$
-
-$+E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
-
-$+(1-\pi)(ATT-ATU)$
-
-### Decomposing the difference-in-means
-
-$E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]$ Average Treatment Effect (ATE)
-
-$E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$ Selection bias
-
-$(1-\pi)(ATT-ATU)$ Heterogneous treatment effects
-
-### Randomization solves the selection problem

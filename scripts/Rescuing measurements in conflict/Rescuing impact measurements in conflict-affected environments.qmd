@@ -4,7 +4,7 @@ subtitle: "Differential treatment timing and duration in d-i-d estimation"
 date: "Latest version: `r Sys.Date()`"
 format: 
   revealjs:
-    #logo: "USAID logo.png"
+    chalkboard: true
     slide-number: true
     slide-level: 3
     transition: slide
@@ -151,32 +151,29 @@ Let's take a single step from two time periods to three, where treatment can be 
 ```{r, echo=F, fig.height=3, fig.width=5}
 #include_graphics("../viz/Goodman Bacon/g-b fig 1 treatment timing.png")
 
-include_graphics("Baker fig two timings.png")
+include_graphics("Baker three timings replication.png")
 ```
-
-Any design with multiple treatment timings will have $k^2$ groups, where *k* is the number of timings.
-
 ### Not a problem
 
 ```{r echo=F}
-include_graphics("Baker panel a.png")
+include_graphics("Baker panel a replication.png")
 ```
 ### Not a problem
 
 ```{r, echo=F}
-include_graphics("Baker panel b.png")
+include_graphics("Baker panel b replication.png")
 ```
 
 ### Not a problem
 
 ```{r, echo=F}
-include_graphics("Baker panel c.png")
+include_graphics("Baker panel c replication.png")
 ```
 
 ### COULD BE PROBLEM!
 
 ```{r, echo=F}
-include_graphics("Baker panel d.png")
+include_graphics("Baker panel d replication.png")
 ```
 
 ### Where does this leave us?
@@ -192,10 +189,10 @@ include_graphics("Baker panel d.png")
 -   treatment effects are dynamic over post-treatment periods
 -   heterogeneous treatment effects across sub-groups within a treated group
 
-------------------------------------------------------------------------
+### Definitely a problem
 
 ```{r, echo=F}
-include_graphics("g-b fig 3 trend break.png")
+include_graphics("dynamic treatment effects biases TWFE.png")
 ```
 
 ------------------------------------------------------------------------
@@ -470,15 +467,11 @@ ggplot(cal_grp_out, aes(att_grp, fct_rev(cohort))) + #, group=as.factor(group)))
 -   Case study - MISTI
 -   **Final thoughts**
 
-------------------------------------------------------------------------
-
 ### What have we learned?
 
 -   In certain settings, two-way fixed effects estimation is biased in ways that we only recently came to realize
 -   We have to carefully think through the data generating process (logic modeling) for each individual setting
 -   As we get more granular data and ask deeper questions, econometric tools are starting to provide better insight into treatment dynamics
-
-------------------------------------------------------------------------
 
 ### What should we do?
 
