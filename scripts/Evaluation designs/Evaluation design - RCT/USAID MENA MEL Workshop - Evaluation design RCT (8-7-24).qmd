@@ -1,5 +1,5 @@
 ---
-title: "Randomized Controlled Trials (RCT)"
+title: "Experimental Evaluation Design"
 subtitle: "USAID MENA Advanced MEL Workshop"
 date: "Latest version: `r Sys.Date()`"
 format: 
@@ -18,6 +18,7 @@ format:
       data-background-position: top left
       data-background-size: 25%
 editor: visual
+chalkboard: true
 ---
 
 ```{r setup, include=FALSE, message=F, warning=F}
@@ -45,21 +46,12 @@ source("../../../../Methods Corner/misc/prep.r")
 
 ### Benchmarks for success
 
-By the end of this session, participants will be able to:
-
 -   Understand selection bias as a fundamental difficulty in identifying a valid counterfactual, and randomization as the most effective means of identifying the counterfactual
-
--   Understand the key validity threats to Randomized Controlled Trials (RCTs), and where those threats may be addressed in the management cycle
 
 -   Recognize the difference-in-means and difference-in-differences designs
 
-### Benchmarks for success
+-   Understand the key validity threats to experimental evaluations, and where those threats may be addressed in the management cycle
 
-*Bonus content:*
-
--   Randomization vs. Optimization
-
--   Longitudinal data
 
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
@@ -89,9 +81,7 @@ We want to know the causal effect of an activity on its beneficiaries
 
 -   Because many activities we evaluate target specific sub-samples of a broader population
 
-    -   The poor
-    -   The marginalized
-    -   The conflict-affected
+    -   The poor / marginalized / conflict-affected
 
 -   We can't just compare these participants to a randomly selected member of the population!
 
@@ -123,13 +113,15 @@ $E\bigr[\delta\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=18-14=4$
 
 ### Difference-in-means estimator
 
--   Finally, we incorporate the treatment assignment indicator $D_i$ and call it the *difference-in-means estimator*
+-   Finally, we apply the switching equation to know who is treated and who is not 
 
 $E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]$
 
 $E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]$
 
 $E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
+
+- This is the *difference-in-means estimator*
 
 ### Real world data!
 
@@ -153,83 +145,124 @@ $=20-17.5=2.5$
 
 ### Decomposing the difference in means
 
-What do we know about the treatment assignment mechanism for these groups?
+- What do we know about the treatment assignment mechanism for these groups?
 
-To find out, we decompose the *difference-in-means* estimator into the following:
+- To find out, we decompose the *difference-in-means* estimator into the following:
 
-$E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
+Average Treatment Effect on the Treated (ATT)  
+$+$  
+Difference between treatment and control group, before treatment (selection bias)
 
-$=E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]$ --> Average Treatment Effect
+### Decomposing the difference in means
 
-$+E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$ --> Selection bias
-
-$+(1-\pi)(ATT-ATU)$ --> Heterogeneous treatment effects^[Let's not talk about this just yet]
+$E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$  
+Average Treatment Effect on the Treated (ATT)  
+$$+$$  
+$E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$  
+Difference between treatment and control group, before treatment 
+(Selection bias)
 
 ### Decomposing the difference-in-means
 
-Why did we just do this? 
+- Why did we just do this? 
 
-To demonstrate that we need to know the treatment assignment mechanism in order to know how each of these terms are affected
+- To demonstrate that we need to know the treatment assignment *mechanism* in order to know how each of these terms are affected
 
-We must know the treatment assignment mechanism, in order to know if our estimates are unbiased, and if not how they may be biased away from the true estimate 
+- Under randomization, treatment assignment $D_i$ is independent of the potential outcomes $Y_i^0$ and $Y_i^1$
 
-Under random assignment of treatment, the simple difference-in-means design estimates the average treatment effect (it is unbiased)
-
-### Selection bias
-
-We are hoping to estimate the average treatment effect, but there are bias terms to worry about
-
-Which means we need the selection bias term to be zero
-
-The selection bias term says that the difference in the pre-treatment outcome in the treatment group $(E\bigr[Y^0|D=1])$ and the pre-treatment outcome among the control group $(E\bigr[Y^0|D=1])$ is zero 
-
-But is it..?
-
-### Randomization solves the selection problem
-
-Under randomization, the answer is yes! 
-
-If we have the opportunity to randomize the assignment of treatment, it means that any other characteristics, both observed and unobserved, will be approximately equal across the two groups!
-
-So the selection bias term drops out (it equals zero), leaving us with only the average treatment effect
-
-Let's test this out
+- This means that the selection bias term is zero - there are no differences between the treatment and control groups before treatment
 
 ### Observable characteristics under randomization
 
+- Does $E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]=0$?  
 
-# wut 
-
-
-Under random assignment of treatment, the simple difference-in-means design estimates the average treatment effect (it is unbiased)
-
-We must know the treatment assignment mechanism, in order to know if our estimates are unbiased, and if not how they may be biased away from the true estimate 
-
-In this example, the treatment assignment mechanism is randomization
+```{r}
+include_graphics("info treatment balance.png")
+```
 
 ### From difference-in-mean to difference-in-differences
 
-The difference-in-means estimator is easy - all we have to do is compare the post-treatment outcomes
+- The difference-in-means estimator is easy - all we have to do is compare the post-treatment outcomes
 
-Difference-in-means is easy, but is a better design available? 
+- Is a better design available? Yes - the difference-in-differences (DD) design
 
-Yes - the difference-in-differences (DD) design
-
-Under difference-in-differences design, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement
+- Under difference-in-differences design, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement
 
 ### Difference-in-differences
 
-Imagine that the outcome is a test of knowledge, and we have the opportunity to test knowledge before the intervention starts
+- Including a pre-treatment measure of the outcome improves precision 
 
-What if the treatment effect depends on their prior level of knowledge? 
-
-If we knew the prior level of knowledge, we can be more sure about our treatment effect estimates^[AND we would identify heterogeneous treatment effects if they existed]
-
-
+```{r}
+include_graphics("dm vs dd.png")
+```
   
+### Difference-in-differences
+
+- Difference in differences also helps detect heterogeneous treatment effects
+
+- Using the DD design, we would be able to discover insights such as whether the intervention is working for those already better prepared to benefit
+
+- Enables stakeholders to determine whether they want the strongest outcomes, or prefer more modest outcomes for beneficiaries who need the intervention the most! 
+
+### Threats to validity in experimental designs
+
+- Randomization is the preferred method for identifying the counterfactual
+
+- But randomization is vulnerable to threats that could introduce selection bias
+
+- The primary threats to validity of randomization are compliance and attrition
+
+- Other threats to validity include spillovers and measurement error
+
+### Threats to validity - compliance
+
+Recall what happens when we apply the switching equation to potential outcomes: 
+
+$E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
+
+- Note that this equation assumes perfect compliance! 
+
+- What happens if our treatment assignment is not followed? 
+
+### Issues with compliance
+
+$E\bigr[Y^0|D=1\bigr]$ --> Assigned treatment, but not treated
+
+$E\bigr[Y^1|D=0\bigr]$ --> Not assigned treatment, but treated!
+
+- Most common way to deal with compliance failure is to ignore it
+
+- This is referred to as Intent to Treat (ITT) analysis
+
+- ITT analysis is a conservative estimate of the treatment effect, but is also more policy relevant 
+
+### Threats to validity - attrition
+
+- If we collect pre-treatment measures of the outcome, what happens if we lose track of some participants at endline? 
+
+- If attrition is unrelated to treatment or outcomes, then it adds noise but not bias
+
+- If attrition is correlated to the assignment of treatment or the outcome, we have both noise and bias
+
+- For example, the outcome is household income, and we lose track of households due to shocks to household income
+
+### Management points for experimental evaluations
+
+- Conduct logic modeling sessions to diagram the data generating process
+
+- Pay attention to process of randomization. Verify integrity of randomization process. 
+- Think about ways the assignment of treatment might 'leak' via spillover or contamination
+
+- Examine statistical tests of randomization, compliance, and spillover
 
 
+### What if we can't randomize? 
 
+- If we can't randomize the assignment of treatment, the next best alternative is to look for ways to approximate 'as-if' randomization
+
+- Stay tuned for quasi-experimental evaluation design! 
+
+THANK YOU!
 
 
 

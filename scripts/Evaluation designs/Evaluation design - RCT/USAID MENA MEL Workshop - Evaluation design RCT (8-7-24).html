@@ -10,8 +10,8 @@
 <link href="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <meta name="dcterms.date" content="2024-09-06">
-  <title>Randomized Controlled Trials (RCT)</title>
+  <meta name="dcterms.date" content="2024-09-17">
+  <title>Experimental Evaluation Design</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,6 +34,8 @@
   <link href="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -330,13 +332,13 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="USAID logo.png" data-background-position="top left" data-background-size="25%" class="quarto-title-block center">
-  <h1 class="title">Randomized Controlled Trials (RCT)</h1>
+  <h1 class="title">Experimental Evaluation Design</h1>
   <p class="subtitle">USAID MENA Advanced MEL Workshop</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-09-06</p>
+  <p class="date">2024-09-17</p>
 </section>
 <section id="welcome" class="slide level3">
 <h3>Welcome!</h3>
@@ -356,19 +358,10 @@
 </section>
 <section id="benchmarks-for-success" class="slide level3">
 <h3>Benchmarks for success</h3>
-<p>By the end of this session, participants will be able to:</p>
 <ul>
 <li class="fragment"><p>Understand selection bias as a fundamental difficulty in identifying a valid counterfactual, and randomization as the most effective means of identifying the counterfactual</p></li>
-<li class="fragment"><p>Understand the key validity threats to Randomized Controlled Trials (RCTs), and where those threats may be addressed in the management cycle</p></li>
 <li class="fragment"><p>Recognize the difference-in-means and difference-in-differences designs</p></li>
-</ul>
-</section>
-<section id="benchmarks-for-success-1" class="slide level3">
-<h3>Benchmarks for success</h3>
-<p><em>Bonus content:</em></p>
-<ul>
-<li class="fragment"><p>Randomization vs.&nbsp;Optimization</p></li>
-<li class="fragment"><p>Longitudinal data</p></li>
+<li class="fragment"><p>Understand the key validity threats to experimental evaluations, and where those threats may be addressed in the management cycle</p></li>
 </ul>
 </section>
 <section id="level-set" class="slide level3" data-background-color="#002F6C">
@@ -398,9 +391,7 @@
 <li class="fragment"><p>Why is this distinction so important?</p></li>
 <li class="fragment"><p>Because many activities we evaluate target specific sub-samples of a broader population</p>
 <ul>
-<li class="fragment">The poor</li>
-<li class="fragment">The marginalized</li>
-<li class="fragment">The conflict-affected</li>
+<li class="fragment">The poor / marginalized / conflict-affected</li>
 </ul></li>
 <li class="fragment"><p>We can’t just compare these participants to a randomly selected member of the population!</p></li>
 </ul>
@@ -421,7 +412,7 @@
 <h3>Averages of effects</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-ce4628be{}.cl-ce385d56{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ce3d4852{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ce3d4866{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ce3d674c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ce3d6756{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ce3d6760{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ce3d6761{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ce3d676a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ce3d676b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-ce4628be"><thead><tr style="overflow-wrap:break-word;"><th class="cl-ce3d674c"><p class="cl-ce3d4852"><span class="cl-ce385d56">unit</span></p></th><th class="cl-ce3d6756"><p class="cl-ce3d4866"><span class="cl-ce385d56">y0</span></p></th><th class="cl-ce3d6756"><p class="cl-ce3d4866"><span class="cl-ce385d56">y1</span></p></th><th class="cl-ce3d6756"><p class="cl-ce3d4866"><span class="cl-ce385d56">y1 - y0</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ce3d6760"><p class="cl-ce3d4852"><span class="cl-ce385d56">1</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">12</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">18</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ce3d6760"><p class="cl-ce3d4852"><span class="cl-ce385d56">2</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">15</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">13</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">-2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ce3d6760"><p class="cl-ce3d4852"><span class="cl-ce385d56">3</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">9</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">22</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">13</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ce3d6760"><p class="cl-ce3d4852"><span class="cl-ce385d56">4</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">20</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">19</span></p></td><td class="cl-ce3d6761"><p class="cl-ce3d4866"><span class="cl-ce385d56">-1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ce3d676a"><p class="cl-ce3d4852"><span class="cl-ce385d56">Average</span></p></td><td class="cl-ce3d676b"><p class="cl-ce3d4866"><span class="cl-ce385d56">14</span></p></td><td class="cl-ce3d676b"><p class="cl-ce3d4866"><span class="cl-ce385d56">18</span></p></td><td class="cl-ce3d676b"><p class="cl-ce3d4866"><span class="cl-ce385d56">4</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-1837a112{}.cl-182f5232{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-18328ed4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-18328ee8{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1832ab94{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1832ab9e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1832ab9f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1832aba8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1832aba9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1832abaa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-1837a112"><thead><tr style="overflow-wrap:break-word;"><th class="cl-1832ab94"><p class="cl-18328ed4"><span class="cl-182f5232">unit</span></p></th><th class="cl-1832ab9e"><p class="cl-18328ee8"><span class="cl-182f5232">y0</span></p></th><th class="cl-1832ab9e"><p class="cl-18328ee8"><span class="cl-182f5232">y1</span></p></th><th class="cl-1832ab9e"><p class="cl-18328ee8"><span class="cl-182f5232">y1 - y0</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1832ab9f"><p class="cl-18328ed4"><span class="cl-182f5232">1</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">12</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">18</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1832ab9f"><p class="cl-18328ed4"><span class="cl-182f5232">2</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">15</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">13</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">-2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1832ab9f"><p class="cl-18328ed4"><span class="cl-182f5232">3</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">9</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">22</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">13</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1832ab9f"><p class="cl-18328ed4"><span class="cl-182f5232">4</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">20</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">19</span></p></td><td class="cl-1832aba8"><p class="cl-18328ee8"><span class="cl-182f5232">-1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1832aba9"><p class="cl-18328ed4"><span class="cl-182f5232">Average</span></p></td><td class="cl-1832abaa"><p class="cl-18328ee8"><span class="cl-182f5232">14</span></p></td><td class="cl-1832abaa"><p class="cl-18328ee8"><span class="cl-182f5232">18</span></p></td><td class="cl-1832abaa"><p class="cl-18328ee8"><span class="cl-182f5232">4</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p><span class="math inline">\(E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]=E\bigr[6,-2,13,-1\bigr]=4\)</span></p>
@@ -430,17 +421,20 @@
 <section id="difference-in-means-estimator" class="slide level3">
 <h3>Difference-in-means estimator</h3>
 <ul>
-<li class="fragment">Finally, we incorporate the treatment assignment indicator <span class="math inline">\(D_i\)</span> and call it the <em>difference-in-means estimator</em></li>
+<li class="fragment">Finally, we apply the switching equation to know who is treated and who is not</li>
 </ul>
 <p><span class="math inline">\(E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]\)</span></p>
 <p><span class="math inline">\(E\bigr[Y^1-Y^0\bigr]=E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]\)</span></p>
 <p><span class="math inline">\(E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span></p>
+<ul>
+<li class="fragment">This is the <em>difference-in-means estimator</em></li>
+</ul>
 </section>
 <section id="real-world-data" class="slide level3">
 <h3>Real world data!</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-ceb74bac{}.cl-cead2aa0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ceb12b64{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ceb140f4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ceb140f5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ceb140fe{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-ceb74bac"><thead><tr style="overflow-wrap:break-word;"><th class="cl-ceb140f4"><p class="cl-ceb12b64"><span class="cl-cead2aa0">unit</span></p></th><th class="cl-ceb140f4"><p class="cl-ceb12b64"><span class="cl-cead2aa0">y0</span></p></th><th class="cl-ceb140f4"><p class="cl-ceb12b64"><span class="cl-cead2aa0">y1</span></p></th><th class="cl-ceb140f4"><p class="cl-ceb12b64"><span class="cl-cead2aa0">y1 - y0</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">1</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">18</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">2</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">15</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">3</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">22</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">4</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">20</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td><td class="cl-ceb140f5"><p class="cl-ceb12b64"><span class="cl-cead2aa0">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ceb140fe"><p class="cl-ceb12b64"><span class="cl-cead2aa0">Average</span></p></td><td class="cl-ceb140fe"><p class="cl-ceb12b64"><span class="cl-cead2aa0">17.5</span></p></td><td class="cl-ceb140fe"><p class="cl-ceb12b64"><span class="cl-cead2aa0">20</span></p></td><td class="cl-ceb140fe"><p class="cl-ceb12b64"><span class="cl-cead2aa0">2.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-18759b5c{}.cl-186e884e{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-18712946{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-18713ddc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-18713de6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-18713de7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-18759b5c"><thead><tr style="overflow-wrap:break-word;"><th class="cl-18713ddc"><p class="cl-18712946"><span class="cl-186e884e">unit</span></p></th><th class="cl-18713ddc"><p class="cl-18712946"><span class="cl-186e884e">y0</span></p></th><th class="cl-18713ddc"><p class="cl-18712946"><span class="cl-186e884e">y1</span></p></th><th class="cl-18713ddc"><p class="cl-18712946"><span class="cl-186e884e">y1 - y0</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">1</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">18</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">2</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">15</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">3</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">22</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">4</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">20</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td><td class="cl-18713de6"><p class="cl-18712946"><span class="cl-186e884e">?</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-18713de7"><p class="cl-18712946"><span class="cl-186e884e">Average</span></p></td><td class="cl-18713de7"><p class="cl-18712946"><span class="cl-186e884e">17.5</span></p></td><td class="cl-18713de7"><p class="cl-18712946"><span class="cl-186e884e">20</span></p></td><td class="cl-18713de7"><p class="cl-18712946"><span class="cl-186e884e">2.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p><span class="math inline">\(E\bigr[\delta\bigr]=E\bigr[Y^1-Y^0\bigr]\)</span></p>
@@ -450,63 +444,120 @@
 </section>
 <section id="decomposing-the-difference-in-means" class="slide level3">
 <h3>Decomposing the difference in means</h3>
-<p>What do we know about the treatment assignment mechanism for these groups?</p>
-<p>To find out, we decompose the <em>difference-in-means</em> estimator into the following:</p>
-<p><span class="math inline">\(E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span></p>
-<p><span class="math inline">\(=E\bigr[Y^1\bigr]-\bigr[Y^0\bigr]\)</span> –&gt; Average Treatment Effect</p>
-<p><span class="math inline">\(+E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span> –&gt; Selection bias</p>
-<p><span class="math inline">\(+(1-\pi)(ATT-ATU)\)</span> –&gt; Heterogeneous treatment effects<sup>1</sup></p>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Let’s not talk about this just yet</p></li></ol></aside></section>
+<ul>
+<li class="fragment"><p>What do we know about the treatment assignment mechanism for these groups?</p></li>
+<li class="fragment"><p>To find out, we decompose the <em>difference-in-means</em> estimator into the following:</p></li>
+</ul>
+<p>Average Treatment Effect on the Treated (ATT)<br>
+<span class="math inline">\(+\)</span><br>
+Difference between treatment and control group, before treatment (selection bias)</p>
+</section>
 <section id="decomposing-the-difference-in-means-1" class="slide level3">
+<h3>Decomposing the difference in means</h3>
+<p><span class="math inline">\(E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
+Average Treatment Effect on the Treated (ATT)<br>
+<span class="math display">\[+\]</span><br>
+<span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
+Difference between treatment and control group, before treatment (Selection bias)</p>
+</section>
+<section id="decomposing-the-difference-in-means-2" class="slide level3">
 <h3>Decomposing the difference-in-means</h3>
-<p>Why did we just do this?</p>
-<p>To demonstrate that we need to know the treatment assignment mechanism in order to know how each of these terms are affected</p>
-<p>We must know the treatment assignment mechanism, in order to know if our estimates are unbiased, and if not how they may be biased away from the true estimate</p>
-<p>Under random assignment of treatment, the simple difference-in-means design estimates the average treatment effect (it is unbiased)</p>
-</section>
-<section id="selection-bias" class="slide level3">
-<h3>Selection bias</h3>
-<p>We are hoping to estimate the average treatment effect, but there are bias terms to worry about</p>
-<p>Which means we need the selection bias term to be zero</p>
-<p>The selection bias term says that the difference in the pre-treatment outcome in the treatment group <span class="math inline">\((E\bigr[Y^0|D=1])\)</span> and the pre-treatment outcome among the control group <span class="math inline">\((E\bigr[Y^0|D=1])\)</span> is zero</p>
-<p>But is it..?</p>
-</section>
-<section id="randomization-solves-the-selection-problem" class="slide level3">
-<h3>Randomization solves the selection problem</h3>
-<p>Under randomization, the answer is yes!</p>
-<p>If we have the opportunity to randomize the assignment of treatment, it means that any other characteristics, both observed and unobserved, will be approximately equal across the two groups!</p>
-<p>So the selection bias term drops out (it equals zero), leaving us with only the average treatment effect</p>
-<p>Let’s test this out</p>
+<ul>
+<li class="fragment"><p>Why did we just do this?</p></li>
+<li class="fragment"><p>To demonstrate that we need to know the treatment assignment <em>mechanism</em> in order to know how each of these terms are affected</p></li>
+<li class="fragment"><p>Under randomization, treatment assignment <span class="math inline">\(D_i\)</span> is independent of the potential outcomes <span class="math inline">\(Y_i^0\)</span> and <span class="math inline">\(Y_i^1\)</span></p></li>
+<li class="fragment"><p>This means that the selection bias term is zero - there are no differences between the treatment and control groups before treatment</p></li>
+</ul>
 </section>
 <section id="observable-characteristics-under-randomization" class="slide level3">
 <h3>Observable characteristics under randomization</h3>
-</section>
-<section>
-<section id="wut" class="title-slide slide level1 center">
-<h1>wut</h1>
-<p>Under random assignment of treatment, the simple difference-in-means design estimates the average treatment effect (it is unbiased)</p>
-<p>We must know the treatment assignment mechanism, in order to know if our estimates are unbiased, and if not how they may be biased away from the true estimate</p>
-<p>In this example, the treatment assignment mechanism is randomization</p>
-</section>
+<ul>
+<li class="fragment">Does <span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]=0\)</span>?</li>
+</ul>
+
+<img data-src="info%20treatment%20balance.png" width="1050" class="r-stretch"></section>
 <section id="from-difference-in-mean-to-difference-in-differences" class="slide level3">
 <h3>From difference-in-mean to difference-in-differences</h3>
-<p>The difference-in-means estimator is easy - all we have to do is compare the post-treatment outcomes</p>
-<p>Difference-in-means is easy, but is a better design available?</p>
-<p>Yes - the difference-in-differences (DD) design</p>
-<p>Under difference-in-differences design, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement</p>
+<ul>
+<li class="fragment"><p>The difference-in-means estimator is easy - all we have to do is compare the post-treatment outcomes</p></li>
+<li class="fragment"><p>Is a better design available? Yes - the difference-in-differences (DD) design</p></li>
+<li class="fragment"><p>Under difference-in-differences design, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement</p></li>
+</ul>
 </section>
 <section id="difference-in-differences" class="slide level3">
 <h3>Difference-in-differences</h3>
-<p>Imagine that the outcome is a test of knowledge, and we have the opportunity to test knowledge before the intervention starts</p>
-<p>What if the treatment effect depends on their prior level of knowledge?</p>
-<p>If we knew the prior level of knowledge, we can be more sure about our treatment effect estimates<sup>1</sup></p>
+<ul>
+<li class="fragment">Including a pre-treatment measure of the outcome improves precision</li>
+</ul>
+
+<img data-src="dm%20vs%20dd.png" width="1050" class="r-stretch"></section>
+<section id="difference-in-differences-1" class="slide level3">
+<h3>Difference-in-differences</h3>
+<ul>
+<li class="fragment"><p>Difference in differences also helps detect heterogeneous treatment effects</p></li>
+<li class="fragment"><p>Using the DD design, we would be able to discover insights such as whether the intervention is working for those already better prepared to benefit</p></li>
+<li class="fragment"><p>Enables stakeholders to determine whether they want the strongest outcomes, or prefer more modest outcomes for beneficiaries who need the intervention the most!</p></li>
+</ul>
+</section>
+<section id="threats-to-validity-in-experimental-designs" class="slide level3">
+<h3>Threats to validity in experimental designs</h3>
+<ul>
+<li class="fragment"><p>Randomization is the preferred method for identifying the counterfactual</p></li>
+<li class="fragment"><p>But randomization is vulnerable to threats that could introduce selection bias</p></li>
+<li class="fragment"><p>The primary threats to validity of randomization are compliance and attrition</p></li>
+<li class="fragment"><p>Other threats to validity include spillovers and measurement error</p></li>
+</ul>
+</section>
+<section id="threats-to-validity---compliance" class="slide level3">
+<h3>Threats to validity - compliance</h3>
+<p>Recall what happens when we apply the switching equation to potential outcomes:</p>
+<p><span class="math inline">\(E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span></p>
+<ul>
+<li class="fragment"><p>Note that this equation assumes perfect compliance!</p></li>
+<li class="fragment"><p>What happens if our treatment assignment is not followed?</p></li>
+</ul>
+</section>
+<section id="issues-with-compliance" class="slide level3">
+<h3>Issues with compliance</h3>
+<p><span class="math inline">\(E\bigr[Y^0|D=1\bigr]\)</span> –&gt; Assigned treatment, but not treated</p>
+<p><span class="math inline">\(E\bigr[Y^1|D=0\bigr]\)</span> –&gt; Not assigned treatment, but treated!</p>
+<ul>
+<li class="fragment"><p>Most common way to deal with compliance failure is to ignore it</p></li>
+<li class="fragment"><p>This is referred to as Intent to Treat (ITT) analysis</p></li>
+<li class="fragment"><p>ITT analysis is a conservative estimate of the treatment effect, but is also more policy relevant</p></li>
+</ul>
+</section>
+<section id="threats-to-validity---attrition" class="slide level3">
+<h3>Threats to validity - attrition</h3>
+<ul>
+<li class="fragment"><p>If we collect pre-treatment measures of the outcome, what happens if we lose track of some participants at endline?</p></li>
+<li class="fragment"><p>If attrition is unrelated to treatment or outcomes, then it adds noise but not bias</p></li>
+<li class="fragment"><p>If attrition is correlated to the assignment of treatment or the outcome, we have both noise and bias</p></li>
+<li class="fragment"><p>For example, the outcome is household income, and we lose track of households due to shocks to household income</p></li>
+</ul>
+</section>
+<section id="management-points-for-experimental-evaluations" class="slide level3">
+<h3>Management points for experimental evaluations</h3>
+<ul>
+<li class="fragment"><p>Conduct logic modeling sessions to diagram the data generating process</p></li>
+<li class="fragment"><p>Pay attention to process of randomization. Verify integrity of randomization process.</p></li>
+<li class="fragment"><p>Think about ways the assignment of treatment might ‘leak’ via spillover or contamination</p></li>
+<li class="fragment"><p>Examine statistical tests of randomization, compliance, and spillover</p></li>
+</ul>
+</section>
+<section id="what-if-we-cant-randomize" class="slide level3">
+<h3>What if we can’t randomize?</h3>
+<ul>
+<li class="fragment"><p>If we can’t randomize the assignment of treatment, the next best alternative is to look for ways to approximate ‘as-if’ randomization</p></li>
+<li class="fragment"><p>Stay tuned for quasi-experimental evaluation design!</p></li>
+</ul>
+<p>THANK YOU!</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>USAID MENA Advanced MEL Workshop</p>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>AND we would identify heterogeneous treatment effects if they existed</p></li></ol></aside></section></section>
-
+</section>
     </div>
   </div>
 
@@ -517,6 +568,7 @@
   <script src="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="USAID MENA MEL Workshop - Evaluation design RCT (8-7-24)_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -537,7 +589,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -708,7 +761,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
