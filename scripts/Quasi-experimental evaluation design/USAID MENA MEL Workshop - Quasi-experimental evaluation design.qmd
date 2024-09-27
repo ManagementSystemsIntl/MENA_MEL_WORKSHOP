@@ -57,9 +57,9 @@ By the end of this session, participants will be able to:
 
 *Bonus content:*
 
-- Machine learning  
+-   Machine learning
 
-- Causal AI
+-   Causal AI
 
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
@@ -83,21 +83,18 @@ We want to know the causal effect of an activity on its beneficiaries
 
 ### The treatment assignment mechanism
 
-- We establish that the intervention could not be randomly assigned
+-   We establish that the intervention could not be randomly assigned
 
-- In the absence of randomization, it becomes critically important to understand the data generating process that applies the switching equation 
+-   In the absence of randomization, it becomes critically important to understand the data generating process that applies the switching equation
 
-- With a deep knowledge of the environment we are operating in, we may be able to adopt some tactics to help with evaluation
+-   With a deep knowledge of the environment we are operating in, we may be able to adopt some tactics to help with evaluation
 
 ### Approximating as-if randomization
 
-- Adjust for confounders (statistical matching)
+-   Adjust for confounders (statistical matching)
 
-- Use trends over time to remove bias (difference-in-differences, interrupted time series) 
+-   Use trends over time to remove bias (difference-in-differences, interrupted time series)
 
-- Utilize an intervention's scoring system (regression discontinuity)
+-   Utilize an intervention's scoring system (regression discontinuity)
 
-- Use features of the natural world (instrumental variables)
-
-
-
+-   Use features of the natural world (instrumental variables)

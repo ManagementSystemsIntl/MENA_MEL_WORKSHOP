@@ -38,100 +38,102 @@ source("../../../Methods Corner/misc/prep.r")
 -   What we do
 -   How we hope to help you
 
-
 ### Benchmarks for success
 
-By the end of this session, you should be able to.. 
+By the end of this session, you should be able to..
 
 -   Understand basic concepts of machine learning
 
 -   Recognize the most common algorithms and how they are applied in development settings
 
-
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
+How does USAID do machine learning? 
+
+- [Managing Machine Learning Projects in International Development](https://www.usaid.gov/sites/default/files/2022-05/Vital_Wave_USAID-AIML-FieldGuide_FINAL_VERSION_1.pdf)
+
+- [Making AI Work for International Development](https://www.usaid.gov/sites/default/files/2022-05/AI-ML-in-Development.pdf)
 
 ### What is machine learning?
 
-- Machine learning is a collection of algorithms that learn from data
+-   Machine learning is a collection of algorithms that learn from data
 
-- Machine learning attempts to learn the data so well that it can tell you what to expect with new data you haven't seen yet
+-   Machine learning attempts to learn the data so well that it can tell you what to expect with new data you haven't seen yet
 
-- Machine learning algorithms can be broadly classified into unsupervised or supervised 
+-   Machine learning algorithms can be broadly classified into unsupervised or supervised
 
 ### How machine learning is different
 
-What are the defining characteristics of machine learning? 
+What are the defining characteristics of machine learning?
 
-- Prediction vs. causation
+-   Prediction vs. causation
 
-- Bias vs. variance
+-   Bias vs. variance
 
-- Over- vs. under-fitting
+-   Over- vs. under-fitting
 
 ### Prediction vs. Causation
 
-- Descriptive or exploratory analysis helps us understand our data
+-   Descriptive or exploratory analysis helps us understand our data
 
-- Causal inference helps us understand the relationships between variables of interest
+-   Causal inference helps us understand the relationships between variables of interest
 
-- Machine learning tries to learn our data so well that it can predict future data!
+-   Machine learning tries to learn our data so well that it can predict future data!
 
 ### Bias vs. Variance
 
-- The causal inference tradition seeks to eliminate bias first, then looks to improve efficiency by reducing variance
+-   The causal inference tradition seeks to eliminate bias first, then looks to improve efficiency by reducing variance
 
-- Machine learning doesn’t care about bias
+-   Machine learning doesn’t care about bias
 
-- In fact, sometimes machine learning can actually use bias to reduce uncertainty 
+-   In fact, sometimes machine learning can actually use bias to reduce uncertainty
 
 ### Underfitting vs. Overfitting
 
-- Standard analysis will take the data as given, and seek to understand it
+-   Standard analysis will take the data as given, and seek to understand it
 
-- More advanced analysis may try to *explain* the given data
+-   More advanced analysis may try to *explain* the given data
 
-- Machine learning algorithms are evaluated according to how well they work on data they haven’t seen yet  
-  - Run algorithms on training data, evaluate performance on test data
-    
+-   Machine learning algorithms are evaluated according to how well they work on data they haven’t seen yet
+
+    -   Run algorithms on training data, evaluate performance on test data
+
 ### [Unsupervised and Supervised Learning]{style="color:white;"} {background-color="#002F6C"}
 
 ### Unsupervised Learning
 
-- We have a set of variables that we suspect or have reason to believe are related to each other in some way
-- Is there any hidden structure in the data that standard analysis would not find? 
-- The task is to find patterns that we can then turn into new variables that capture the patterns
+-   We have a set of variables that we suspect or have reason to believe are related to each other in some way
+-   Is there any hidden structure in the data that standard analysis would not find?
+-   The task is to find patterns that we can then turn into new variables that capture the patterns
 
 ### Algorithms for unsupervised learning
 
-- Clustering based on similarity
-  - K-means, Latent Class Analysis, Density-Based Spatial Clustering
-- Dimension reduction
-  - Principal Component Analysis, Factor Analysis, Item Response Theory
+-   Clustering based on similarity
+    -   K-means, Latent Class Analysis, Density-Based Spatial Clustering
+-   Dimension reduction
+    -   Principal Component Analysis, Factor Analysis, Item Response Theory
 
 ### Clusters in data
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
-
-- Clustering algorithms minimize variance between data points, or use a distance metric
-- Clustering is difficult when there is overlap between clusters
-::: 
+-   Clustering algorithms minimize variance between data points, or use a distance metric
+-   Clustering is difficult when there is overlap between clusters
+:::
 
 ::: {.column width="50%"}
-
 ```{r}
 include_graphics("overlapping and non-overlapping clusters.png")
 
 ```
 :::
-::::
+:::::
 
 ### Correlations in data
 
-- Principal components analysis (PCA) attempts to capture as much of the total variance as possible in a single or few variables
+-   Principal components analysis (PCA) attempts to capture as much of the total variance as possible in a single or few variables
 
-- Factor analysis (FA) attempts to capture common variance among a set of variables
+-   Factor analysis (FA) attempts to capture common variance among a set of variables
 
 ### Total and common variance
 
@@ -140,7 +142,6 @@ include_graphics("Total and common variance.png")
 ```
 
 ### Total variance of household assets
-
 
 ```{r}
 
@@ -162,13 +163,13 @@ include_graphics("Media profile factor loadings.png")
 
 ### Supervised Learning
 
-  - Now we have data that we know is related to some target variable
-  - How well can we use the data to hit the target? 
-  - The task is now prediction/classification  
+-   Now we have data that we know is related to some target variable
+-   How well can we use the data to hit the target?
+-   The task is now prediction/classification
 
 ### Using features to predict a target
 
-Previously we just had features. Now we have features that predict a target. 
+Previously we just had features. Now we have features that predict a target.
 
 ```{r fig.cap="Interested in that spiral thingy? See https://www.mathnasium.com/blog/golden-ratio-in-nature"}
 
@@ -177,30 +178,28 @@ include_graphics("three distributions.png")
 
 ### Algorithms for supervised learning
 
-- Expectation maximization: Iteratively updates probabilities using Bayes' Rule
-- Conditional Inference Trees/Random Forests: Break data into branches for classification and regression tasks
-- Gradient Descent: Minimizes error by iterating through partial derivatives 
-- Neural Networks: Identifies 'hidden layers' in complex data to conduct deep learning tasks
+-   Expectation maximization: Iteratively updates probabilities using Bayes' Rule
+-   Conditional Inference Trees/Random Forests: Break data into branches for classification and regression tasks
+-   Gradient Descent: Minimizes error by iterating through partial derivatives
+-   Neural Networks: Identifies 'hidden layers' in complex data to conduct deep learning tasks
 
 ### Supervised learning - Conditional Inference Tree
 
 Conditional inference trees crawl through your data, split everything into different pathways (branches), and retain the branches that capture the most variation
 
-- Advantage: identifies interesting sub-groups to explore further
-- Disadvantage: Overfits your data! 
+-   Advantage: identifies interesting sub-groups to explore further
+-   Disadvantage: Overfits your data!
 
----- 
+------------------------------------------------------------------------
 
 ```{r}
 include_graphics("Iraq decision tree.png")
 
 ```
 
-
 ### Supervised learning - Random Forest
 
 Random forests makes predictions using a large number of trees
-
 
 ```{r fig.cap = "Heterogeneous treatment effects on household income"}
 include_graphics("Causal forest estimates 2.png")
@@ -209,12 +208,11 @@ include_graphics("Causal forest estimates 2.png")
 
 ### From machine learning to AGI
 
-- We’ve mentioned how machine learning is about the use of algorithms to learn from data
+-   We’ve mentioned how machine learning is about the use of algorithms to learn from data
 
-- What happens if the algorithms learn from data, and then use that learning to improve themselves and run again? 
+-   What happens if the algorithms learn from data, and then use that learning to improve themselves and run again?
 
-- Artificial General Intelligence (AGI) refers to algorithms that seem to us like thinking and reasoning human intelligences
-
+-   Artificial General Intelligence (AGI) refers to algorithms that seem to us like thinking and reasoning human intelligences
 
 ### Learn from your data, then learn from what you learn
 
@@ -222,22 +220,18 @@ include_graphics("Causal forest estimates 2.png")
 include_graphics("AI graphic.png")
 ```
 
-
 ### Welcoming our new Machine Learning Overlords
 
-- Currently, the closest we have to AGI are the Large Language Models that power ChatGPT and other chatbots
+-   Currently, the closest we have to AGI are the Large Language Models that power ChatGPT and other chatbots
 
-- "In the next couple of decades, we will be able to do things that would have seemed like magic to our grandparents." 
-  - Sam Altman, 9-23-24
+-   "In the next couple of decades, we will be able to do things that would have seemed like magic to our grandparents."
 
-- Stay tuned for next session on Large Language Models! 
+    -   Sam Altman, 9-23-24
+
+-   Stay tuned for next session on Large Language Models!
 
 Thank you!
 
 ### Bonus content
 
-- Getting under the hood of algorithms
-
-
-
-
+-   Getting under the hood of algorithms
