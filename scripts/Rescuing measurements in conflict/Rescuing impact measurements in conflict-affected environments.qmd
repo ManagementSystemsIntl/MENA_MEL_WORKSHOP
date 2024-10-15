@@ -32,7 +32,6 @@ source("../../../Methods Corner/misc/prep.r")
 
 ```
 
-
 ```{r global_options, include=F, warning=F, message=F, echo=F, error=F}
 here()
 mistifull <- read_rds(here("scripts/Rescuing measurements in conflict/MISTI villages measured all waves.rds"))
@@ -44,7 +43,6 @@ mistifull <- mistifull %>%
 
 ```
 
-
 ### Outline of presentation
 
 -   Background
@@ -52,7 +50,6 @@ mistifull <- mistifull %>%
 -   Solutions
 -   Case study - MISTI
 -   Final thoughts
-
 
 ### Bottom line up front
 
@@ -69,13 +66,13 @@ mistifull <- mistifull %>%
 -   Case study - MISTI
 -   Final thoughts
 
-### What is the canonical d-i-d setup?  
+### What is the canonical d-i-d setup?
 
 $y_{it}=\beta_0+\delta_{0,t}Post_t+\beta_{1,i}Treat_i+\delta_{1,it}Post_t*Treat_i+\epsilon_{it}$
 
 where..
 
-$\beta_0$ is the comparison group at baseline  
+$\beta_0$ is the comparison group at baseline
 
 $\delta_0$ is the secular change from baseline to endline, unrelated to treatment
 
@@ -93,7 +90,7 @@ $(\bar{y}_{POST,TREAT}-\bar{y}_{PRE,TREAT})$
 
 $-$
 
-$(\bar{y}_{POST,COMPARISON}-\bar{y}_{PRE,COMPARISON})$  
+$(\bar{y}_{POST,COMPARISON}-\bar{y}_{PRE,COMPARISON})$
 
 hence, difference-in-differences (d-i-d or DiD or DD)
 
@@ -103,11 +100,11 @@ hence, difference-in-differences (d-i-d or DiD or DD)
 
 $y_{it}=\beta_0+\delta_{0,t}Post_t+\beta_{1,i}Treat_i+\delta_{1,it}Post_t*Treat_i+\epsilon_{it}$
 
-|                        | Pre               | Post                                | Post - Pre          |
-|------------------------|-------------------|-------------------------------------|---------------------|
-| Comparison             | $\beta_0$         | $\beta_0+\delta_0$                  | $\delta_0$          |
-| Treatment              | $\beta_0+\beta_1$ | $\beta_0+\delta_0+\beta_1+\delta_1$ | $\delta_0+\delta_1$ |
-| Treatment - Comparison | $\beta_1$         | $\beta_1 + \delta_1$                | $\delta_1$          |
+|   | Pre | Post | Post - Pre |
+|----|----|----|----|
+| Comparison | $\beta_0$ | $\beta_0+\delta_0$ | $\delta_0$ |
+| Treatment | $\beta_0+\beta_1$ | $\beta_0+\delta_0+\beta_1+\delta_1$ | $\delta_0+\delta_1$ |
+| Treatment - Comparison | $\beta_1$ | $\beta_1 + \delta_1$ | $\delta_1$ |
 
 ------------------------------------------------------------------------
 
@@ -125,7 +122,7 @@ $\alpha_t$ are time fixed effects
 
 $B^{DD}_{it}$ indicates whether group *i* in period *t* is treated
 
----- 
+------------------------------------------------------------------------
 
 -   Background
 -   **Problem**
@@ -143,7 +140,6 @@ $B^{DD}_{it}$ indicates whether group *i* in period *t* is treated
 
 -   But how does this work, exactly?
 
-
 ### Two treatment groups, early and late
 
 Let's take a single step from two time periods to three, where treatment can be adopted at either t = 2 or t = 3
@@ -153,11 +149,13 @@ Let's take a single step from two time periods to three, where treatment can be 
 
 include_graphics("Baker three timings replication.png")
 ```
+
 ### Not a problem
 
 ```{r echo=F}
 include_graphics("Baker panel a replication.png")
 ```
+
 ### Not a problem
 
 ```{r, echo=F}
@@ -215,7 +213,6 @@ include_graphics("dynamic treatment effects biases TWFE.png")
 
 Can small scale, community-driven development activities build local government legitimacy in a kinetic conflict-affected environment?
 
-
 ### MISTI
 
 -   Village panel survey in five waves, Sep 2012 - Nov 2014
@@ -239,7 +236,6 @@ read_excel("MISTI treatment timings.xlsx") %>%
   autofit()
 ```
 
-
 ### Single-wave analysis
 
 -   Final reporting of MISTI relied on a series of single-wave estimations
@@ -260,8 +256,6 @@ wav %>%
 $y_{it}=\alpha_i+\alpha_t+\beta^{DD}_{it}+\epsilon_{it}$
 
 $y_{it}=village_i+wave_t+treated^{DD}_{it}+\epsilon_{it}$
-
-
 
 ```{r}
 twfe <- lm(stab_std ~ treat_event + as.factor(village) + as.factor(wave),
@@ -299,8 +293,6 @@ mistibacon_coef
 twfe[2,] %>%
   flextable()
 ```
-
-
 
 ### MISTI bacondecomp 2x2 cells
 
@@ -349,7 +341,6 @@ cal <- att_gt(yname="stab_std",
 cal 
 ```
 
-
 ```{r warning=F, echo=F, fig.height=5, fig.width=6}
 cal_out <- data.frame(att=cal$att,
                      se = cal$se,
@@ -387,11 +378,11 @@ ggplot(cal_out, aes(wave, att, color=as.factor(treat))) +
                      breaks=seq(-1,4,1))
 ```
 
-
 ```{r include=F}
 cal_simple <- aggte(cal, type="simple")
 #cal_simple
 ```
+
 ### Dynamic treatment effects
 
 ```{r include=F}
@@ -433,7 +424,6 @@ cal_grp <- aggte(cal, type="group")
 #cal_grp
 ```
 
-
 ```{r echo=F}
 cal_grp_out <- data.frame(
   cohort=c("Wave 2 treated","Wave 3 treated","Wave 4 treated","Wave 5 treated", "All waves treated"),
@@ -459,6 +449,7 @@ ggplot(cal_grp_out, aes(att_grp, fct_rev(cohort))) + #, group=as.factor(group)))
   scale_x_continuous(limits=c(-1, 1.6),
                      breaks=seq(-1,1.5,.5))
 ```
+
 ------------------------------------------------------------------------
 
 -   Background
@@ -480,7 +471,3 @@ ggplot(cal_grp_out, aes(att_grp, fct_rev(cohort))) + #, group=as.factor(group)))
 -   Re-examine old evaluations!!
 
 Thank you!
-
-
-
-

@@ -10,7 +10,7 @@ format:
     transition: slide
     #transition-speed: fast
     background-transition: fade
-    incremental: true
+    incremental: false
     footer: "USAID MENA Advanced MEL Workshop"
     theme: [default, usaid notepad.scss]
     title-slide-attributes: 
@@ -27,15 +27,9 @@ knitr::opts_chunk$set(echo=F, message=F, warning=F, fig.height=10, fig.width=6)
 library(here)
 library(knitr)
 
-source("../../../../Methods Corner/misc/prep.r")
+source("../../../Methods Corner/misc/prep.r")
 
 ```
-
-### Welcome!
-
--   Who we are
--   What we do
--   How we hope to help you
 
 ### Objectives of impact evaluation sessions
 
@@ -52,14 +46,6 @@ By the end of this session, participants will be able to:
 -   Identify strategies for generating 'as-if' randomization
 
 -   Understand the relative strengths and weaknesses of different designs
-
-### Benchmarks for success
-
-*Bonus content:*
-
--   Machine learning
-
--   Causal AI
 
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
@@ -81,20 +67,128 @@ We want to know the causal effect of an activity on its beneficiaries
 
 -   We re-wrote the switching equation to $Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i$ in order to highlight the individual treatment effect term $\delta_i=Y_i^1-Y_i^0$
 
-### The treatment assignment mechanism
+### Decomposing the difference in means
 
--   We establish that the intervention could not be randomly assigned
+We decomposed the difference in means into the average treatment effect and selection bias
 
--   In the absence of randomization, it becomes critically important to understand the data generating process that applies the switching equation
+$E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$\
+Average Treatment Effect on the Treated (ATT)\  
++  
+$E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$\
+Difference between treatment and control group, before treatment (Selection bias)
 
--   With a deep knowledge of the environment we are operating in, we may be able to adopt some tactics to help with evaluation
+### Dealing with selection bias 
+
+- We established that the intervention could not be randomly assigned
+
+- Without randomization, we don't have assurance that the selection bias term is zero! 
+
+- What else could we do to make the selection bias term zero ? 
 
 ### Approximating as-if randomization
 
--   Adjust for confounders (statistical matching)
+-   Adjust for confounders (regression adjustment / statistical matching)
 
 -   Use trends over time to remove bias (difference-in-differences, interrupted time series)
 
 -   Utilize an intervention's scoring system (regression discontinuity)
 
 -   Use features of the natural world (instrumental variables)
+
+### Adjusting for confounders
+
+- Let's say we knew that we have non-random assignment of treatment, but we know EXACTLY what determines treatment (variables X, Y, Z)
+
+- If we match on / control for variables X, Y, Z then we would achieve independence between the assignment of treatment and the outcome
+
+- This is called unconfoundedness
+
+### Adjusting for confounders
+
+- What if we DID NOT know what determined the non-random assignment of treatment?
+
+- We might suspect the following: 
+  - We have observed variables that we believe may be related to treatment
+  - We have other variables related to treatment, but which we have not observed
+  - There are other variables related to treatment that we haven't thought about
+
+### Selection on observables
+
+- We can adjust for variables that help determine treatment
+- We could theorize about the variables affecting treatment that are unobserved
+- We can't do anything about variables affecting treatment that we don't know about
+
+### Selection on observables
+
+- This highlights the fundamental weakness of adjusting for confounders
+- We can control for what we know about and have observed, but there may be other variables we haven't observed that bias our estimates
+- Regression adjustment / matching is seldom a convincing strategy for causal inference
+
+### Using trends over time (d-i-d)
+
+- Recall the randomized difference in differences design
+
+- If we don't have randomization, we can use the trend in the control group to estimate what would have happened in the treatment group in the absence of treatment
+
+- This would only work if we knew that the pre-treatment trends would have been the same in the treatment and control groups!
+
+- This is called the parallel trends assumption
+
+- The researcher MUST demonstrate parallel trends, or provide a compelling case for why they believe this assumption holds
+
+### Using trends over time (interrupted time series)
+
+-   Recall that the fundamental problem of causal inference states that we can't go back in time, and we don't have access to alternate universes
+
+- But what if, instead of going back in time, we looked into the past? 
+
+- The interrupted time series (ITS) design becomes possible when you have at least three data points before treatment and three data points after treatment (more is better)
+
+- Interrupted times series allows a within-comparison and avoids a between-comparison
+
+### Interrupted times series 
+
+- Interrupted time series is especially applicable when you have abundant data but entire systems or populations are treated, such that no comparison group is possible
+
+- Because interrupted time series looks at a longer historical period, consider whether there may be other historical trends affecting your data
+
+```{r}
+include_graphics("interrupted time series no title.png")
+
+```
+
+### Using an intervention's scoring system (regression discontinuity)
+
+
+### Using features of the natural world (instrumental variables)
+
+- What if we could find some real-world process that behaved randomly with respect to what you are studying? 
+
+- We could look at how our outcome responds to treatment, where treatment is ONLY applied based on the real-world random process
+
+- This is instrumental variable estimation
+
+- The instrument must affect your outcome ONLY through its effect on treatment (exclusion restriction)
+
+### Watch your instruments 
+
+- Is rainfall a random process with regard to development interventions? 
+  - In many cases, possibly yes
+  
+- But rainfall has now been used as an instrument to generate treatment effect estimates across hundreds of studies
+
+- An August 2024 study found rainfall used as an instrument in 289 studies, and *194 variables* that could be affected by rain outside of the treatment 
+
+
+### Violating the exclusion restriction 
+
+- Some of these variables MUST be actual exclusion restrictions
+
+```{r}
+#include_graphics("test.png")
+```
+
+### Lunar calendar as an instrument
+
+- In a 2019 study, researchers used the lunar calendar as an instrument for rainfall
+

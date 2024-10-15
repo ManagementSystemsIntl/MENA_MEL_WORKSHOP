@@ -1,7 +1,7 @@
 ---
 title: "Potential Outcomes"
-subtitle: "USAID MENA Advanced MEL Workshop <br>Session 1</br>"
-date: "May 2024"
+subtitle: "USAID MENA Advanced MEL Workshop"
+date: "October 16, 2024"
 format: 
   revealjs:
     #logo: "USAID logo.png"
@@ -18,6 +18,7 @@ format:
       data-background-position: top left
       data-background-size: 25%
 editor: visual
+chalkboard: true
 ---
 
 ```{r setup, include=FALSE, message=F, warning=F}
@@ -236,6 +237,8 @@ include_graphics("Three body Newton.png")
 
 ### Causal inference in the MENA tradition
 
+-   Al-Kindi, Al-Farabi, Ibn Sina: The Philosophers
+
 -   Al-Ghazali: The Incoherence of the Philosophers
 
 -   Ibn Rushd: The Incoherence of the Incoherence
@@ -246,3 +249,8 @@ include_graphics("Three body Newton.png")
     -   Al-Haythem (Optics)
 
 Who else .. ?
+
+### {.center}
+
+
+Thank you! 

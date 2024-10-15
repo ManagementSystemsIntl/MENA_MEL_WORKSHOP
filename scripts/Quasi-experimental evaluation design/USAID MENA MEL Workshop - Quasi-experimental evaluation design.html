@@ -10,7 +10,7 @@
 <link href="USAID MENA MEL Workshop - Quasi-experimental evaluation design_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <meta name="dcterms.date" content="2024-09-24">
+  <meta name="dcterms.date" content="2024-10-14">
   <title>Quasi-experimental evaluation design</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -332,39 +332,23 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-09-24</p>
-</section>
-<section id="welcome" class="slide level3">
-<h3>Welcome!</h3>
-<ul>
-<li class="fragment">Who we are</li>
-<li class="fragment">What we do</li>
-<li class="fragment">How we hope to help you</li>
-</ul>
+  <p class="date">2024-10-14</p>
 </section>
 <section id="objectives-of-impact-evaluation-sessions" class="slide level3">
 <h3>Objectives of impact evaluation sessions</h3>
 <ul>
-<li class="fragment">Understand the need for impact estimation of USAID activities</li>
-<li class="fragment">Understand how impact estimation fits into the Agency performance management framework</li>
-<li class="fragment">Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs</li>
+<li>Understand the need for impact estimation of USAID activities</li>
+<li>Understand how impact estimation fits into the Agency performance management framework</li>
+<li>Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs</li>
 </ul>
 </section>
 <section id="benchmarks-for-success" class="slide level3">
 <h3>Benchmarks for success</h3>
 <p>By the end of this session, participants will be able to:</p>
 <ul>
-<li class="fragment"><p>Understand selection bias as a fundamental difficulty in identifying a valid counterfactual</p></li>
-<li class="fragment"><p>Identify strategies for generating ‘as-if’ randomization</p></li>
-<li class="fragment"><p>Understand the relative strengths and weaknesses of different designs</p></li>
-</ul>
-</section>
-<section id="benchmarks-for-success-1" class="slide level3">
-<h3>Benchmarks for success</h3>
-<p><em>Bonus content:</em></p>
-<ul>
-<li class="fragment"><p>Machine learning</p></li>
-<li class="fragment"><p>Causal AI</p></li>
+<li><p>Understand selection bias as a fundamental difficulty in identifying a valid counterfactual</p></li>
+<li><p>Identify strategies for generating ‘as-if’ randomization</p></li>
+<li><p>Understand the relative strengths and weaknesses of different designs</p></li>
 </ul>
 </section>
 <section id="level-set" class="slide level3" data-background-color="#002F6C">
@@ -374,34 +358,112 @@
 <h3>Measuring social benefit</h3>
 <p>We want to know the causal effect of an activity on its beneficiaries</p>
 <ul>
-<li class="fragment"><p>Job training on earnings and employment</p></li>
-<li class="fragment"><p>Teacher qualifications on student outcomes</p></li>
-<li class="fragment"><p>Humanitarian assistance on food security</p></li>
+<li><p>Job training on earnings and employment</p></li>
+<li><p>Teacher qualifications on student outcomes</p></li>
+<li><p>Humanitarian assistance on food security</p></li>
 </ul>
 </section>
 <section id="identifying-a-treatment-assignment" class="slide level3">
 <h3>Identifying a treatment assignment</h3>
 <ul>
-<li class="fragment"><p>We established indicators for treatment assignment <span class="math inline">\(D_i\)</span> and an outcome of interest <span class="math inline">\(Y_i\)</span></p></li>
-<li class="fragment"><p>We established the switching equation <span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span> mapping a potential treatment assignment to a realized outcome</p></li>
-<li class="fragment"><p>We re-wrote the switching equation to <span class="math inline">\(Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i\)</span> in order to highlight the individual treatment effect term <span class="math inline">\(\delta_i=Y_i^1-Y_i^0\)</span></p></li>
+<li><p>We established indicators for treatment assignment <span class="math inline">\(D_i\)</span> and an outcome of interest <span class="math inline">\(Y_i\)</span></p></li>
+<li><p>We established the switching equation <span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span> mapping a potential treatment assignment to a realized outcome</p></li>
+<li><p>We re-wrote the switching equation to <span class="math inline">\(Y_i=Y_i^0+(Y_i^1-Y_i^0)D_i\)</span> in order to highlight the individual treatment effect term <span class="math inline">\(\delta_i=Y_i^1-Y_i^0\)</span></p></li>
 </ul>
 </section>
-<section id="the-treatment-assignment-mechanism" class="slide level3">
-<h3>The treatment assignment mechanism</h3>
+<section id="decomposing-the-difference-in-means" class="slide level3">
+<h3>Decomposing the difference in means</h3>
+<p>We decomposed the difference in means into the average treatment effect and selection bias</p>
+<p><span class="math inline">\(E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
+Average Treatment Effect on the Treated (ATT)<br>
++ <span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
+Difference between treatment and control group, before treatment (Selection bias)</p>
+</section>
+<section id="dealing-with-selection-bias" class="slide level3">
+<h3>Dealing with selection bias</h3>
 <ul>
-<li class="fragment"><p>We establish that the intervention could not be randomly assigned</p></li>
-<li class="fragment"><p>In the absence of randomization, it becomes critically important to understand the data generating process that applies the switching equation</p></li>
-<li class="fragment"><p>With a deep knowledge of the environment we are operating in, we may be able to adopt some tactics to help with evaluation</p></li>
+<li><p>We established that the intervention could not be randomly assigned</p></li>
+<li><p>Without randomization, we don’t have assurance that the selection bias term is zero!</p></li>
+<li><p>What else could we do to make the selection bias term zero ?</p></li>
 </ul>
 </section>
 <section id="approximating-as-if-randomization" class="slide level3">
 <h3>Approximating as-if randomization</h3>
 <ul>
-<li class="fragment"><p>Adjust for confounders (statistical matching)</p></li>
-<li class="fragment"><p>Use trends over time to remove bias (difference-in-differences, interrupted time series)</p></li>
-<li class="fragment"><p>Utilize an intervention’s scoring system (regression discontinuity)</p></li>
-<li class="fragment"><p>Use features of the natural world (instrumental variables)</p></li>
+<li><p>Adjust for confounders (regression adjustment / statistical matching)</p></li>
+<li><p>Use trends over time to remove bias (difference-in-differences, interrupted time series)</p></li>
+<li><p>Utilize an intervention’s scoring system (regression discontinuity)</p></li>
+<li><p>Use features of the natural world (instrumental variables)</p></li>
+</ul>
+</section>
+<section id="adjusting-for-confounders" class="slide level3">
+<h3>Adjusting for confounders</h3>
+<ul>
+<li><p>Let’s say we knew that we have non-random assignment of treatment, but we know EXACTLY what determines treatment (variables X, Y, Z)</p></li>
+<li><p>If we match on / control for variables X, Y, Z then we would achieve independence between the assignment of treatment and the outcome</p></li>
+<li><p>This is called unconfoundedness</p></li>
+</ul>
+</section>
+<section id="using-trends-over-time-d-i-d" class="slide level3">
+<h3>Using trends over time (d-i-d)</h3>
+<ul>
+<li><p>Recall the randomized difference in differences design</p></li>
+<li><p>If we don’t have randomization, we can use the trend in the control group to estimate what would have happened in the treatment group in the absence of treatment</p></li>
+<li><p>This would only work if we knew that the pre-treatment trends would have been the same in the treatment and control groups!</p></li>
+<li><p>This is called the parallel trends assumption</p></li>
+<li><p>The researcher MUST demonstrate parallel trends, or provide a compelling case for why they believe this assumption holds</p></li>
+</ul>
+</section>
+<section id="using-trends-over-time-interrupted-time-series" class="slide level3">
+<h3>Using trends over time (interrupted time series)</h3>
+<ul>
+<li><p>Recall that the fundamental problem of causal inference states that we can’t go back in time, and we don’t have access to alternate universes</p></li>
+<li><p>But what if, instead of going back in time, we looked into the past?</p></li>
+<li><p>The interrupted time series (ITS) design becomes possible when you have at least three data points before treatment and three data points after treatment (more is better)</p></li>
+<li><p>Interrupted times series allows a within-comparison and avoids a between-comparison</p></li>
+</ul>
+</section>
+<section id="interrupted-times-series" class="slide level3">
+<h3>Interrupted times series</h3>
+<ul>
+<li><p>Interrupted time series is especially applicable when you have abundant data but entire systems or populations are treated, such that no comparison group is possible</p></li>
+<li><p>Because interrupted time series looks at a longer historical period, consider whether there may be other historical trends affecting your data</p></li>
+</ul>
+
+<img data-src="interrupted%20time%20series%20no%20title.png" width="308" class="r-stretch"></section>
+<section id="using-an-interventions-scoring-system-regression-discontinuity" class="slide level3">
+<h3>Using an intervention’s scoring system (regression discontinuity)</h3>
+</section>
+<section id="using-features-of-the-natural-world-instrumental-variables" class="slide level3">
+<h3>Using features of the natural world (instrumental variables)</h3>
+<ul>
+<li><p>What if we could find some real-world process that behaved randomly with respect to what you are studying?</p></li>
+<li><p>We could look at how our outcome responds to treatment, where treatment is ONLY applied based on the real-world random process</p></li>
+<li><p>This is instrumental variable estimation</p></li>
+<li><p>The instrument must affect your outcome ONLY through its effect on treatment (exclusion restriction)</p></li>
+</ul>
+</section>
+<section id="watch-your-instruments" class="slide level3">
+<h3>Watch your instruments</h3>
+<ul>
+<li><p>Is rainfall a random process with regard to development interventions?</p>
+<ul>
+<li>In many cases, possibly yes</li>
+</ul></li>
+<li><p>But rainfall has now been used as an instrument to generate treatment effect estimates across hundreds of studies</p></li>
+<li><p>An August 2024 study found rainfall used as an instrument in 289 studies, and <em>194 variables</em> that could be affected by rain outside of the treatment</p></li>
+</ul>
+</section>
+<section id="violating-the-exclusion-restriction" class="slide level3">
+<h3>Violating the exclusion restriction</h3>
+<ul>
+<li>Some of these variables MUST be actual exclusion restrictions</li>
+</ul>
+</section>
+<section id="lunar-calendar-as-an-instrument" class="slide level3">
+<h3>Lunar calendar as an instrument</h3>
+<ul>
+<li>In a 2019 study, researchers used the lunar calendar as an instrument for rainfall</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
