@@ -87,31 +87,31 @@ Difference between treatment and control group, before treatment (Selection bias
 
 ### Approximating as-if randomization
 
--   Adjust for confounders
+-   Adjust for confounders (regression adjustment / statistical matching)
 
--   Use trends over time to remove bias
+-   Use trends over time to remove bias (difference-in-differences, interrupted time series)
 
--   Utilize an intervention's scoring system
+-   Utilize an intervention's scoring system (regression discontinuity)
 
--   Use features of the natural world 
+-   Use features of the natural world (instrumental variables)
 
 ### Adjusting for confounders
 
-- Let's say we knew that we have non-random assignment of treatment, but we measured EXACTLY what determines treatment (variables X)
+- Let's say we knew that we have non-random assignment of treatment, but we know EXACTLY what determines treatment (variables A, B, C)
 
-- If we match on / control for X then we would achieve independence between the assignment of treatment and the outcome
+- If we match on / control for variables A, B, C then we would achieve independence between the assignment of treatment and the outcome
 
 - This is called unconfoundedness
 
-$D\perp Y |X$
+$D\perp Y |A, B, C$
 
 ### Adjusting for confounders
 
-- What if we know some variables determine treatment, but we haven't measured them?
+- What if we DID NOT know what determined the non-random assignment of treatment?
 
-- What if there were variables that determine treatment that we aren't aware of? 
+- We have observed variables we believe are related to treatment
 
-- These are unobserved confounders, and there's nothing we can do about it
+- We have unobserved variables related to treatment
 
 ### Selection on observables
 
@@ -127,9 +127,9 @@ $D\perp Y |X$
 
 ### Using trends over time (d-i-d)
 
-- If we have a d-i-d setup WITHOUT randomization, we can use the trend in each group to estimate the counterfactual for the other group
+- If we have a d-i-d setup with randomization, we can use the trend in the control group to estimate the counterfactual for the treatment group
 
-- This only works if we know the pre-treatment trends are the same (parallel) across both groups!
+- This only works if we know the pre-treatment trends would have been the same in the treatment and control groups!
 
 - This is called the parallel trends assumption
 
@@ -145,11 +145,11 @@ include_graphics("Baker three timings replication.png")
 
 ### Using trends over time
 
--   Recall that we can't go back in time, and we don't have access to alternate universes
+-   Recall that the fundamental problem of causal inference states that we can't go back in time, and we don't have access to alternate universes
 
-- What if, instead of going back in time, we looked to the past? 
+- What if, instead of going back in time, we looked into the past? 
 
-- The interrupted time series (ITS) design becomes possible when you have multiple measurements before and after treatment (more is better)
+- The interrupted time series (ITS) design becomes possible when you have at least three data points before treatment and three data points after treatment (more is better)
 
 ### Interrupted times series 
 
@@ -161,7 +161,7 @@ include_graphics("interrupted time series no title.png")
 ```
 ### Interrupted Time Series
 
-- Interrupted time series is especially applicable when you have abundant data but entire systems or populations are treated
+- Interrupted time series is especially applicable when you have abundant data but entire systems or populations are treated, such that no comparison group is possible
 
 - Because ITS looks at a longer historical period, there may be other historical trends affecting your data
 
@@ -171,7 +171,7 @@ include_graphics("interrupted time series no title.png")
 
 - Recall that regression adjustment / matching balances observed characteristics across treatment and control groups
 
-- What if there were a variable that divided treatment from the controls around an arbitrary cut-off?
+- In contrast, what if there were a variable that completely divided treatment from the controls around an arbitrary cut-off?
 
 - This is the regression discontinuity (RD) design
 
@@ -187,10 +187,8 @@ include_graphics("RD graphic 2 crop.png")
 
 RD applies in any situation where there is a running (score) variable with an arbitrary cutoff that creates 'as-if' randomization
 
-![](all deaths by age.png)
-
 ```{r}
-#include_graphics("all deaths by age.png")
+include_graphics("all deaths by age.png")
 
 ```
 
@@ -227,13 +225,13 @@ For a valid RD design:
 
 - 294 studies using rainfall instrument, 194 possible exclusion restrictions!
 
-![](test.png)
+![Rainfall](test.png){fig-alt=""}
 
 ### Ramadan, economic activity, and happiness
 
 Surah Al-Baqarah (2:183-185):
 
-"O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may become righteous" 
+"O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may become righteous -" 
 
 "So whoever sights the new moon of the month, let him fast it"
 
@@ -245,7 +243,7 @@ Surah Al-Baqarah (2:183-185):
 
 - Cross-reference fasting hours per day with economic activity or subjective well-being
 
-- Exclusion restriction: Does the moon affect economic activity or subjective well-being in any other ways?
+- Exclusion restriction: Does the moon also affect economic activity or subjective well-being?
 
 ### Review
 
@@ -253,9 +251,9 @@ Surah Al-Baqarah (2:183-185):
 
 - This 'as-if' randomization must eliminate selection bias
 
-- Experimental designs: $D\perp Y$
+$D\perp Y$
 
-- Quasi-experimental designs: $D\perp Y|X$
+$D\perp Y |\text{as-if randomization}$
 
 ### What are the strengths and limitations? 
 
@@ -271,7 +269,7 @@ Surah Al-Baqarah (2:183-185):
 
 ### Quasi-experimental evaluation designs
 
-- Researchers must fully engage with the limitations of their design, and address how they mitigated threats to validity
+- Researchers must fully engage with the limitations of their design, and address how they removed or mitigated threats to validity
 
 - Stay tuned for a deeper dive on matching, and a case study on the use of advanced d-i-d methods in a real-world evaluation
 

@@ -10,7 +10,7 @@
 <link href="USAID MENA MEL Workshop - Quasi-experimental evaluation design_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <meta name="dcterms.date" content="2024-10-14">
+  <meta name="dcterms.date" content="2024-10-15">
   <title>Quasi-experimental evaluation design</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-10-14</p>
+  <p class="date">2024-10-15</p>
 </section>
 <section id="objectives-of-impact-evaluation-sessions" class="slide level3">
 <h3>Objectives of impact evaluation sessions</h3>
@@ -374,9 +374,13 @@
 <section id="decomposing-the-difference-in-means" class="slide level3">
 <h3>Decomposing the difference in means</h3>
 <p>We decomposed the difference in means into the average treatment effect and selection bias</p>
-<p><span class="math inline">\(E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
-Average Treatment Effect on the Treated (ATT)<br>
-+ <span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
+<span class="math inline">\(E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
+Average Treatment Effect on the Treated (ATT)&nbsp;<br>
+
+<center>
++
+</center>
+<p><span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
 Difference between treatment and control group, before treatment (Selection bias)</p>
 </section>
 <section id="dealing-with-selection-bias" class="slide level3">
@@ -390,81 +394,179 @@ Difference between treatment and control group, before treatment (Selection bias
 <section id="approximating-as-if-randomization" class="slide level3">
 <h3>Approximating as-if randomization</h3>
 <ul>
-<li><p>Adjust for confounders (regression adjustment / statistical matching)</p></li>
-<li><p>Use trends over time to remove bias (difference-in-differences, interrupted time series)</p></li>
-<li><p>Utilize an intervention’s scoring system (regression discontinuity)</p></li>
-<li><p>Use features of the natural world (instrumental variables)</p></li>
+<li><p>Adjust for confounders</p></li>
+<li><p>Use trends over time to remove bias</p></li>
+<li><p>Utilize an intervention’s scoring system</p></li>
+<li><p>Use features of the natural world</p></li>
 </ul>
 </section>
 <section id="adjusting-for-confounders" class="slide level3">
 <h3>Adjusting for confounders</h3>
 <ul>
-<li><p>Let’s say we knew that we have non-random assignment of treatment, but we know EXACTLY what determines treatment (variables X, Y, Z)</p></li>
-<li><p>If we match on / control for variables X, Y, Z then we would achieve independence between the assignment of treatment and the outcome</p></li>
+<li><p>Let’s say we knew that we have non-random assignment of treatment, but we measured EXACTLY what determines treatment (variables X)</p></li>
+<li><p>If we match on / control for X then we would achieve independence between the assignment of treatment and the outcome</p></li>
 <li><p>This is called unconfoundedness</p></li>
+</ul>
+<p><span class="math inline">\(D\perp Y |X\)</span></p>
+</section>
+<section id="adjusting-for-confounders-1" class="slide level3">
+<h3>Adjusting for confounders</h3>
+<ul>
+<li><p>What if we know some variables determine treatment, but we haven’t measured them?</p></li>
+<li><p>What if there were variables that determine treatment that we aren’t aware of?</p></li>
+<li><p>These are unobserved confounders, and there’s nothing we can do about it</p></li>
+</ul>
+</section>
+<section id="selection-on-observables" class="slide level3">
+<h3>Selection on observables</h3>
+<ul>
+<li>We can adjust for observed variables that help determine treatment</li>
+<li>We could theorize about the variables affecting treatment that are unobserved</li>
+<li>We can’t do anything about variables affecting treatment that we don’t know about</li>
+</ul>
+</section>
+<section id="selection-on-observables-1" class="slide level3">
+<h3>Selection on observables</h3>
+<ul>
+<li>This highlights the fundamental weakness of adjusting for confounders</li>
+<li>We can control for what we know about and have observed, but there may be other variables we haven’t observed</li>
+<li>Regression adjustment / matching is often not a convincing strategy for causal inference</li>
 </ul>
 </section>
 <section id="using-trends-over-time-d-i-d" class="slide level3">
 <h3>Using trends over time (d-i-d)</h3>
 <ul>
-<li><p>Recall the randomized difference in differences design</p></li>
-<li><p>If we don’t have randomization, we can use the trend in the control group to estimate what would have happened in the treatment group in the absence of treatment</p></li>
-<li><p>This would only work if we knew that the pre-treatment trends would have been the same in the treatment and control groups!</p></li>
+<li><p>If we have a d-i-d setup WITHOUT randomization, we can use the trend in each group to estimate the counterfactual for the other group</p></li>
+<li><p>This only works if we know the pre-treatment trends are the same (parallel) across both groups!</p></li>
 <li><p>This is called the parallel trends assumption</p></li>
-<li><p>The researcher MUST demonstrate parallel trends, or provide a compelling case for why they believe this assumption holds</p></li>
 </ul>
 </section>
-<section id="using-trends-over-time-interrupted-time-series" class="slide level3">
-<h3>Using trends over time (interrupted time series)</h3>
+<section id="parallel-trends-assumption" class="slide level3">
+<h3>Parallel trends assumption</h3>
 <ul>
-<li><p>Recall that the fundamental problem of causal inference states that we can’t go back in time, and we don’t have access to alternate universes</p></li>
-<li><p>But what if, instead of going back in time, we looked into the past?</p></li>
-<li><p>The interrupted time series (ITS) design becomes possible when you have at least three data points before treatment and three data points after treatment (more is better)</p></li>
-<li><p>Interrupted times series allows a within-comparison and avoids a between-comparison</p></li>
+<li>The researcher MUST demonstrate parallel trends, or provide a compelling case for why they believe this assumption holds</li>
+</ul>
+
+<img data-src="Baker%20three%20timings%20replication.png" width="1050" class="r-stretch"></section>
+<section id="using-trends-over-time" class="slide level3">
+<h3>Using trends over time</h3>
+<ul>
+<li><p>Recall that we can’t go back in time, and we don’t have access to alternate universes</p></li>
+<li><p>What if, instead of going back in time, we looked to the past?</p></li>
+<li><p>The interrupted time series (ITS) design becomes possible when you have multiple measurements before and after treatment (more is better)</p></li>
 </ul>
 </section>
 <section id="interrupted-times-series" class="slide level3">
 <h3>Interrupted times series</h3>
 <ul>
-<li><p>Interrupted time series is especially applicable when you have abundant data but entire systems or populations are treated, such that no comparison group is possible</p></li>
-<li><p>Because interrupted time series looks at a longer historical period, consider whether there may be other historical trends affecting your data</p></li>
+<li>Interrupted times series allows a within-comparison (itself) and avoids a between-comparison (something else)</li>
 </ul>
 
 <img data-src="interrupted%20time%20series%20no%20title.png" width="308" class="r-stretch"></section>
-<section id="using-an-interventions-scoring-system-regression-discontinuity" class="slide level3">
-<h3>Using an intervention’s scoring system (regression discontinuity)</h3>
+<section id="interrupted-time-series" class="slide level3">
+<h3>Interrupted Time Series</h3>
+<ul>
+<li><p>Interrupted time series is especially applicable when you have abundant data but entire systems or populations are treated</p></li>
+<li><p>Because ITS looks at a longer historical period, there may be other historical trends affecting your data</p></li>
+<li><p>The historical trend could be within your own treated units (maturation)</p></li>
+</ul>
 </section>
-<section id="using-features-of-the-natural-world-instrumental-variables" class="slide level3">
-<h3>Using features of the natural world (instrumental variables)</h3>
+<section id="using-an-interventions-scoring-system" class="slide level3">
+<h3>Using an intervention’s scoring system</h3>
+<ul>
+<li><p>Recall that regression adjustment / matching balances observed characteristics across treatment and control groups</p></li>
+<li><p>What if there were a variable that divided treatment from the controls around an arbitrary cut-off?</p></li>
+<li><p>This is the regression discontinuity (RD) design</p></li>
+</ul>
+</section>
+<section id="regression-discontinuity" class="slide level3">
+<h3>Regression Discontinuity</h3>
+<ul>
+<li>The most common application of the RD design is when there is a score to determine treatment</li>
+</ul>
+
+<img data-src="RD%20graphic%202%20crop.png" width="766" class="r-stretch"></section>
+<section id="real-world-rd" class="slide level3">
+<h3>Real-world RD</h3>
+<p>RD applies in any situation where there is a running (score) variable with an arbitrary cutoff that creates ‘as-if’ randomization</p>
+
+<img data-src="all%20deaths%20by%20age.png" class="r-stretch"></section>
+<section id="rd-strengths-and-limitations" class="slide level3">
+<h3>RD strengths and limitations</h3>
+<p>For a valid RD design:</p>
+<ul>
+<li><p>The cutoff score must be arbitrary</p></li>
+<li><p>The score must COMPLETELY determine treatment</p></li>
+<li><p>The score cannot be manipulated</p></li>
+</ul>
+</section>
+<section id="using-features-of-the-natural-world" class="slide level3">
+<h3>Using features of the natural world</h3>
 <ul>
 <li><p>What if we could find some real-world process that behaved randomly with respect to what you are studying?</p></li>
 <li><p>We could look at how our outcome responds to treatment, where treatment is ONLY applied based on the real-world random process</p></li>
 <li><p>This is instrumental variable estimation</p></li>
-<li><p>The instrument must affect your outcome ONLY through its effect on treatment (exclusion restriction)</p></li>
 </ul>
 </section>
 <section id="watch-your-instruments" class="slide level3">
 <h3>Watch your instruments</h3>
 <ul>
+<li><p>The instrument must affect your outcome ONLY through its effect on treatment (exclusion restriction)</p></li>
 <li><p>Is rainfall a random process with regard to development interventions?</p>
 <ul>
 <li>In many cases, possibly yes</li>
 </ul></li>
 <li><p>But rainfall has now been used as an instrument to generate treatment effect estimates across hundreds of studies</p></li>
-<li><p>An August 2024 study found rainfall used as an instrument in 289 studies, and <em>194 variables</em> that could be affected by rain outside of the treatment</p></li>
 </ul>
 </section>
 <section id="violating-the-exclusion-restriction" class="slide level3">
 <h3>Violating the exclusion restriction</h3>
 <ul>
-<li>Some of these variables MUST be actual exclusion restrictions</li>
+<li>294 studies using rainfall instrument, 194 possible exclusion restrictions!</li>
+</ul>
+
+<img data-src="test.png" class="r-stretch"></section>
+<section id="ramadan-economic-activity-and-happiness" class="slide level3">
+<h3>Ramadan, economic activity, and happiness</h3>
+<p>Surah Al-Baqarah (2:183-185):</p>
+<p>“O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may become righteous”</p>
+<p>“So whoever sights the new moon of the month, let him fast it”</p>
+</section>
+<section id="is-the-lunar-calendar-a-valid-instrument" class="slide level3">
+<h3>Is the lunar calendar a valid instrument?</h3>
+<ul>
+<li><p>The lunar calendar moves Ramadan 11 days per year</p></li>
+<li><p>This also affects the number of hours of fasting per day</p></li>
+<li><p>Cross-reference fasting hours per day with economic activity or subjective well-being</p></li>
+<li><p>Exclusion restriction: Does the moon affect economic activity or subjective well-being in any other ways?</p></li>
 </ul>
 </section>
-<section id="lunar-calendar-as-an-instrument" class="slide level3">
-<h3>Lunar calendar as an instrument</h3>
+<section id="review" class="slide level3">
+<h3>Review</h3>
 <ul>
-<li>In a 2019 study, researchers used the lunar calendar as an instrument for rainfall</li>
+<li><p>We have reviewed evaluation designs that seek to generate ‘as-if’ randomization</p></li>
+<li><p>This ‘as-if’ randomization must eliminate selection bias</p></li>
+<li><p>Experimental designs: <span class="math inline">\(D\perp Y\)</span></p></li>
+<li><p>Quasi-experimental designs: <span class="math inline">\(D\perp Y|X\)</span></p></li>
 </ul>
+</section>
+<section id="what-are-the-strengths-and-limitations" class="slide level3">
+<h3>What are the strengths and limitations?</h3>
+<ul>
+<li><p>Regression adjustment / matching</p></li>
+<li><p>Difference-in-differences</p></li>
+<li><p>Interrupted time series</p></li>
+<li><p>Regression discontinuity</p></li>
+<li><p>Instrumental variables</p></li>
+</ul>
+</section>
+<section id="quasi-experimental-evaluation-designs" class="slide level3">
+<h3>Quasi-experimental evaluation designs</h3>
+<ul>
+<li><p>Researchers must fully engage with the limitations of their design, and address how they mitigated threats to validity</p></li>
+<li><p>Stay tuned for a deeper dive on matching, and a case study on the use of advanced d-i-d methods in a real-world evaluation</p></li>
+</ul>
+<p>Thank you!</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>USAID MENA Advanced MEL Workshop</p>
