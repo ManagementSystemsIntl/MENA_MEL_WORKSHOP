@@ -5,7 +5,7 @@ subtitle: "USAID MENA Advanced MEL Workshop"
 format: 
   revealjs:
     #logo: "USAID logo.png"
-    slide-number: true
+    slide-number: false
     slide-level: 3
     transition: slide
     #transition-speed: fast
@@ -33,13 +33,13 @@ source("../../../Methods Corner/misc/prep.r")
 
 ```
 
-### Objectives of impact evaluation sessions
+### Objectives of Impact Evaluation Sessions
 
 -   Understand the need for impact estimation of USAID activities
 -   Understand how impact estimation fits into the Agency performance management framework
 -   Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs
 
-### Benchmarks for success
+### Benchmarks for Success
 
 By the end of this session, participants will be able to:
 
@@ -49,7 +49,7 @@ By the end of this session, participants will be able to:
 
 -   Relive unpleasant schoolhood memories of having to learn algebra
 
-### Benchmarks for success
+### Benchmarks for Success
 
 *Bonus content:*
 
@@ -59,7 +59,7 @@ By the end of this session, participants will be able to:
 
 ### [The Fundamental Problem]{style="color:white;"} {background-color="#002F6C"}
 
-### Measuring social benefit
+### Measuring Social Benefit
 
 We want to know the causal effect of an activity on its beneficiaries
 
@@ -69,7 +69,7 @@ We want to know the causal effect of an activity on its beneficiaries
 
 -   Humanitarian assistance on food security
 
-### Identifying a treatment assignment
+### Identifying a Treatment assignment
 
 -   Consider an indicator for a *potential* beneficiary, $D_i$
 
@@ -81,7 +81,7 @@ We want to know the causal effect of an activity on its beneficiaries
 
     -   $D_i$ = 0 means no participation in an activity
 
-### Identifying an outcome
+### Identifying an Outcome
 
 Now consider an indicator for the outcome of a potential beneficiary, $Y_i$, where $i$ denotes each person or unit under study.
 
@@ -89,11 +89,11 @@ Now consider an indicator for the outcome of a potential beneficiary, $Y_i$, whe
 
 -   $Y_i^0$ is the outcome without the activity ($D_i=0$)
 
--   Note that $Y_1$ and $Y_0$ denote *possibilities* for the *same unit*, unit *i*!
+-   Note that $Y^1$ and $Y^0$ denote *possibilities* for the *same unit*, unit *i*
 
-### Switching across treated and untreated outcomes
+### From Potential to Realized Outcomes
 
-We use what is called a 'switching equation' to connect a treatment assignment to a realized outcome
+We use what is called a 'switching equation' to assign treatment and move from a potential to a realized outcome
 
 -   $Y_i=D_iY_i^1+(1-D_i)Y_i^0$
 
@@ -119,7 +119,7 @@ $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=0$
 
 -   $Y_i=Y_i^0$
 
-### Difference between assignment and mechanism
+### Difference Between Assignment and Mechanism
 
 -   The switching equation determines where (to whom) treatment is assigned
 
@@ -129,7 +129,7 @@ $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=0$
 
 -   We call this the treatment assignment *mechanism*
 
-### From assignment to treatment effect
+### From Assignment to Treatment Effect
 
 We can also write the switching equation this way:
 
@@ -141,17 +141,17 @@ We can also write the switching equation this way:
 
 -   Remember that the treatment effect $\delta_i$ refers to a *single* unit or person!
 
-### Recap:
+### Recap
 
 -   The effect of the activity (treatment effect) on unit $i$ is the difference between the two potential outcomes
 
--   Treatment effect = $Y_i^1 - Y_i^0$, or $\delta_i$
-
--   This is the difference in potential outcomes for the *same unit or person*
+-   $Y_i^1 - Y_i^0$ is the difference in outcomes for the *same unit or person*
 
 -   A person participates in an activity, and then goes back in time and does not participate in the activity
 
-### You ask the impossible
+-   Or, a person participates in an activity, and then we check an alternate universe where she did not participate in the activity
+
+### You Ask the Impossible
 
 ```{r fig.align="right", fig.height=2, fig.width=3}
 
@@ -167,7 +167,7 @@ We can also write the switching equation this way:
 
 -   If $D_i=0$, the potential outcome of $Y_i$ becomes $Y_i^0$ in fact and the potential outcome of $Y_i^1$ is unobserved
 
-### The fundamental problem of causal inference
+### The Fundamental Problem of Causal Inference
 
 -   This is the fundamental problem of causal inference
 
@@ -175,9 +175,12 @@ We can also write the switching equation this way:
 
 -   We refer to the outcome that didn't happen as the *counterfactual*, or what would have happened in the absence of the activity
 
-### [The Missing Data Problem]{style="color:white;"} {background-color="#002F6C"}
+### Something is Missing
 
-### Something is missing
+| Group     | $Y_i^0$        | $Y_i^1$        |
+|-----------|----------------|----------------|
+| Treatment | Observed       | Counterfactual |
+| Control   | Counterfactual | Observed       |
 
 ```{r}
 Group <- c("Treatment","Control")
@@ -187,11 +190,11 @@ Yi0 <- c("Counterfactual","Observed")
 t1 <- cbind(Group, Yi1, Yi0) %>%
   as.data.frame() 
 
-t1 %>%
-  gt() %>%
-  opt_table_font(font="Gill Sans Mt",
-                 size=16) %>%
-  cols_align(align="center") 
+# t1 %>%
+#   gt() %>%
+#   opt_table_font(font="Gill Sans Mt",
+#                  size=16) %>%
+#   cols_align(align="center") 
 
 ```
 
@@ -199,22 +202,24 @@ t1 %>%
 
 -   We are missing two pieces of information about what happens with or without the treatment
 
-### What do we do now?
+### What Do We Do Now?
 
--   How do we estimate the effect of a activity, if we cannot observe the same person go through both potential outcomes?
+-   How do we estimate the effect of a activity, if we cannot observe both potential outcomes?
 
--   We must compare a person who was treated with a person who was not treated
+-   We can't go back in time, and we don't have access to alternate universes
 
--   But, what are the differences between those two people? How do we know that activity participation is the only difference between them?
+-   We must compare what was treated with something that was not treated
 
-### CLIFFHANGER
+-   But, what are the differences between the two? How might these differences obscure the true effect of the activity? 
+
+### Cliffhanger
 
 Tune into the next session for a resolution of the Fundamental Problem of Causal Inference!
 
 -   Experimental impact evaluation
 -   Quasi-experimental impact evaluation
 
-### Bonus content
+### Bonus Content
 
 -   Causal inference as a two-body or a three-body problem
 -   Causal inference from traditions in Middle East and North Africa
@@ -231,7 +236,7 @@ include_graphics("Three body Newton.png")
 
 ![](three%20body%20celestial.png){.absolute top="80" right="20" height="220" width="350"}
 
-### Causal inference in the MENA tradition
+### Causal Inference in the MENA Tradition
 
 -   Al-Kindi, Al-Farabi, Ibn Sina: The Philosophers
 
@@ -246,7 +251,6 @@ include_graphics("Three body Newton.png")
 
 Who else .. ?
 
-### {.center}
+###  {.center}
 
-
-Thank you! 
+Thank you!
