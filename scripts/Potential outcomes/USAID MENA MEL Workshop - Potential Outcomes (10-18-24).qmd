@@ -99,7 +99,7 @@ We use what is called a 'switching equation' to assign treatment and move from a
 
 (Plug in $D_i=1$ and $D_i=0$ and see what you end up with)
 
-### ALGEBRA ALERT
+### Treated Outcome
 
 $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=1$
 
@@ -109,7 +109,9 @@ $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=1$
 
 -   $Y_i=Y_i^1$
 
-### ALGEBRA ALERT
+![](alg-alert_v1.png){.absolute bottom="80" right="55" width=200}
+
+### Untreated Outcome
 
 $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=0$
 
@@ -118,6 +120,8 @@ $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ where $D_i=0$
 -   $Y_i=0+Y_i^0-0$
 
 -   $Y_i=Y_i^0$
+
+![](alg-alert_v1.png){.absolute bottom="80" right="55" width=200}
 
 ### Difference Between Assignment and Mechanism
 
@@ -163,9 +167,9 @@ We can also write the switching equation this way:
 
 -   In the real world, person $i$ experiences one of the potential outcomes, but not both
 
--   If $D_i=1$, the potential outcome of $Y_i$ becomes $Y_i^1$ in fact and the potential outcome of $Y_i^0$ is unobserved
+-   If $D_i=1$, the potential outcome of $Y_i$ becomes $Y_i^1$ in fact and the outcome of $Y_i^0$ is unknowable
 
--   If $D_i=0$, the potential outcome of $Y_i$ becomes $Y_i^0$ in fact and the potential outcome of $Y_i^1$ is unobserved
+-   If $D_i=0$, the potential outcome of $Y_i$ becomes $Y_i^0$ in fact and the outcome of $Y_i^1$ is unknowable
 
 ### The Fundamental Problem of Causal Inference
 
@@ -177,7 +181,7 @@ We can also write the switching equation this way:
 
 ### Something is Missing
 
-| Group     | $Y_i^0$        | $Y_i^1$        |
+| Group     | $Y_i^1$        | $Y_i^0$        |
 |-----------|----------------|----------------|
 | Treatment | Observed       | Counterfactual |
 | Control   | Counterfactual | Observed       |

@@ -334,14 +334,6 @@
 </div>
 
 </section>
-<section id="objectives-of-impact-evaluation-sessions" class="slide level3">
-<h3>Objectives of Impact Evaluation Sessions</h3>
-<ul>
-<li>Understand the need for impact estimation of USAID activities</li>
-<li>Understand how impact estimation fits into the Agency performance management framework</li>
-<li>Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs</li>
-</ul>
-</section>
 <section id="benchmarks-for-success" class="slide level3">
 <h3>Benchmarks for Success</h3>
 <ul>
@@ -382,8 +374,8 @@
 <li><p>We can’t just compare these participants to a randomly selected member of the population!</p></li>
 </ul>
 </section>
-<section id="capturing-the-treatment-assignment-mechanism" class="slide level3">
-<h3>Capturing the Treatment Assignment Mechanism</h3>
+<section id="capturing-the-assignment-mechanism" class="slide level3">
+<h3>Capturing the Assignment Mechanism</h3>
 <ul>
 <li><p>We start with the individual treatment effect <span class="math inline">\(\delta_i=Y_i^1-Y_i^0\)</span></p></li>
 <li><p>We take the average of all individual treatment effects</p></li>
@@ -512,8 +504,16 @@
 </section>
 <section id="decomposing-the-difference-in-means-1" class="slide level3">
 <h3>Decomposing the Difference in Means</h3>
-<p><span class="math inline">\(E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
-<span class="math display">\[+\]</span> <span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span></p>
+<div class="columns">
+<div class="column" style="width:10%;">
+
+</div><div class="column" style="width:80%;">
+<p>Average Treatment Effect on the Treated (ATT) <span class="math inline">\(E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span><br>
+<span class="math display">\[+\]</span> Selection bias<br>
+<span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]\)</span></p>
+</div><div class="column" style="width:10%;">
+
+</div></div>
 </section>
 <section id="decomposing-the-difference-in-means-2" class="slide level3">
 <h3>Decomposing the Difference in Means</h3>
@@ -524,10 +524,11 @@
 <li><p>This means that the selection bias term is zero - there are no differences between the treatment and control groups before treatment</p></li>
 </ul>
 </section>
-<section id="observable-characteristics-under-randomization" class="slide level3">
-<h3>Observable Characteristics Under Randomization</h3>
+<section id="randomization-provides-balance" class="slide level3">
+<h3>Randomization Provides Balance</h3>
 <ul>
-<li>Does <span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]=0\)</span>?</li>
+<li><p>Are characteristics balanced across treatment and control?</p></li>
+<li><p>Algebraically, does <span class="math inline">\(E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]=0\)</span>?</p></li>
 </ul>
 
 <img data-src="info%20treatment%20balance.png" width="1050" class="r-stretch"></section>
@@ -535,8 +536,8 @@
 <h3>From Difference-in-means to d-i-d</h3>
 <ul>
 <li><p>The difference-in-means estimator is easy - all we have to do is compare the post-treatment outcomes</p></li>
-<li><p>Can we do better? Yes - the difference-in-differences (d-i-d) design</p></li>
-<li><p>Under difference-in-differences design, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement</p></li>
+<li><p>We can do better with difference-in-differences (d-i-d)</p></li>
+<li><p>Under d-i-d, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement</p></li>
 </ul>
 </section>
 <section id="difference-in-differences" class="slide level3">
@@ -626,6 +627,11 @@
 <li>We still adjust for remaining imbalances (doubly-robust estimation)</li>
 </ul>
 </section>
+<section id="doubly-robust-estimation" class="slide level3">
+<h3>Doubly-robust estimation</h3>
+<p>Successful randomization, but still imbalances to control for</p>
+
+<img data-src="info%20treatment%20balance.png" width="1050" class="r-stretch"></section>
 <section id="ethics-of-randomization" class="slide level3">
 <h3>Ethics of Randomization</h3>
 <p>Randomizing the assignment of treatment has ethical implications</p>
@@ -652,11 +658,10 @@
 </tbody>
 </table>
 </section>
-<section id="management-points-for-experimental-evaluations" class="slide level3">
-<h3>Management Points for Experimental Evaluations</h3>
+<section id="management-points" class="slide level3">
+<h3>Management Points</h3>
 <ul>
 <li><p>Conduct logic modeling sessions to diagram the data generating process</p></li>
-<li><p>Pay attention to process of randomization. Verify integrity of randomization process.</p></li>
 <li><p>Think about ways the assignment of treatment might ‘leak’ via spillover or contamination</p></li>
 <li><p>Examine statistical tests of randomization, compliance, and spillover</p></li>
 </ul>

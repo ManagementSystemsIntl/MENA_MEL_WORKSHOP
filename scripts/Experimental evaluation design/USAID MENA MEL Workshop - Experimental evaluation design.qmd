@@ -33,13 +33,7 @@ source("../../../Methods Corner/misc/prep.r")
 
 ```
 
-### Objectives of Impact Evaluation Sessions
-
--   Understand the need for impact estimation of USAID activities
--   Understand how impact estimation fits into the Agency performance management framework
--   Gain practical knowledge about impact evaluation to help USAID staff better manage and support IEs
-
-### Benchmarks for Success
+### Session Objectives
 
 -   Understand selection bias as a fundamental difficulty in identifying a valid counterfactual, and randomization as the most effective means of identifying the counterfactual
 
@@ -79,7 +73,7 @@ We want to know the causal effect of an activity on its beneficiaries
 
 -   We can't just compare these participants to a randomly selected member of the population!
 
-### Capturing the Treatment Assignment Mechanism
+### Capturing the Assignment Mechanism
 
 -   We start with the individual treatment effect $\delta_i=Y_i^1-Y_i^0$
 
@@ -145,9 +139,19 @@ Difference between treatment and control group,<br>before treatment (selection b
 
 ### Decomposing the Difference in Means
 
+:::: {.columns}
+::: {.column width="10%"}
+:::
+::: {.column width="80%"}
+Average Treatment Effect on the Treated (ATT)
 $E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$  
 $$+$$
-$E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$  
+Selection bias  
+$E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$ 
+:::
+::: {.column width="10%"}
+:::
+::::
 
 ### Decomposing the Difference in Means
 
@@ -159,9 +163,11 @@ $E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
 
 -   This means that the selection bias term is zero - there are no differences between the treatment and control groups before treatment
 
-### Observable Characteristics Under Randomization
+### Randomization Provides Balance
 
--   Does $E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]=0$?
+- Are characteristics balanced across treatment and control?
+
+- Algebraically, does $E\bigr[Y^0|D=1\bigr]-E\bigr[Y^0|D=0\bigr]=0$?
 
 ```{r}
 include_graphics("info treatment balance.png")
@@ -171,9 +177,9 @@ include_graphics("info treatment balance.png")
 
 -   The difference-in-means estimator is easy - all we have to do is compare the post-treatment outcomes
 
--   Can we do better? Yes - the difference-in-differences (d-i-d) design
+-   We can do better with difference-in-differences (d-i-d)
 
--   Under difference-in-differences design, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement
+-   Under d-i-d, we include a pre-treatment measurement of the outcome in addition to a post-treatment measurement
 
 ### Difference-in-differences
 
@@ -249,6 +255,15 @@ $E\bigr[Y^1\bigr]-E\bigr[Y^0\bigr]=E\bigr[Y^1|D=1\bigr]-E\bigr[Y^0|D=0\bigr]$
 -   Any single randomization is not guaranteed to exactly balance the treatment and control groups
 -   We still adjust for remaining imbalances (doubly-robust estimation)
 
+### Doubly-robust estimation
+
+Successful randomization, but still imbalances to control for
+
+```{r}
+include_graphics("info treatment balance.png")
+```
+
+
 ### Ethics of Randomization
 
 Randomizing the assignment of treatment has ethical implications
@@ -260,11 +275,9 @@ Randomizing the assignment of treatment has ethical implications
 
 : {tbl-colwidths="\[25,75\]"}
 
-### Management Points for Experimental Evaluations
+### Management Points
 
 -   Conduct logic modeling sessions to diagram the data generating process
-
--   Pay attention to process of randomization. Verify integrity of randomization process.
 
 -   Think about ways the assignment of treatment might 'leak' via spillover or contamination
 

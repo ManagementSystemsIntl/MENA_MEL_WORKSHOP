@@ -29,12 +29,15 @@ true_responses <- rbinom(n, 1, 0.4)  # 40% of respondents say Yes
 
 # Apply the randomized response technique
 reported_responses <- randomized_response(true_responses, p)
+reported_responses
 
 # Let's estimate the proportion of 'Yes' responses in the population
 # The formula for estimation based on the randomized response method is:
 # Estimated True Proportion = (Observed Proportion - (1 - p)) / p
 
 observed_proportion <- mean(reported_responses)
+observed_proportion
+
 estimated_true_proportion <- (observed_proportion - (1 - p)) / p
 
 # Print the results

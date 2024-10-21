@@ -400,23 +400,25 @@
 </ul>
 <p>(Plug in <span class="math inline">\(D_i=1\)</span> and <span class="math inline">\(D_i=0\)</span> and see what you end up with)</p>
 </section>
-<section id="algebra-alert" class="slide level3">
-<h3>ALGEBRA ALERT</h3>
+<section id="treated-outcome" class="slide level3">
+<h3>Treated Outcome</h3>
 <p><span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span> where <span class="math inline">\(D_i=1\)</span></p>
 <ul>
 <li><p><span class="math inline">\(Y_i=1*Y_i^1+1*Y_i^0-1*Y_i^0\)</span></p></li>
 <li><p><span class="math inline">\(Y_i=Y_i^1+Y_i^0-Y_i^0\)</span></p></li>
 <li><p><span class="math inline">\(Y_i=Y_i^1\)</span></p></li>
 </ul>
+<p><img data-src="alg-alert_v1.png" class="absolute" style="bottom: 80px; right: 55px; width: 200px; "></p>
 </section>
-<section id="algebra-alert-1" class="slide level3">
-<h3>ALGEBRA ALERT</h3>
+<section id="untreated-outcome" class="slide level3">
+<h3>Untreated Outcome</h3>
 <p><span class="math inline">\(Y_i=D_iY_i^1+(1-D_i)Y_i^0\)</span> where <span class="math inline">\(D_i=0\)</span></p>
 <ul>
 <li><p><span class="math inline">\(Y_i=0*Y_i^1+1*Y_i^0-0*Y_i^0\)</span></p></li>
 <li><p><span class="math inline">\(Y_i=0+Y_i^0-0\)</span></p></li>
 <li><p><span class="math inline">\(Y_i=Y_i^0\)</span></p></li>
 </ul>
+<p><img data-src="alg-alert_v1.png" class="absolute" style="bottom: 80px; right: 55px; width: 200px; "></p>
 </section>
 <section id="difference-between-assignment-and-mechanism" class="slide level3">
 <h3>Difference Between Assignment and Mechanism</h3>
@@ -451,8 +453,8 @@
 <ul>
 <li><p>But how can one person be both treated and untreated?</p></li>
 <li><p>In the real world, person <span class="math inline">\(i\)</span> experiences one of the potential outcomes, but not both</p></li>
-<li><p>If <span class="math inline">\(D_i=1\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^1\)</span> in fact and the potential outcome of <span class="math inline">\(Y_i^0\)</span> is unobserved</p></li>
-<li><p>If <span class="math inline">\(D_i=0\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^0\)</span> in fact and the potential outcome of <span class="math inline">\(Y_i^1\)</span> is unobserved</p></li>
+<li><p>If <span class="math inline">\(D_i=1\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^1\)</span> in fact and the outcome of <span class="math inline">\(Y_i^0\)</span> is unknowable</p></li>
+<li><p>If <span class="math inline">\(D_i=0\)</span>, the potential outcome of <span class="math inline">\(Y_i\)</span> becomes <span class="math inline">\(Y_i^0\)</span> in fact and the outcome of <span class="math inline">\(Y_i^1\)</span> is unknowable</p></li>
 </ul>
 </section>
 <section id="the-fundamental-problem-of-causal-inference" class="slide level3">
@@ -469,8 +471,8 @@
 <thead>
 <tr class="header">
 <th>Group</th>
-<th><span class="math inline">\(Y_i^0\)</span></th>
 <th><span class="math inline">\(Y_i^1\)</span></th>
+<th><span class="math inline">\(Y_i^0\)</span></th>
 </tr>
 </thead>
 <tbody>
