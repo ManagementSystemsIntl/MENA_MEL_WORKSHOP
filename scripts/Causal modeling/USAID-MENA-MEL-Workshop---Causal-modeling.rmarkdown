@@ -12,7 +12,7 @@ format:
     background-transition: fade
     incremental: false
 #    footer: "USAID MENA Advanced MEL Workshop"
-    theme: [default, usaid notepad2.scss]
+    theme: [default, usaid notepad.scss]
     title-slide-attributes: 
       data-background-image: "Horizontal_RGB_294_White.png"
       data-background-position: top left
@@ -31,6 +31,8 @@ getwd()
 source("../../../Methods Corner/misc/prep.r")
 
 ```
+
+
 
 ### Objectives of workshop sessions
 
@@ -95,30 +97,49 @@ Directed Acyclic Graphs (DAGs)
 
 ### The four confounds
 
+
+
 ```{r fig.align="center", fig.height=4.5, fig.width=5}
 include_graphics("DAG confounds 2.png")
 ```
 
+
+
 ### The Fork
+
+
 
 ```{r fig.align="center", fig.height=4.5, fig.width=5}
 include_graphics("DAG fork D crop.png")
 ```
 
+
+
 ### The Pipe
+
+
 
 ```{r fig.align="center", fig.height=4.5, fig.width=5}
 include_graphics("DAG pipe crop.png")
 ```
 
+
+
 ### The Collider
+
+
 
 ```{r fig.align="center", fig.height=4.5, fig.width=5}
 include_graphics("DAG collider crop.png")
 ```
 
+
+
 ### The Descendant
+
+
 
 ```{r fig.align="center", fig.height=4.5, fig.width=5}
 include_graphics("DAG descendant crop.png")
 ```
+

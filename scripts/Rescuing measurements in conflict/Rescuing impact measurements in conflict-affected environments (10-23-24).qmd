@@ -48,11 +48,13 @@ mistifull <- mistifull %>%
 
 By the end of this session, participants will
 
-- Understand complications to the popular difference-in-differences framework
+-   Understand the basic setup of quasi-experimental difference-in-differences
 
-- Recognize adjustments that can be made to handle additional complexity
+-   Understand how d-i-d generalizes to multiple time periods and groups, and how complications can arise from this generalization
 
-- Appreciate that generating defensible quasi-experimental impact estimates is difficult 
+-   Recognize adjustments that can be made to handle additional complexity
+
+-   Appreciate that generating defensible quasi-experimental impact estimates is difficult
 
 ### Outline of Presentation
 
@@ -77,6 +79,53 @@ By the end of this session, participants will
 -   Case study - MISTI
 -   Final thoughts
 
+### How Do We Do Difference-in-differences?
+
+-   Under randomized d-i-d, the pre-treatment measurement is used to improve precision
+
+-   Under quasi-experimental d-i-d, we depend on the trend to remove time-invariant sources of bias
+
+-   For this to work, we must demonstrate or convincingly argue for parallel trends
+
+-   If we justify parallel pre-treatment trends, then we can use the breaks in trends after treatment to estimate the treatment effect
+
+### test
+
+\textcolor{red}{easily}
+
+$\textcolor{red}{x+}2$
+
+$\textcolor{red}{/beta_0}$
+
+### Quasi-experimental d-i-d
+
+$y_{it}=\beta_0+\delta_{0,t}Post_t+\beta_{1,i}Treat_i+\delta_{1,it}Post_t*Treat_i+\epsilon_{it}$
+
+```{r}
+include_graphics("diff-in-diff_v1.png")
+```
+
+### What Does This Look Like
+
+|   Group    | Baseline | Endline | Difference |
+|:----------:|:--------:|:-------:|:----------:|
+| Treatment  |    12    |   18    |     6      |
+| Comparison |    14    |   16    |     2      |
+| Difference |    -2    |    2    |     4      |
+
+Treatment group difference = 18 - 12 = 6\
+Comparison group difference = 16 - 14 = 2\
+Treatment difference - Comparison difference = 6 - 2 = 4\
+Baseline difference - Endline difference = 2 - (-2) = 4
+
+### test
+
+|   Group    | Baseline | Endline | Difference |
+|:----------:|:--------:|:-------:|:----------:|
+| Comparison |    14    |   16    |     2      |
+| Treatment  |    12    |   18    |     6      |
+| Difference |    -2    |    2    |     4      |
+
 ### What is the Canonical d-i-d Setup?
 
 $y_{it}=\beta_0+\delta_{0,t}Post_t+\beta_{1,i}Treat_i+\delta_{1,it}Post_t*Treat_i+\epsilon_{it}$
@@ -85,27 +134,35 @@ where..
 
 $\beta_0$ is the comparison group at baseline
 
-$\delta_0$ is the secular change from baseline to endline, unrelated to treatment
+$\delta_0$ is the change in comparison group from baseline to endline
 
-$\beta_1$ is the difference between the treatment and comparison groups at baseline, and
+$\beta_1$ is the baseline difference between the treatment and comparison
 
 $\delta_1$ is the treatment effect, the interaction of treatment and time
 
-------------------------------------------------------------------------
+### test
 
-Algebraically, $\delta_0$ can be expressed as the difference between the pre/post difference in each of the treatment and comparison groups
+$y_{it}=\beta_0+\delta_{0,t}Post_t+\beta_{1,i}Treat_i+\delta_{1,it}Post_t*Treat_i+\epsilon_{it}$
 
-$\delta_1=$
+$y_{it}=14 + 2\times Post_t + -2\times Treat_i + 4\times{Post_t*Treat_i} + \epsilon_{it}$
 
-$(\bar{y}_{POST,TREAT}-\bar{y}_{PRE,TREAT})$
+| Group | Baseline | Endline | Difference |
+|:-----------------:|:---------------:|:---------------:|:-----------------:|
+| Comparison | 14 | 16 | 2 |
+|  | $\beta_0$ | $\beta_0+\delta_0$ | $\delta_0$ |
+| Treatment | 12 | 18 | 6 |
+|  | $\beta_0+\beta_1$ | $\beta_0+\delta_0+\beta_1+\delta_1$ | $\delta_0+\delta_1$ |
+| Difference | -2 | 2 | 4 |
+|  | $\beta_1$ | $\beta_1 + \delta_1$ | $\delta_1$ |
 
-$-$
+### test
 
-$(\bar{y}_{POST,COMPARISON}-\bar{y}_{PRE,COMPARISON})$
-
-hence, difference-in-differences (d-i-d or DiD or DD)
-
-------------------------------------------------------------------------
+|   Group    |  Baseline  | Endline | Difference |
+|:----------:|:----------:|:-------:|:----------:|
+| Treatment  |     12     |   18    |     6      |
+|            | $/delta_0$ |         |            |
+| Comparison |     14     |   16    |     2      |
+| Difference |     -2     |    2    |     4      |
 
 ### Canonical d-i-d, 2x2
 
@@ -116,8 +173,6 @@ $y_{it}=\beta_0+\delta_{0,t}Post_t+\beta_{1,i}Treat_i+\delta_{1,it}Post_t*Treat_
 | Comparison | $\beta_0$ | $\beta_0+\delta_0$ | $\delta_0$ |
 | Treatment | $\beta_0+\beta_1$ | $\beta_0+\delta_0+\beta_1+\delta_1$ | $\delta_0+\delta_1$ |
 | Treatment - Comparison | $\beta_1$ | $\beta_1 + \delta_1$ | $\delta_1$ |
-
-------------------------------------------------------------------------
 
 ### Generalizing d-i-d to Many Periods/Groups
 
@@ -140,8 +195,6 @@ $B^{DD}_{it}$ indicates whether group *i* in period *t* is treated
 -   Solutions
 -   Case study - MISTI
 -   Final thoughts
-
-------------------------------------------------------------------------
 
 ### But What is $\beta^{DD}_{it}$ Actually Telling Us?
 
@@ -189,14 +242,16 @@ include_graphics("Baker panel d replication.png")
 
 -   TWFE treats some data that is under treatment status as comparison!
 -   Not an issue under constant treatment effect
-    -   stable unit treatment value (SUTVA)
-    -   no variation in treatment effect for any reason
+    -   Stable unit treatment value (SUTVA)
+    -   No variation in treatment effect for any reason
 
-### But TWFE Fails Under Following Conditions:
+### TWFE Fails
 
--   different treatment groups have different treatment effects
--   treatment effects are dynamic over post-treatment periods
--   heterogeneous treatment effects across sub-groups within a treated group
+But TWFE fails under the following conditions:
+
+-   Different treatment groups have different treatment effects
+-   Treatment effects are dynamic over post-treatment periods
+-   Heterogeneous treatment effects across sub-groups within a treated group
 
 ### Definitely a Problem
 
@@ -241,41 +296,21 @@ include_graphics("MISTI map.jpg")
 
 ### MISTI Treatment Timings
 
-| Wave  | Comparison<br>villages |  Treated<br>villages | Treated villages<br>cumulative  |
-|---|---|---|---|
-| 1  |  355 | 0   | 0  |
-| 2  |  341 | 14  | 14  |
-| 3  |  322 | 19  | 33  |
-| 4  |  302 | 20  | 53  |
-| 5  |  270 | 32  | 85  |
-
-### MISTI Treatment Timings
-
-```{r}
-read_excel("MISTI treatment timings.xlsx") %>%
-  gt() %>%
-  opt_table_font(font="Gill Sans Mt",
-                 size=16) %>%
-  cols_align(align="center") 
-
-```
+| Wave | Comparison<br>Villages | Treated<br>Villages | Cumulative<br>Treated |
+|------|------------------------|---------------------|-----------------------|
+| 1    | 355                    | 0                   | 0                     |
+| 2    | 341                    | 14                  | 14                    |
+| 3    | 322                    | 19                  | 33                    |
+| 4    | 302                    | 20                  | 53                    |
+| 5    | 270                    | 32                  | 85                    |
 
 ### Single-wave Analysis
 
--   Final reporting of MISTI relied on a series of single-wave estimations
+Final reporting of MISTI relied on a series of single-wave estimations
 
-```{r echo=F}
-wav <- read_excel("MISTI tables.xlsx", sheet="wave outcomes")
-
-wav %>%
-  slice(1) %>%
-  gt() %>%
-  opt_table_font(font="Gill Sans Mt",
-                 size=16) %>%
-  cols_align(align="center") 
-```
-
-------------------------------------------------------------------------
+| Measure   | Wave 2-4 | Wave 2-5 | Wave 3-4 | Wave 4-5 | Wave 3-5 |
+|-----------|----------|----------|----------|----------|----------|
+| Stability | .031     | .043     | .003     | -.039    | -.002    |
 
 ### MISTI Two Way Fixed Effects (TWFE)
 
@@ -284,17 +319,21 @@ $y_{it}=\alpha_i+\alpha_t+\beta^{DD}_{it}+\epsilon_{it}$
 $y_{it}=village_i+wave_t+treated^{DD}_{it}+\epsilon_{it}$
 
 ```{r}
-twfe <- lm(stab_std ~ treat_event + as.factor(village) + as.factor(wave),
-           data=mistifull) %>%
-  tidy()
-
-twfe[2,] %>%
-  gt() %>%
-  opt_table_font(font="Gill Sans Mt",
-                 size=16) %>%
-  cols_align(align="center") 
+# twfe <- lm(stab_std ~ treat_event + as.factor(village) + as.factor(wave),
+#            data=mistifull) %>%
+#   tidy()
+# 
+# twfe[2,] %>%
+#   gt() %>%
+#   opt_table_font(font="Gill Sans Mt",
+#                  size=16) %>%
+#   cols_align(align="center") 
 
 ```
+
+| Term      | Estimate | Standard<br>Error | 't-statistic' | 'p-value' |     |
+|-----------|----------|-------------------|---------------|-----------|-----|
+| Treatment | -.0389   | .0947             | -.411         | .681      |     |
 
 ### Diagnostic: the Bacon Decomposition
 
@@ -302,29 +341,13 @@ twfe[2,] %>%
 -   The decomposition will also calculate the variance-weights used in regression to see which 2x2 cells are powering the overall estimate
 -   After diagnosing a problem, the researcher can correct for the bias by using the newer estimators
 
-### MISTI bacondecomp
-
-```{r}
+```{r include=F}
 
 mistibacon <- bacon(stab_std ~ treat_event,
                     data=mistifull,
                     id_var="village",
-                    time_var="wave") %>%
-  arrange(treated, untreated) %>%
-  gt()
+                    time_var="wave") 
 
-```
-
-```{r}
-
-mistibacon_coef <- sum(mistibacon$estimate * mistibacon$weight)
-mistibacon_coef 
-
-twfe[2,] %>%
-  gt() %>%
-  opt_table_font(font="Gill Sans Mt",
-                 size=16) %>%
-  cols_align(align="center") 
 ```
 
 ### MISTI bacondecomp 2x2 Cells
@@ -342,9 +365,9 @@ mistibacon %>%
 
 ```{r echo=F, fig.height=4, fig.width=6}
 
-ot <- data.frame(mistibacon)
+#ot <- data.frame(mistibacon)
 
-ggplot(ot) +
+ggplot(mistibacon) +
   aes(x = weight, y = estimate, shape = factor(type), color=as.factor(type)) +
   labs(x = "Weight", y = "Estimate", shape = "Type", color="Type") +
   geom_point() + 
@@ -353,6 +376,26 @@ ggplot(ot) +
   scale_color_viridis_d() + 
   faceted + 
   theme(legend.title=element_blank())
+```
+
+### MISTI bacondecomp
+
+```{r}
+
+bacon(stab_std ~ treat_event,
+                    data=mistifull,
+                    id_var="village",
+                    time_var="wave") 
+
+mistibacon_coef <- sum(mistibacon$estimate * mistibacon$weight)
+
+mistibacon_coef 
+
+# twfe[2,] %>%
+#   gt() %>%
+#   opt_table_font(font="Gill Sans Mt",
+#                  size=16) %>%
+#   cols_align(align="center") 
 ```
 
 ### Callaway and Sant'Anna (2021)
@@ -418,40 +461,6 @@ cal_simple <- aggte(cal, type="simple")
 #cal_simple
 ```
 
-### Dynamic Treatment Effects
-
-```{r include=F}
-cal_dyn <- aggte(cal, type="dynamic")
-#cal_dyn
-```
-
-```{r warning=F, echo=F}
-cal_dyn_out <- data.frame(time=-3:3,
-                           att_dyn = cal_dyn$att.egt,
-                           att_dyn_se = cal_dyn$se.egt) %>%
-  mutate(lower=att_dyn - 1.96*att_dyn_se,
-         upper = att_dyn + 1.96*att_dyn_se,
-         col=c(rep("firebrick", 3), rep("darkblue", 4)))
-
-ggplot(cal_dyn_out, aes(x=time, y=att_dyn)) + 
-  geom_hline(yintercept=0, size=1, color="darkgrey", alpha=.6) +
-  geom_point(aes(color=time<0)) + 
-  geom_errorbar(aes(ymin=lower, ymax=upper, color=time<0), width=0, size=1) +
-  geom_label(aes(label=round(att_dyn,2), color=time<0),
-             show.legend=F) +
-  scale_color_manual(values=c("TRUE"="firebrick","FALSE" = "darkblue"),
-                     labels=c("Not yet treated", "Treatment")) +
-  theme(legend.title=element_blank(),
-        legend.position="bottom") +
-  scale_x_continuous(breaks=-3:3) +
-  scale_y_continuous(limits=c(-.5,1.5)) +
-  labs(x="Time to treatment",
-       y="",
-       title="Dynamic treatment effects, Stability",
-       caption="Measured in standard deviation units
-       Callaway Sant'Anna did") 
-```
-
 ### Overall Effects by Cohort
 
 ```{r include=F}
@@ -493,7 +502,13 @@ ggplot(cal_grp_out, aes(att_grp, fct_rev(cohort))) + #, group=as.factor(group)))
 -   Case study - MISTI
 -   **Final thoughts**
 
-### What Have We Learned?
+### What Have We Learned About MISTI?
+
+-   Using the newer econometric estimators, we were able to show dynamic treatment effects across time
+-   These dynamic effects highlighted initial success of the 2010 surge
+-   Early success gradually declined until the legitimacy crisis of the 2014 election
+
+### What Have We Learned About Evaluation?
 
 -   In certain settings, two-way fixed effects estimation is biased in ways that we only recently came to realize
 -   We have to carefully think through the data generating process (logic modeling) for each individual setting

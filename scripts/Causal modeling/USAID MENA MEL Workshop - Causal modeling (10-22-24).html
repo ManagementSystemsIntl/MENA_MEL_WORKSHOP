@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="USAID MENA MEL Workshop - Machine learning_files/libs/clipboard/clipboard.min.js"></script>
-<script src="USAID MENA MEL Workshop - Machine learning_files/libs/quarto-html/tabby.min.js"></script>
-<script src="USAID MENA MEL Workshop - Machine learning_files/libs/quarto-html/popper.min.js"></script>
-<script src="USAID MENA MEL Workshop - Machine learning_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="USAID MENA MEL Workshop - Machine learning_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="USAID MENA MEL Workshop - Machine learning_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="USAID MENA MEL Workshop - Machine learning_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="USAID MENA MEL Workshop - Machine learning_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/clipboard/clipboard.min.js"></script>
+<script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/tabby.min.js"></script>
+<script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/popper.min.js"></script>
+<script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Machine Learning</title>
+  <title>Causal modeling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,13 +29,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -327,725 +325,104 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#002F6C" data-background-image="Horizontal_RGB_294_White.png" data-background-position="top left" data-background-size="25%" class="quarto-title-block center">
-  <h1 class="title">Machine Learning</h1>
+  <h1 class="title">Causal modeling</h1>
   <p class="subtitle">USAID MENA Advanced MEL Workshop</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="session-objectives" class="slide level3">
-<h3>Session Objectives</h3>
-<p>By the end of this session, you should be able to..</p>
+<section id="objectives-of-workshop-sessions" class="slide level3">
+<h3>Objectives of workshop sessions</h3>
 <ul>
-<li><p>Understand basic concepts of machine learning</p></li>
-<li><p>Recognize the distinction between supervised and unsupervised learning</p></li>
-<li><p>Recognize the most common machine learning algorithms and how they are applied in development settings</p></li>
+<li>Introduce advanced-level content around Monitoring, Evaluation, and Learning (MEL)</li>
+<li>Review current trends in data analytics, causal inference, machine learning, and Artificial General Intelligence (AGI)</li>
+</ul>
+</section>
+<section id="benchmarks-for-success" class="slide level3">
+<h3>Benchmarks for success</h3>
+<p>By the end of this session, participants will be able to:</p>
+<ul>
+<li><p>Understand USAID practice around causal modeling</p></li>
+<li><p>Introduce new analytical developments that can extend USAID practice of causal modeling and link it to impact evaluation and learning agendas</p></li>
+<li><p>Identify management opportunities to incorporate best practice and new trends into activity implementation</p></li>
+</ul>
+</section>
+<section id="benchmarks-for-success-1" class="slide level3">
+<h3>Benchmarks for success</h3>
+<p><em>Bonus content:</em></p>
+<ul>
+<li></li>
+<li></li>
 </ul>
 </section>
 <section id="level-set" class="slide level3" data-background-color="#002F6C">
 <h3><span style="color:white;">Level Set</span></h3>
-<p>How does USAID do machine learning?</p>
+<p>How does USAID do causal modeling?</p>
 <ul>
-<li><p><a href="https://www.usaid.gov/sites/default/files/2022-05/Vital_Wave_USAID-AIML-FieldGuide_FINAL_VERSION_1.pdf">Managing Machine Learning Projects in International Development</a></p></li>
-<li><p><a href="https://www.usaid.gov/sites/default/files/2022-05/AI-ML-in-Development.pdf">Making AI Work for International Development</a></p></li>
+<li><a href="https://www.usaid.gov/sites/default/files/2024-05/201_051524_1.pdf">ADS 201</a></li>
+<li><a href="https://usaidlearninglab.org/system/files/resource/files/project_logic_model_how_to_note_final_sep1.pdf">How-To Note: Developing a Project Logic Model</a></li>
+<li><a href="https://pdf.usaid.gov/pdf_docs/pbaab555.pdf">Technical Note: The Logical Framework</a></li>
+<li><a href="https://blog.fracturedatlas.org/in-defense-of-logic-models-31b8fa387cfd">In Defense of Logic Models</a></li>
 </ul>
 </section>
-<section id="what-is-machine-learning" class="slide level3">
-<h3>What is Machine Learning?</h3>
+<section id="logic-model" class="slide level3">
+<h3>Logic model</h3>
 <ul>
-<li><p>Machine learning is a collection of algorithms that learn from data</p></li>
-<li><p>Machine learning attempts to learn the data so well that it can tell you what to expect with new data you haven’t seen yet</p></li>
-<li><p>Machine learning algorithms can be broadly classified into unsupervised or supervised</p></li>
-</ul>
-</section>
-<section id="how-machine-learning-is-different" class="slide level3">
-<h3>How Machine Learning is Different</h3>
-<p>What are the defining characteristics of machine learning?</p>
+<li><p>A graphic or visual depiction of a theory of change that illustrates the connection between what a strategy, project, or activity will do and what it hopes to achieve</p></li>
+<li><p>There are a wide range of logic models</p>
 <ul>
-<li><p>Prediction vs.&nbsp;causation</p></li>
-<li><p>Bias vs.&nbsp;variance</p></li>
-<li><p>Over- vs.&nbsp;under-fitting</p></li>
-</ul>
-</section>
-<section id="prediction-vs.-causation" class="slide level3">
-<h3>Prediction vs.&nbsp;Causation</h3>
-<ul>
-<li><p>Descriptive or exploratory analysis helps us understand our data</p></li>
-<li><p>Causal inference helps us understand the relationships between variables of interest</p></li>
-<li><p>Machine learning tries to learn our data so well that it can predict future data!</p></li>
-</ul>
-</section>
-<section id="bias-vs.-variance" class="slide level3">
-<h3>Bias vs.&nbsp;Variance</h3>
-<ul>
-<li><p>The causal inference tradition seeks to eliminate bias first, then looks to improve efficiency by reducing variance</p></li>
-<li><p>Machine learning doesn’t care about bias</p></li>
-<li><p>In fact, sometimes machine learning can actually use bias to reduce uncertainty</p></li>
-</ul>
-</section>
-<section id="underfitting-vs.-overfitting" class="slide level3">
-<h3>Underfitting vs.&nbsp;Overfitting</h3>
-<ul>
-<li><p>Standard analysis will take the data as given, and seek to understand it</p></li>
-<li><p>More advanced analysis may try to <em>explain</em> the given data</p></li>
-<li><p>Machine learning algorithms are evaluated according to how well they work on data they haven’t seen yet</p>
-<ul>
-<li>Run algorithms on training data, evaluate performance on test data</li>
+<li>Results Framework</li>
+<li>LogFrame</li>
+<li>Causal loop diagram</li>
 </ul></li>
 </ul>
 </section>
-<section id="unsupervised-and-supervised-learning" class="slide level3" data-background-color="#002F6C">
-<h3><span style="color:white;">Unsupervised and Supervised Learning</span></h3>
-</section>
-<section id="unsupervised-learning" class="slide level3">
-<h3>Unsupervised Learning</h3>
+<section id="results-framework" class="slide level3">
+<h3>Results Framework</h3>
 <ul>
-<li>We have a set of variables that we suspect or have reason to believe are related to each other in some way</li>
-<li>Is there any hidden structure in the data that standard analysis would not find?</li>
-<li>The task is to find patterns that we can then turn into new variables that capture the patterns</li>
+<li>A type of logic model representing the development hypothesis of a USAID mission’s strategy</li>
+<li>Diagrams the causal links between the strategy’s Goal, Development Objectives (DOs), and Intermediate Results (IRs)</li>
 </ul>
 </section>
-<section id="algorithms-for-unsupervised-learning" class="slide level3">
-<h3>Algorithms for Unsupervised Learning</h3>
+<section id="logframe" class="slide level3">
+<h3>LogFrame</h3>
 <ul>
-<li>Clustering based on similarity
-<ul>
-<li>K-means, Latent Class Analysis, Density-Based Spatial Clustering</li>
-</ul></li>
-<li>Dimension reduction
-<ul>
-<li>Principal Component Analysis, Factor Analysis, Item Response Theory, Expectation Maximization</li>
-</ul></li>
+<li>Complements the CDCS Results Framework by carrying the development hypothesis through from the overall program/project to the supporting activities</li>
+<li>LogFrame replicates the causal linkages, but starting from a Development Objective and ending with activity inputs</li>
+<li>While the Results Framework is a strategic planning tool, an activity’s Logical Framework defines exactly what resources are needed to achieve results</li>
 </ul>
 </section>
-<section id="clusters-in-data" class="slide level3">
-<h3>Clusters in Data</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="causal-loop-diagram" class="slide level3">
+<h3>Causal loop diagram</h3>
 <ul>
-<li>Clustering algorithms minimize variance between data points, or use a distance metric</li>
-<li>Clustering is difficult when there is overlap between clusters</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="overlapping%20and%20non-overlapping%20clusters.png" width="1050"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="correlations-in-data" class="slide level3">
-<h3>Correlations in Data</h3>
-<ul>
-<li><p>Principal components analysis (PCA) attempts to capture as much of the total variance as possible in a single or few variables</p></li>
-<li><p>Factor analysis (FA) attempts to capture common variance among a set of variables</p></li>
+<li>Identifies the primary variables of a complex system and visualizes their relationships</li>
 </ul>
 </section>
-<section id="total-and-common-variance" class="slide level3">
-<h3>Total and Common Variance</h3>
-
-<img data-src="Total%20and%20common%20variance.png" width="506" class="r-stretch"></section>
-<section id="total-variance-of-household-assets" class="slide level3">
-<h3>Total Variance of Household Assets</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div id="bamtohdjuq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bamtohdjuq table {
-  font-family: 'Gill Sans Mt', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#bamtohdjuq thead, #bamtohdjuq tbody, #bamtohdjuq tfoot, #bamtohdjuq tr, #bamtohdjuq td, #bamtohdjuq th {
-  border-style: none;
-}
-
-#bamtohdjuq p {
-  margin: 0;
-  padding: 0;
-}
-
-#bamtohdjuq .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#bamtohdjuq .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#bamtohdjuq .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#bamtohdjuq .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#bamtohdjuq .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#bamtohdjuq .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#bamtohdjuq .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#bamtohdjuq .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#bamtohdjuq .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#bamtohdjuq .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#bamtohdjuq .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#bamtohdjuq .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#bamtohdjuq .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#bamtohdjuq .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#bamtohdjuq .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bamtohdjuq .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#bamtohdjuq .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#bamtohdjuq .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#bamtohdjuq .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bamtohdjuq .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#bamtohdjuq .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bamtohdjuq .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#bamtohdjuq .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bamtohdjuq .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bamtohdjuq .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bamtohdjuq .gt_left {
-  text-align: left;
-}
-
-#bamtohdjuq .gt_center {
-  text-align: center;
-}
-
-#bamtohdjuq .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#bamtohdjuq .gt_font_normal {
-  font-weight: normal;
-}
-
-#bamtohdjuq .gt_font_bold {
-  font-weight: bold;
-}
-
-#bamtohdjuq .gt_font_italic {
-  font-style: italic;
-}
-
-#bamtohdjuq .gt_super {
-  font-size: 65%;
-}
-
-#bamtohdjuq .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#bamtohdjuq .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#bamtohdjuq .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#bamtohdjuq .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#bamtohdjuq .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#bamtohdjuq .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#bamtohdjuq .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#bamtohdjuq .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#bamtohdjuq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="header gt_col_headings">
-<th id="Household-item" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Household item</th>
-<th id="Mean-of-household-ownership" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Mean of household ownership</th>
-<th id="Standard-deviation" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Standard deviation</th>
-<th id="Factor-Weight" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Factor Weight</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="Household item">Table</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">3.496</td>
-<td class="gt_row gt_center" headers="Standard deviation">3.359</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.097</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="Household item">Fan</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">1.495</td>
-<td class="gt_row gt_center" headers="Standard deviation">1.502</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.095</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Household item">Mobile</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">1.945</td>
-<td class="gt_row gt_center" headers="Standard deviation">1.265</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.091</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="Household item">Bed</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">2.623</td>
-<td class="gt_row gt_center" headers="Standard deviation">1.245</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.091</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Household item">Cabinet</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">1.656</td>
-<td class="gt_row gt_center" headers="Standard deviation">1.543</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.090</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="Household item">SofaSet</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">0.175</td>
-<td class="gt_row gt_center" headers="Standard deviation">0.436</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.086</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Household item">Refrigerator</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">0.155</td>
-<td class="gt_row gt_center" headers="Standard deviation">0.387</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.082</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="Household item">Dressing Table</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">0.191</td>
-<td class="gt_row gt_center" headers="Standard deviation">0.459</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.081</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="Household item">Charger Light</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">0.553</td>
-<td class="gt_row gt_center" headers="Standard deviation">0.823</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.080</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="Household item">Trunk</td>
-<td class="gt_row gt_center" headers="Mean of household ownership">0.673</td>
-<td class="gt_row gt_center" headers="Standard deviation">1.222</td>
-<td class="gt_row gt_center" headers="Factor Weight">0.077</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
+<section id="new-directions" class="slide level3" data-background-color="#002F6C">
+<h3><span style="color:white;">New directions</span></h3>
+<p>Directed Acyclic Graphs (DAGs)</p>
 </section>
-<section id="common-variance-of-media-profiles" class="slide level3">
-<h3>Common Variance of Media Profiles</h3>
-<p>What media or other sources do you turn to for news and information?</p>
+<section id="the-four-confounds" class="slide level3">
+<h3>The four confounds</h3>
 
-<img data-src="Media%20profile%20factor%20loadings.png" width="1200" class="r-stretch"></section>
-<section id="supervised-learning" class="slide level3">
-<h3>Supervised Learning</h3>
-<ul>
-<li>Now we have data that we know is related to some target variable</li>
-<li>How well can we use the data to hit the target?</li>
-<li>The task is now prediction/classification</li>
-</ul>
-</section>
-<section id="using-features-to-predict-a-target" class="slide level3">
-<h3>Using Features to Predict a Target</h3>
-<p>Previously we just had features. Now we have features that predict a target.</p>
+<img data-src="DAG%20confounds%202.png" class="quarto-figure quarto-figure-center r-stretch" width="684"></section>
+<section id="the-fork" class="slide level3">
+<h3>The Fork</h3>
 
-<img data-src="three%20distributions.png" width="1200" class="r-stretch quarto-figure-center"><p class="caption">Interested in that spiral thingy? See https://www.mathnasium.com/blog/golden-ratio-in-nature</p></section>
-<section id="algorithms-for-supervised-learning" class="slide level3">
-<h3>Algorithms for Supervised Learning</h3>
-<ul>
-<li>Conditional Inference Trees/Random Forests: Break data into branches for classification and regression tasks</li>
-<li>Gradient Descent: Minimizes error by iterating through partial derivatives</li>
-<li>Neural Networks: Identifies ‘hidden layers’ in complex data to conduct deep learning tasks</li>
-</ul>
-</section>
-<section id="supervised-learning---conditional-inference-tree" class="slide level3">
-<h3>Supervised learning - Conditional Inference Tree</h3>
-<p>Conditional inference trees crawl through your data, split everything into different pathways (branches), and retain the branches that capture the most variation</p>
-<ul>
-<li>Advantage: identifies interesting sub-groups to explore further</li>
-<li>Disadvantage: Overfits your data!</li>
-</ul>
-</section>
-<section class="slide level3">
+<img data-src="DAG%20fork%20D%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="199"></section>
+<section id="the-pipe" class="slide level3">
+<h3>The Pipe</h3>
 
+<img data-src="DAG%20pipe%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="194"></section>
+<section id="the-collider" class="slide level3">
+<h3>The Collider</h3>
 
-<img data-src="Iraq%20decision%20tree.png" width="312" class="r-stretch"></section>
-<section id="supervised-learning---random-forest" class="slide level3">
-<h3>Supervised learning - Random Forest</h3>
-<p>Random forests makes predictions using a large number of trees</p>
+<img data-src="DAG%20collider%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="206"></section>
+<section id="the-descendant" class="slide level3">
+<h3>The Descendant</h3>
 
-<img data-src="Causal%20forest%20estimates%202.png" width="352" class="r-stretch quarto-figure-center"><p class="caption">Heterogeneous treatment effects on household income</p></section>
-<section id="from-machine-learning-to-agi" class="slide level3">
-<h3>From Machine Learning to AGI</h3>
-<ul>
-<li><p>We’ve mentioned how machine learning is about the use of algorithms to learn from data</p></li>
-<li><p>What happens if the algorithms learn from data, and then use that learning to improve themselves and run again?</p></li>
-<li><p>Artificial General Intelligence (AGI) refers to algorithms that seem to us like thinking and reasoning human intelligences</p></li>
-</ul>
-</section>
-<section id="learn-from-your-data-then-learn-from-what-you-learn" class="slide level3">
-<h3>Learn from Your Data, Then Learn from What You Learn</h3>
-
-<img data-src="AI%20graphic.png" width="436" class="r-stretch"></section>
-<section id="welcoming-our-new-machine-learning-overlords" class="slide level3">
-<h3>Welcoming Our New Machine Learning Overlords</h3>
-<ul>
-<li><p>Currently, the closest we have to AGI are the Large Language Models that power ChatGPT and other chatbots</p></li>
-<li><p>“In the next couple of decades, we will be able to do things that would have seemed like magic to our grandparents.”<br>
-[Sam Altman, 9-23-24]</p></li>
-<li><p>Stay tuned for next session on Large Language Models!</p></li>
-</ul>
-<p>Thank you!</p>
-<div class="quarto-auto-generated-content">
+<img data-src="DAG%20descendant%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="199"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
@@ -1055,20 +432,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="USAID MENA MEL Workshop - Machine learning_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1082,8 +458,7 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1254,7 +629,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,

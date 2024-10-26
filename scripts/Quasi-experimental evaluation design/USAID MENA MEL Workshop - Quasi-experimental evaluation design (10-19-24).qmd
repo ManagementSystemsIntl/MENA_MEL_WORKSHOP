@@ -61,7 +61,7 @@ We want to know the causal effect of an activity on its beneficiaries
 
 -   We established the switching equation $Y_i=D_iY_i^1+(1-D_i)Y_i^0$ mapping a potential treatment assignment to a potential outcome
 
--   We applied the switching equation to potential outcomes in order to arrive at the differnce-in-means estimator
+-   We applied the switching equation to potential outcomes in order to arrive at the difference-in-means estimator
 
 - We decomposed the difference-in-means estimator into the average treatment effect on the treated  and selection bias
 
@@ -169,7 +169,7 @@ include_graphics("Baker three timings replication.png")
 -   Interrupted times series allows a within-comparison (itself) and avoids a between-comparison (something else)
 
 ```{r}
-include_graphics("interrupted time series no title.png")
+include_graphics("intt-time-series_v1.png")
 
 ```
 
@@ -202,7 +202,7 @@ include_graphics("RD graphic 2 crop.png")
 
 RD applies in any situation where there is a running (score) variable with an arbitrary cutoff that creates 'as-if' randomization
 
-![](all%20deaths%20by%20age.png)
+![](alcohol-consumption_v3.png)
 
 ```{r}
 #include_graphics("all deaths by age.png")

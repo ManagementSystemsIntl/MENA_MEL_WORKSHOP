@@ -1,22 +1,23 @@
 ---
-title: "Machine learning"
+title: "Machine Learning"
 subtitle: "USAID MENA Advanced MEL Workshop"
-date: "Latest version: `r Sys.Date()`"
+#date: "Latest version: `r Sys.Date()`"
 format: 
   revealjs:
     #logo: "USAID logo.png"
-    slide-number: true
+    slide-number: false
     slide-level: 3
     transition: slide
     #transition-speed: fast
     background-transition: fade
-    incremental: true
-    footer: "USAID MENA Advanced MEL Workshop"
+    incremental: false
+    #footer: "USAID MENA Advanced MEL Workshop"
     theme: [default, usaid notepad.scss]
     title-slide-attributes: 
-      data-background-image: "USAID logo.png"
+      data-background-image: "Horizontal_RGB_294_White.png"
       data-background-position: top left
       data-background-size: 25%
+      data-background-color: "#002F6C"
 editor: visual
 chalkboard: true
 ---
@@ -32,29 +33,25 @@ source("../../../Methods Corner/misc/prep.r")
 
 ```
 
-### Welcome!
-
--   Who we are
--   What we do
--   How we hope to help you
-
-### Benchmarks for success
+### Session Objectives
 
 By the end of this session, you should be able to..
 
 -   Understand basic concepts of machine learning
 
--   Recognize the most common algorithms and how they are applied in development settings
+-   Recognize the distinction between supervised and unsupervised learning
+
+-   Recognize the most common machine learning algorithms and how they are applied in development settings
 
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
-How does USAID do machine learning? 
+How does USAID do machine learning?
 
-- [Managing Machine Learning Projects in International Development](https://www.usaid.gov/sites/default/files/2022-05/Vital_Wave_USAID-AIML-FieldGuide_FINAL_VERSION_1.pdf)
+-   [Managing Machine Learning Projects in International Development](https://www.usaid.gov/sites/default/files/2022-05/Vital_Wave_USAID-AIML-FieldGuide_FINAL_VERSION_1.pdf)
 
-- [Making AI Work for International Development](https://www.usaid.gov/sites/default/files/2022-05/AI-ML-in-Development.pdf)
+-   [Making AI Work for International Development](https://www.usaid.gov/sites/default/files/2022-05/AI-ML-in-Development.pdf)
 
-### What is machine learning?
+### What is Machine Learning?
 
 -   Machine learning is a collection of algorithms that learn from data
 
@@ -62,7 +59,7 @@ How does USAID do machine learning?
 
 -   Machine learning algorithms can be broadly classified into unsupervised or supervised
 
-### How machine learning is different
+### How Machine Learning is Different
 
 What are the defining characteristics of machine learning?
 
@@ -106,14 +103,14 @@ What are the defining characteristics of machine learning?
 -   Is there any hidden structure in the data that standard analysis would not find?
 -   The task is to find patterns that we can then turn into new variables that capture the patterns
 
-### Algorithms for unsupervised learning
+### Algorithms for Unsupervised Learning
 
 -   Clustering based on similarity
     -   K-means, Latent Class Analysis, Density-Based Spatial Clustering
 -   Dimension reduction
-    -   Principal Component Analysis, Factor Analysis, Item Response Theory
+    -   Principal Component Analysis, Factor Analysis, Item Response Theory, Expectation Maximization
 
-### Clusters in data
+### Clusters in Data
 
 ::::: columns
 ::: {.column width="50%"}
@@ -129,19 +126,19 @@ include_graphics("overlapping and non-overlapping clusters.png")
 :::
 :::::
 
-### Correlations in data
+### Correlations in Data
 
 -   Principal components analysis (PCA) attempts to capture as much of the total variance as possible in a single or few variables
 
 -   Factor analysis (FA) attempts to capture common variance among a set of variables
 
-### Total and common variance
+### Total and Common Variance
 
 ```{r}
 include_graphics("Total and common variance.png")
 ```
 
-### Total variance of household assets
+### Total Variance of Household Assets
 
 ```{r}
 
@@ -149,11 +146,14 @@ assets <- read_excel("Asset factor weights.xlsx")
 
 assets %>%
   slice(1:10) %>%
-  flextable()
+  gt() %>%
+  opt_table_font(font="Gill Sans Mt",
+                 size=16) %>%
+  cols_align(align="center") 
 
 ```
 
-### Common variance of media profiles
+### Common Variance of Media Profiles
 
 What media or other sources do you turn to for news and information?
 
@@ -167,7 +167,7 @@ include_graphics("Media profile factor loadings.png")
 -   How well can we use the data to hit the target?
 -   The task is now prediction/classification
 
-### Using features to predict a target
+### Using Features to Predict a Target
 
 Previously we just had features. Now we have features that predict a target.
 
@@ -176,9 +176,8 @@ Previously we just had features. Now we have features that predict a target.
 include_graphics("three distributions.png")
 ```
 
-### Algorithms for supervised learning
+### Algorithms for Supervised Learning
 
--   Expectation maximization: Iteratively updates probabilities using Bayes' Rule
 -   Conditional Inference Trees/Random Forests: Break data into branches for classification and regression tasks
 -   Gradient Descent: Minimizes error by iterating through partial derivatives
 -   Neural Networks: Identifies 'hidden layers' in complex data to conduct deep learning tasks
@@ -206,7 +205,7 @@ include_graphics("Causal forest estimates 2.png")
 
 ```
 
-### From machine learning to AGI
+### From Machine Learning to AGI
 
 -   We’ve mentioned how machine learning is about the use of algorithms to learn from data
 
@@ -214,24 +213,20 @@ include_graphics("Causal forest estimates 2.png")
 
 -   Artificial General Intelligence (AGI) refers to algorithms that seem to us like thinking and reasoning human intelligences
 
-### Learn from your data, then learn from what you learn
+### Learn from Your Data, Then Learn from What You Learn
 
 ```{r}
 include_graphics("AI graphic.png")
 ```
 
-### Welcoming our new Machine Learning Overlords
+### Welcoming Our New Machine Learning Overlords
 
 -   Currently, the closest we have to AGI are the Large Language Models that power ChatGPT and other chatbots
 
--   "In the next couple of decades, we will be able to do things that would have seemed like magic to our grandparents."
-
-    -   Sam Altman, 9-23-24
+-   "In the next couple of decades, we will be able to do things that would have seemed like magic to our grandparents."  
+[Sam Altman, 9-23-24]
 
 -   Stay tuned for next session on Large Language Models!
 
 Thank you!
 
-### Bonus content
-
--   Getting under the hood of algorithms
