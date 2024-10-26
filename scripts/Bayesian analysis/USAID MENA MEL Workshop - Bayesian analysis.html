@@ -10,8 +10,7 @@
 <link href="USAID MENA MEL Workshop - Bayesian analysis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <meta name="dcterms.date" content="2024-09-27">
-  <title>Bayesian analysis</title>
+  <title>Bayesian Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -331,38 +330,30 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="USAID logo.png" data-background-position="top left" data-background-size="25%" class="quarto-title-block center">
-  <h1 class="title">Bayesian analysis</h1>
+<section id="title-slide" data-background-color="#002F6C" data-background-image="Horizontal_RGB_294_White.png" data-background-position="top left" data-background-size="25%" class="quarto-title-block center">
+  <h1 class="title">Bayesian Analysis</h1>
+  <p class="subtitle">USAID MENA Advanced MEL Workshop</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2024-09-27</p>
 </section>
-<section id="welcome" class="slide level3">
-<h3>Welcome!</h3>
-<ul>
-<li class="fragment">Who we are</li>
-<li class="fragment">What we do</li>
-<li class="fragment">How we hope to help you</li>
-</ul>
-</section>
-<section id="benchmarks-for-success" class="slide level3">
-<h3>Benchmarks for success</h3>
+<section id="session-objectives" class="slide level3">
+<h3>Session Objectives</h3>
 <p>By the end of this session, participants will be able to:</p>
 <ul>
-<li class="fragment"><p>Understand how to derive Bayes’ Rule from the laws of probability</p></li>
-<li class="fragment"><p>Understand how to interpret Bayes’ Rule in the context of a data analysis</p></li>
-<li class="fragment"><p>Understand how thinking like a Bayesian follows the scientific method and should be a normal part of our thinking about the world</p></li>
+<li><p>Understand how to derive Bayes’ Rule from the laws of probability</p></li>
+<li><p>Understand how to interpret Bayes’ Rule in the context of a data analysis</p></li>
+<li><p>Understand how thinking like a Bayesian follows the scientific method and should be a normal part of our thinking about the world</p></li>
 </ul>
 </section>
-<section id="benchmarks-for-success-1" class="slide level3">
-<h3>Benchmarks for success</h3>
+<section id="session-objectives-1" class="slide level3">
+<h3>Session Objectives</h3>
 <p><em>Bonus content:</em></p>
 <ul>
-<li class="fragment"><p>Setting Bayesian priors as qualitative research</p></li>
-<li class="fragment"><p>Naive Bayes’</p></li>
-<li class="fragment"><p>Expectation Maximization</p></li>
+<li><p>Setting Bayesian priors as qualitative research</p></li>
+<li><p>Naive Bayes’</p></li>
+<li><p>Expectation Maximization</p></li>
 </ul>
 </section>
 <section id="level-set" class="slide level3" data-background-color="#002F6C">
@@ -384,26 +375,26 @@
 <p><span class="math inline">\(P(AB)=\frac{AB}{U}\)</span></p>
 </section>
 <section id="how-much-of-a-is-in-b" class="slide level3">
-<h3>How much of A is in B?</h3>
+<h3>How Much of A is in B?</h3>
 
 <img data-src="venn-last.png" width="195" class="r-stretch"><p><span class="math inline">\(P(A|B)=\frac{P(AB)}{P(B)}\)</span></p>
 <p><span class="math inline">\(P(AB)=P(A|B)P(B)\)</span></p>
 </section>
 <section id="how-much-of-b-is-in-a" class="slide level3">
-<h3>How much of B is in A?</h3>
+<h3>How Much of B is in A?</h3>
 
 <img data-src="venn-last.png" width="195" class="r-stretch"><p><span class="math inline">\(P(B|A)=\frac{P(AB)}{P(A)}\)</span></p>
 <p><span class="math inline">\(P(AB)=P(B|A)P(A)\)</span></p>
 </section>
 <section id="putting-the-two-together" class="slide level3">
-<h3>Putting the two together</h3>
+<h3>Putting the Two Together</h3>
 <p>We can put the two identities together and solve for <span class="math inline">\(A|B\)</span>:</p>
 <p><span class="math inline">\(P(A|B)P(B)=P(B|A)P(A)\)</span></p>
 <p><span class="math inline">\(P(A|B)=\frac{P(B|A)P(A)}{P(B)}\)</span></p>
 <p>And that’s it. That’s Bayes’ Rule.</p>
 </section>
 <section id="bayes-rule-as-an-analytical-tool" class="slide level3">
-<h3>Bayes’ Rule as an analytical tool</h3>
+<h3>Bayes’ Rule as an Analytical Tool</h3>
 <p>We just used the laws of probability to derive Bayes’ Rule:</p>
 <p><span class="math inline">\(P(A|B)=\frac{P(B|A)P(A)}{P(B)}\)</span></p>
 <p>Now let’s use this in the context of a data analysis</p>
@@ -417,75 +408,179 @@
 <p><span class="math inline">\(P(model)\)</span>: the prior probability of the model, before data</p>
 </section>
 <section id="bayesian-inference---example-problem" class="slide level3">
-<h3>Bayesian inference - example problem</h3>
+<h3>Bayesian Inference - Example Problem</h3>
 <ul>
-<li class="fragment"><p>40 subjects, half randomly assigned a treatment</p></li>
-<li class="fragment"><p>The treatment is expected to reduce the probability of an event</p></li>
-<li class="fragment"><p>What is the probability <em>p</em> that an observed event occurred within the treatment group?</p></li>
+<li><p>40 subjects, half randomly assigned a treatment</p></li>
+<li><p>The treatment is expected to reduce the probability of an event</p></li>
+<li><p>What is the probability <em>p</em> that an observed event occurred within the treatment group?</p></li>
 </ul>
 </section>
 <section id="setting-up-our-hypotheses" class="slide level3">
-<h3>Setting up our hypotheses</h3>
+<h3>Setting Up Our Hypotheses</h3>
 <p><span class="math inline">\(H_0: p=50\%\)</span> No treatment effect</p>
 <p><span class="math inline">\(H_1: p \lt 50\%\)</span> Treatment effect</p>
 <ul>
-<li class="fragment"><p>20 events - 4 events in the treatment group and 16 events in the control group</p></li>
-<li class="fragment"><p>How likely are these four events to have occurred within the treatment group?</p></li>
+<li><p>20 events - 4 events in the treatment group and 16 events in the control group</p></li>
+<li><p>How likely are these four events to have occurred within the treatment group?</p></li>
 </ul>
 </section>
 <section id="setting-up-the-bayesian-engine" class="slide level3">
-<h3>Setting up the Bayesian engine</h3>
+<h3>Setting Up the Bayesian Engine</h3>
 <ol type="1">
-<li class="fragment">Set a range of plausible values (the model space)</li>
-<li class="fragment">Calculate the likelihood of the data for each plausible value</li>
-<li class="fragment">Set the prior probability of each plausible value</li>
-<li class="fragment">Multiply the likelihood by the prior (numerator)</li>
-<li class="fragment">Divide by the denominator to get the posterior probability</li>
+<li>Set a range of plausible values (the model space)</li>
+<li>Calculate the likelihood of the data for each plausible value</li>
+<li>Set the prior probability of each plausible value</li>
+<li>Multiply the likelihood by the prior (numerator)</li>
+<li>Divide by the denominator to get the posterior probability</li>
 </ol>
 </section>
 <section id="results-of-the-bayesian-engine" class="slide level3">
-<h3>Results of the Bayesian engine</h3>
+<h3>Results of the Bayesian Engine</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-51daf626{table-layout:auto;}.cl-51d36a82{font-family:'Gill Sans MT';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-51d64d74{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-51d66782{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-51d6678c{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-51d6678d{background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-51d66796{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-51daf626"><thead><tr style="overflow-wrap:break-word;"><th class="cl-51d66782"><p class="cl-51d64d74"><span class="cl-51d36a82">hypothesis</span></p></th><th class="cl-51d66782"><p class="cl-51d64d74"><span class="cl-51d36a82">likelihood</span></p></th><th class="cl-51d66782"><p class="cl-51d64d74"><span class="cl-51d36a82">prior</span></p></th><th class="cl-51d66782"><p class="cl-51d64d74"><span class="cl-51d36a82">numerator</span></p></th><th class="cl-51d66782"><p class="cl-51d64d74"><span class="cl-51d36a82">posterior</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">10%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.090</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.005</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">17.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d6678d"><p class="cl-51d64d74"><span class="cl-51d36a82">20%</span></p></td><td class="cl-51d6678d"><p class="cl-51d64d74"><span class="cl-51d36a82">0.218</span></p></td><td class="cl-51d6678d"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d6678d"><p class="cl-51d64d74"><span class="cl-51d36a82">0.013</span></p></td><td class="cl-51d6678d"><p class="cl-51d64d74"><span class="cl-51d36a82">42.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">30%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.130</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.008</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">25.4%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">40%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.035</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.002</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">6.8%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">50%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.005</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">52%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.002</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">7.8%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">60%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.1%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">70%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">80%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d6678c"><p class="cl-51d64d74"><span class="cl-51d36a82">0.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-51d66796"><p class="cl-51d64d74"><span class="cl-51d36a82">90%</span></p></td><td class="cl-51d66796"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d66796"><p class="cl-51d64d74"><span class="cl-51d36a82">6%</span></p></td><td class="cl-51d66796"><p class="cl-51d64d74"><span class="cl-51d36a82">0.000</span></p></td><td class="cl-51d66796"><p class="cl-51d64d74"><span class="cl-51d36a82">0.0%</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-777c848c{table-layout:auto;}.cl-7774616c{font-family:'Gill Sans MT';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-77778c20{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7777a822{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7777a823{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7777a82c{background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7777a82d{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-777c848c"><thead><tr style="overflow-wrap:break-word;"><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">hypothesis</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">likelihood</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">prior</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">numerator</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">posterior</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">10%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.090</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.005</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">17.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">20%</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">0.218</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">0.013</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">42.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">30%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.130</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.008</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">25.4%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">40%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.035</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.002</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6.8%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">50%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.005</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">52%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.002</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">7.8%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">60%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.1%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">70%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">80%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">90%</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">0.0%</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>A treatment effect of 20 percent is most likely</p>
 <p>But notice that we get back an entire distribution, not just a point estimate</p>
 </section>
 <section id="from-prior-to-posterior" class="slide level3">
-<h3>From prior to posterior</h3>
+<h3>From Prior to Posterior</h3>
 
 <img data-src="USAID-MENA-MEL-Workshop---Bayesian-analysis_files/figure-revealjs/unnamed-chunk-5-1.png" width="672" class="r-stretch"></section>
 <section id="bayesian-analysis-as-science" class="slide level3">
-<h3>Bayesian analysis as science</h3>
+<h3>Bayesian Analysis as Science</h3>
 <ul>
-<li class="fragment">Recall what we learned as kids about the scientific method:<br>
-- Observe a state of the world<br>
-- Develop a hypothesis about how the world works<br>
-- Test your hypothesis with new data<br>
-- Update your beliefs and repeat</li>
+<li>Recall what we learned as kids about the scientific method:<br>
+
+<ul>
+<li>Observe a state of the world<br>
+</li>
+<li>Develop a hypothesis about how the world works<br>
+</li>
+<li>Test your hypothesis with new data<br>
+</li>
+<li>Update your beliefs and repeat</li>
+</ul></li>
 </ul>
 </section>
 <section id="think-like-a-bayesian" class="slide level3">
-<h3>Think like a Bayesian</h3>
+<h3>Think Like a Bayesian</h3>
 <ul>
-<li class="fragment"><p>Using Bayes’ Rule to conduct inference follows the scientific method!</p></li>
-<li class="fragment"><p>Let’s think like a Bayesian</p></li>
-<li class="fragment"><p>Stay tuned for Bayes’ Rule used in machine learning</p></li>
+<li><p>Using Bayes’ Rule to conduct inference follows the scientific method!</p></li>
+<li><p>Let’s think like a Bayesian</p></li>
+<li><p>Stay tuned for Bayes’ Rule used in machine learning</p></li>
 </ul>
-<p>Thank you!</p>
 </section>
 <section id="bonus-content" class="slide level3">
-<h3>Bonus content</h3>
+<h3>Bonus Content</h3>
 <ul>
-<li class="fragment"><p>Setting Bayesian priors as qualitative research</p></li>
-<li class="fragment"><p>Naive Bayes Classifier</p></li>
-<li class="fragment"><p>Expectation Maximization (EM) algorithm</p></li>
+<li><p>Setting Bayesian priors as qualitative research</p></li>
+<li><p>Naive Bayes Classifier</p></li>
+<li><p>Expectation Maximization (EM) algorithm</p></li>
 </ul>
+</section>
+<section id="bayesian-priors" class="slide level3">
+<h3>Bayesian Priors</h3>
+<ul>
+<li><p>The prior probability <span class="math inline">\(P(model)\)</span> reflects our current state of understanding about our hypothesis</p></li>
+<li><p>Stakeholders have a prior probability of the hypothesis, even if they don’t think of it in terms of a Bayesian analysis</p></li>
+<li><p>What if we used the elicitation of prior probability as a qualitative research method?</p></li>
+</ul>
+</section>
+<section id="uncertain-about-hypothesis" class="slide level3">
+<h3>Uncertain About Hypothesis</h3>
+
+<img data-src="beta%203,7.png" width="332" class="r-stretch"></section>
+<section id="more-confident-about-hypothesis" class="slide level3">
+<h3>More Confident About Hypothesis</h3>
+
+<img data-src="beta%2070,30.png" width="343" class="r-stretch"></section>
+<section id="bayes-priors-as-qualitative-inquiry" class="slide level3">
+<h3>Bayes Priors as Qualitative Inquiry</h3>
+
+<img data-src="prior%20elicitation%20survey%20screenshot.png" width="636" class="r-stretch"></section>
+<section id="prior-probability-elicitation" class="slide level3">
+<h3>Prior Probability Elicitation</h3>
+
+<img data-src="aware%20WBG.png" width="1350" class="r-stretch"></section>
+<section id="naive-bayes" class="slide level3">
+<h3>Naive Bayes</h3>
+<ul>
+<li>Consider a logic model where we can assign actual probabilities</li>
+</ul>
+
+<img data-src="grade%20DAG.png" width="248" class="r-stretch"></section>
+<section id="putting-the-naive-in-naive-bayes" class="slide level3">
+<h3>Putting the Naive in Naive Bayes</h3>
+<ul>
+<li><p>Assume each variable is independent of the others, even if we know that is not true (“naive”)</p></li>
+<li><p>Given the assumption of independence, all we have to do is multiply probabilities together to estimate an outcome</p></li>
+</ul>
+<p><span class="math display">\[posterior \propto prior \times likelihood\]</span></p>
+<ul>
+<li>Automagically, naive Bayes gives us helpful answers!</li>
+</ul>
+</section>
+<section id="expectation-maximization-em" class="slide level3">
+<h3>Expectation Maximization (EM)</h3>
+<ul>
+<li><p>Expectation maximization is an algorithm that iteratively updates probabilities using Bayes’ Rule</p></li>
+<li><p>EM is used to impute missing data, or detect latent variables</p></li>
+<li><p>Starting with a reasonable best-guess of parameter values, the model learns from the data and updates the probabilities</p></li>
+<li><p>Automagically, the model converges to the best parameter values</p></li>
+</ul>
+</section>
+<section id="e-to-the-m-to-the-e" class="slide level3">
+<h3>E to the M to the E</h3>
+<p>Expectation step</p>
+<ul>
+<li>For our best-guess of parameter values and observed data, what is the posterior distribution?</li>
+</ul>
+<p>Maximization step</p>
+<ul>
+<li>Use the most likely values from the expectation step to make our next best-guess of parameter values</li>
+</ul>
+<p>Expectation step.. Maximization step..</p>
+</section>
+<section id="em-climbs-the-hill-of-likelihood" class="slide level3">
+<h3>EM Climbs the Hill of Likelihood</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="em_flowchart.png" width="278"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="optimization_transfer.png" width="298"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p>Source: (https://yangxiaozhou.github.io/data/2020/10/20/EM-algorithm-explained.html)</p>
+</section>
+<section id="recap-of-bonus-content" class="slide level3">
+<h3>Recap of bonus content</h3>
+<ul>
+<li><p>Bayesian analysis starts simple with Bayes’ Rule</p></li>
+<li><p>Because Bayes’ Rule is based on the laws of probability, we can build very complex algorithms on top of it</p></li>
+<li><p>It is important to <em>practically</em> understand Bayes’ Rule, and use it in our every day thinking about the world</p></li>
+<li><p>It is important to <em>conceptually</em> understand how Bayes’ Rule can be applied in more complex ways to help us learn</p></li>
+</ul>
+<p>Thank you!</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>USAID MENA Advanced MEL Workshop</p>
+
 </div>
 </div>
 </section>
@@ -542,7 +637,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: false,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
