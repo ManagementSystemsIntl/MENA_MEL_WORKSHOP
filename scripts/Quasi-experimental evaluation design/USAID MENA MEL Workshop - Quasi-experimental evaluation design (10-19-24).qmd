@@ -33,17 +33,15 @@ source("../../../Methods Corner/misc/prep.r")
 
 ```
 
-### Session Objectives 
+### Session Objectives
 
-By the end of this session, participants will be able to:
+-   Understand selection bias as a fundamental difficulty in identifying a valid counterfactual
 
--  Understand selection bias as a fundamental difficulty in identifying a valid counterfactual
+-   Recognize randomization as the most effective way to eliminate selection bias
 
--  Recognize randomization as the most effective way to eliminate selection bias
+-   Identify strategies for generating 'as-if' randomization
 
--  Identify strategies for generating 'as-if' randomization
-
--  Understand the relative strengths and weaknesses of different designs
+-   Understand the relative strengths and weaknesses of different designs
 
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
@@ -63,9 +61,9 @@ We want to know the causal effect of an activity on its beneficiaries
 
 -   We applied the switching equation to potential outcomes in order to arrive at the difference-in-means estimator
 
-- We decomposed the difference-in-means estimator into the average treatment effect on the treated  and selection bias
+-   We decomposed the difference-in-means estimator into the average treatment effect on the treated and selection bias
 
-- We established randomization as the best way to eliminate the selection bias term
+-   We established randomization as the best way to eliminate the selection bias term
 
 ### Decomposing the Difference in Means
 
@@ -77,7 +75,7 @@ Average Treatment Effect on the Treated (ATT)
 $E\bigr[Y^0 \mid D=1\bigr]-E\bigr[Y^0 \mid D=0\bigr]$\
 Selection bias
 
-- Under randomization, the selection bias term is zero and the assignment of treatment is independent of the outcome
+-   Under randomization, the selection bias term is zero and the assignment of treatment is independent of the outcome
 
 $D\perp\kern-5pt\perp Y$
 
@@ -111,11 +109,11 @@ $D\perp\kern-5pt\perp Y \mid X$
 
 ### Controlling For
 
-What does it mean to 'control for' X ? 
+What does it mean to 'control for' X ?
 
-- Disaggregate across all levels of each variable in X
-- Enter variables X into a regression model (regression adjustment)
-- Explicitly match treatment and control units on X (future session)
+-   Disaggregate across all levels of each variable in X
+-   Enter variables X into a regression model (regression adjustment)
+-   Explicitly match treatment and control units on X (future session)
 
 ### Adjusting for Confounders
 
@@ -139,9 +137,9 @@ What does it mean to 'control for' X ?
 
 ### Using Trends Over Time
 
-- The Experimental Evaluation session introduced the randomized difference-in-differences (d-i-d)
+-   The Experimental Evaluation session introduced the randomized difference-in-differences (d-i-d)
 
-- If we have a d-i-d setup WITHOUT randomization, we can use the trend in each group to estimate the counterfactual for the other group
+-   If we have a d-i-d setup WITHOUT randomization, we can use the trend in each group to estimate the counterfactual for the other group
 
 -   This only works if we know the pre-treatment trends are the same (parallel) across both groups!
 
@@ -200,12 +198,12 @@ include_graphics("RD graphic 2 crop.png")
 
 ### Real-world RD
 
-RD applies in any situation where there is a running (score) variable with an arbitrary cutoff that creates 'as-if' randomization
+RD applies where there is a running (score) variable with an arbitrary cutoff that creates 'as-if' randomization
 
-![](alcohol-consumption_v3.png)
+![](alcohol-consumption_v3.png){height="4in"}
 
-```{r}
-#include_graphics("all deaths by age.png")
+```{r fig.height=2}
+#include_graphics("alcohol-consumption_v3.png")
 
 ```
 
@@ -275,7 +273,6 @@ Surah Al-Baqarah (2:183-185):
 -   Experimental designs: $D\perp\kern-5pt\perp Y$
 
 -   Quasi-experimental designs: $D\perp\kern-5pt\perp Y \mid X$
-
 
 ### What are the Strengths and Limitations?
 

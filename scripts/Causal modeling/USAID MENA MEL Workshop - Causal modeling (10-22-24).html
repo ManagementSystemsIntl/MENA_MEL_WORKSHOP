@@ -10,7 +10,7 @@
 <link href="USAID MENA MEL Workshop - Causal modeling (10-22-24)_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Causal modeling</title>
+  <title>Causal Modeling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,35 +325,19 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#002F6C" data-background-image="Horizontal_RGB_294_White.png" data-background-position="top left" data-background-size="25%" class="quarto-title-block center">
-  <h1 class="title">Causal modeling</h1>
+  <h1 class="title">Causal Modeling</h1>
   <p class="subtitle">USAID MENA Advanced MEL Workshop</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="objectives-of-workshop-sessions" class="slide level3">
-<h3>Objectives of workshop sessions</h3>
-<ul>
-<li>Introduce advanced-level content around Monitoring, Evaluation, and Learning (MEL)</li>
-<li>Review current trends in data analytics, causal inference, machine learning, and Artificial General Intelligence (AGI)</li>
-</ul>
-</section>
-<section id="benchmarks-for-success" class="slide level3">
-<h3>Benchmarks for success</h3>
-<p>By the end of this session, participants will be able to:</p>
+<section id="session-objectives" class="slide level3">
+<h3>Session Objectives</h3>
 <ul>
 <li><p>Understand USAID practice around causal modeling</p></li>
 <li><p>Introduce new analytical developments that can extend USAID practice of causal modeling and link it to impact evaluation and learning agendas</p></li>
 <li><p>Identify management opportunities to incorporate best practice and new trends into activity implementation</p></li>
-</ul>
-</section>
-<section id="benchmarks-for-success-1" class="slide level3">
-<h3>Benchmarks for success</h3>
-<p><em>Bonus content:</em></p>
-<ul>
-<li></li>
-<li></li>
 </ul>
 </section>
 <section id="level-set" class="slide level3" data-background-color="#002F6C">
@@ -367,7 +351,7 @@
 </ul>
 </section>
 <section id="logic-model" class="slide level3">
-<h3>Logic model</h3>
+<h3>Logic Model</h3>
 <ul>
 <li><p>A graphic or visual depiction of a theory of change that illustrates the connection between what a strategy, project, or activity will do and what it hopes to achieve</p></li>
 <li><p>There are a wide range of logic models</p>
@@ -382,47 +366,147 @@
 <h3>Results Framework</h3>
 <ul>
 <li>A type of logic model representing the development hypothesis of a USAID mission’s strategy</li>
-<li>Diagrams the causal links between the strategy’s Goal, Development Objectives (DOs), and Intermediate Results (IRs)</li>
+<li>Diagrams the causal links between the strategy’s Goal, Development Objectives (DOs), and Intermediate Results (IRs)<br>
+</li>
+<li>Explicates theory of change, aids strategic planning, and serves as a communications tool</li>
 </ul>
 </section>
 <section id="logframe" class="slide level3">
 <h3>LogFrame</h3>
 <ul>
 <li>Complements the CDCS Results Framework by carrying the development hypothesis through from the overall program/project to the supporting activities</li>
-<li>LogFrame replicates the causal linkages, but starting from a Development Objective and ending with activity inputs</li>
-<li>While the Results Framework is a strategic planning tool, an activity’s Logical Framework defines exactly what resources are needed to achieve results</li>
+<li>Replicates the causal linkages, but starting from a Development Objective and ending with activity inputs</li>
+<li>Defines exactly what resources are needed to achieve results</li>
 </ul>
 </section>
 <section id="causal-loop-diagram" class="slide level3">
-<h3>Causal loop diagram</h3>
+<h3>Causal Loop Diagram</h3>
 <ul>
-<li>Identifies the primary variables of a complex system and visualizes their relationships</li>
+<li>A logic model that emphasizes feedback loops and includes notation for polarity of relationshpis</li>
+</ul>
+
+<img data-src="causal%20viz/causal%20loop1.png" width="471" class="r-stretch quarto-figure-center"><p class="caption">Understanding Smallholder Access to Finance, USAID/Uganda Feed the Future Market System Monitoring Activity</p></section>
+<section id="new-directions" class="slide level3" data-background-color="#002F6C">
+<h3><span style="color:white;">New Directions</span></h3>
+<p>Directed Acyclic Graphs (DAGs)</p>
+<ul>
+<li><p>A logic model with probabilities attached</p></li>
+<li><p>Causal influence revealed through ancestor/descendant relationships</p></li>
+<li><p>Directed = one way only!</p></li>
+<li><p>Acyclic = no feedback loops! Arrows cannot backtrack</p></li>
 </ul>
 </section>
-<section id="new-directions" class="slide level3" data-background-color="#002F6C">
-<h3><span style="color:white;">New directions</span></h3>
-<p>Directed Acyclic Graphs (DAGs)</p>
-</section>
 <section id="the-four-confounds" class="slide level3">
-<h3>The four confounds</h3>
+<h3>The Four Confounds</h3>
 
-<img data-src="DAG%20confounds%202.png" class="quarto-figure quarto-figure-center r-stretch" width="684"></section>
+<img data-src="causal%20viz/DAG%20confounds%20D.png" class="quarto-figure quarto-figure-center r-stretch" width="684"><p>McElreath, Richard. <em>Statistical Rethinking: A Bayesian Course with Examples in R and Stan</em>. 2nd ed.&nbsp;</p>
+</section>
 <section id="the-fork" class="slide level3">
 <h3>The Fork</h3>
 
-<img data-src="DAG%20fork%20D%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="199"></section>
+<img data-src="causal%20viz/DAG%20fork%20D%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="199"><ul>
+<li>X causes both treatment and outcome</li>
+<li>Must control for X (backdoor criterion)</li>
+</ul>
+<p><span class="math inline">\(D\)</span> is NOT <span class="math inline">\(\perp\kern-5pt\perp Y\)</span></p>
+<p><span class="math inline">\(D\perp\kern-5pt\perp Y \mid X\)</span></p>
+</section>
+<section id="solve-for-the-fork" class="slide level3">
+<h3>Solve for the Fork</h3>
+<p>The fork is the most common problem researchers face</p>
+<ul>
+<li>All adjustment or matching methods attempt to solve the fork
+<ul>
+<li>Regression adjustment</li>
+<li>Propensity score matching</li>
+<li>Inverse probability weighting</li>
+</ul></li>
+</ul>
+</section>
 <section id="the-pipe" class="slide level3">
 <h3>The Pipe</h3>
 
-<img data-src="DAG%20pipe%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="194"></section>
+<img data-src="causal%20viz/DAG%20pipe%20D%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="194"><ul>
+<li>X is a post-treatment outcome<br>
+</li>
+<li>Knowledge, Skills, Attitude, Practices<br>
+</li>
+<li>DO NOT control for X !!&nbsp;</li>
+</ul>
+<p><span class="math inline">\(D\perp\kern-5pt\perp Y\)</span><br>
+</p>
+</section>
 <section id="the-collider" class="slide level3">
 <h3>The Collider</h3>
 
-<img data-src="DAG%20collider%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="206"></section>
+<img data-src="causal%20viz/DAG%20collider%20D%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="206"><ul>
+<li>DO NOT control for X !!</li>
+</ul>
+<p><span class="math inline">\(D\perp\kern-5pt\perp Y\)</span></p>
+<p><span class="math inline">\(D\)</span> IS NOT <span class="math inline">\(\perp\kern-5pt\perp Y \mid X\)</span></p>
+</section>
 <section id="the-descendant" class="slide level3">
 <h3>The Descendant</h3>
 
-<img data-src="DAG%20descendant%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="199"><div class="quarto-auto-generated-content">
+<img data-src="causal%20viz/DAG%20descendant%20D%20crop.png" class="quarto-figure quarto-figure-center r-stretch" width="199"><ul>
+<li><p>Z is not a post-treatment outcome, but a downstream unmeasured confounder</p></li>
+<li><p>Control for proxy variable X<br>
+</p></li>
+<li><p>If X a strong enough proxy:</p></li>
+</ul>
+<p><span class="math inline">\(D\perp\kern-5pt\perp Y\mid X\)</span></p>
+</section>
+<section id="latent-variables" class="slide level3">
+<h3>Latent Variables</h3>
+<ul>
+<li><p>DAGs can include unmeasured or hidden (latent) variables</p></li>
+<li><p>Allows for other advanced analytical methods</p>
+<ul>
+<li>Structural equation modeling<br>
+</li>
+<li>Latent class analysis<br>
+</li>
+<li>Factor analysis</li>
+</ul></li>
+</ul>
+</section>
+<section id="evaluation-designs-as-dags" class="slide level3">
+<h3>Evaluation Designs as DAGs</h3>
+<ul>
+<li>Randomized Controlled Trial (RCT)</li>
+<li>Instrumental Variables estimation (IV)</li>
+<li>Regression Discontinuity (RD)</li>
+</ul>
+</section>
+<section id="randomized-controlled-trial" class="slide level3">
+<h3>Randomized Controlled Trial</h3>
+
+<img data-src="causal%20viz/DAG%20RCT.png" width="673" class="r-stretch"></section>
+<section id="instrumental-variables-estimation" class="slide level3">
+<h3>Instrumental Variables Estimation</h3>
+
+<img data-src="causal%20viz/DAG%20IV.png" width="673" class="r-stretch"></section>
+<section id="regression-discontinuity" class="slide level3">
+<h3>Regression Discontinuity</h3>
+
+<img data-src="causal%20viz/DAG%20RD.png" width="623" class="r-stretch"><p>Cunningham, Scott. <em>Causal Inference: The Mixtape</em>.</p>
+</section>
+<section id="recap" class="slide level3">
+<h3>Recap</h3>
+<ul>
+<li><p>Logic modeling can be extended to methods such as causal loop diagrams or directed acyclic graphs</p></li>
+<li><p>These methods enable the integration of assumptions and hypotheses with data</p></li>
+<li><p>USAID must continue to push the boundary of causal modeling and link them to analytical methods</p></li>
+</ul>
+</section>
+<section id="looking-forward" class="slide level3">
+<h3>Looking forward</h3>
+<ul>
+<li><p>Stay tuned for sessions on learning agendas, mapping, and Bayesian analysis</p></li>
+<li><p>We will attach probabilities to our causal models</p></li>
+</ul>
+<p>Thank you!</p>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
