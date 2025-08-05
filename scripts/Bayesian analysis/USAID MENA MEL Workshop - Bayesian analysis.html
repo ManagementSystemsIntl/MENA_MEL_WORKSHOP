@@ -321,10 +321,6 @@
       margin-right: 0; 
     }
   </style>
-  <link href="USAID MENA MEL Workshop - Bayesian analysis_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
-
-  <script src="USAID MENA MEL Workshop - Bayesian analysis_files/libs/tabwid-1.1.3/tabwid.js"></script>
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -340,11 +336,10 @@
 </section>
 <section id="session-objectives" class="slide level3">
 <h3>Session Objectives</h3>
-<p>By the end of this session, participants will be able to:</p>
 <ul>
 <li><p>Understand how to derive Bayes’ Rule from the laws of probability</p></li>
 <li><p>Understand how to interpret Bayes’ Rule in the context of a data analysis</p></li>
-<li><p>Understand how thinking like a Bayesian follows the scientific method and should be a normal part of our thinking about the world</p></li>
+<li><p>Understand how thinking like a Bayesian follows the scientific method and should guide how we think about the world</p></li>
 </ul>
 </section>
 <section id="session-objectives-1" class="slide level3">
@@ -360,13 +355,6 @@
 <h3><span style="color:white;">Level Set</span></h3>
 <p><a href="https://oscarbonilla.com/2009/05/visualizing-bayes-theorem/">Deriving Bayes’ Rule</a></p>
 </section>
-<section id="the-frequentist-and-the-bayesian" class="slide level3">
-<h3>The Frequentist and the Bayesian</h3>
-<p>Frequentist hypothesis test: <span class="math inline">\(P(data&gt;data_{observed}|H_0)\)</span></p>
-<p>The likelihood: <span class="math inline">\(P(data|model)\)</span></p>
-<p>The posterior probability: <span class="math inline">\(P(model|data)\)</span></p>
-<p>Bayesian analysis requires us to update our beliefs in light of new data</p>
-</section>
 <section id="bayes-rule" class="slide level3">
 <h3>Bayes’ Rule</h3>
 <p>Consider two overlapping events A and B occurring within a universe U.</p>
@@ -378,43 +366,46 @@
 <h3>How Much of A is in B?</h3>
 
 <img data-src="venn-last.png" width="195" class="r-stretch"><p><span class="math inline">\(P(A|B)=\frac{P(AB)}{P(B)}\)</span></p>
-<p><span class="math inline">\(P(AB)=P(A|B)P(B)\)</span></p>
+<p><span class="math inline">\(P(AB)=P(A\mid B)P(B)\)</span></p>
 </section>
 <section id="how-much-of-b-is-in-a" class="slide level3">
 <h3>How Much of B is in A?</h3>
 
-<img data-src="venn-last.png" width="195" class="r-stretch"><p><span class="math inline">\(P(B|A)=\frac{P(AB)}{P(A)}\)</span></p>
-<p><span class="math inline">\(P(AB)=P(B|A)P(A)\)</span></p>
+<img data-src="venn-last.png" width="195" class="r-stretch"><p><span class="math inline">\(P(B\mid A)=\frac{P(AB)}{P(A)}\)</span></p>
+<p><span class="math inline">\(P(AB)=P(B\mid A)P(A)\)</span></p>
 </section>
 <section id="putting-the-two-together" class="slide level3">
 <h3>Putting the Two Together</h3>
-<p>We can put the two identities together and solve for <span class="math inline">\(A|B\)</span>:</p>
-<p><span class="math inline">\(P(A|B)P(B)=P(B|A)P(A)\)</span></p>
-<p><span class="math inline">\(P(A|B)=\frac{P(B|A)P(A)}{P(B)}\)</span></p>
+<p>We can put the two identities together and solve for <span class="math inline">\(A\mid B\)</span>:</p>
+<p><span class="math inline">\(P(A\mid B)P(B)=P(B\mid A)P(A)\)</span></p>
+<p><span class="math inline">\(P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}\)</span></p>
 <p>And that’s it. That’s Bayes’ Rule.</p>
 </section>
 <section id="bayes-rule-as-an-analytical-tool" class="slide level3">
 <h3>Bayes’ Rule as an Analytical Tool</h3>
 <p>We just used the laws of probability to derive Bayes’ Rule:</p>
-<p><span class="math inline">\(P(A|B)=\frac{P(B|A)P(A)}{P(B)}\)</span></p>
+<p><span class="math inline">\(P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}\)</span></p>
 <p>Now let’s use this in the context of a data analysis</p>
-<p><span class="math inline">\(P(model|data)=\frac{P(data|model)P(model)}{P(data)}\)</span></p>
+<p><span class="math inline">\(P(model\mid data)=\frac{P(data\mid model)P(model)}{P(data)}\)</span></p>
+<p>Can also think in terms of hypothesis and evidence</p>
+<p><span class="math inline">\(P(hypothesis\mid evidence)=\frac{P(evidence\mid hypothesis)P(hypothesis)}{P(evidence)}\)</span></p>
 </section>
 <section id="using-bayes-rule" class="slide level3">
 <h3>Using Bayes’ Rule</h3>
-<p><span class="math display">\[P(model|data)=\frac{P(data|model)P(model)}{P(data)}\]</span></p>
-<p><span class="math inline">\(P(model|data)\)</span>: probability of a hypothesis given data</p>
-<p><span class="math inline">\(P(data|model)\)</span>: the likelihood of our data for each hypothesis</p>
+<p><span class="math display">\[P(model\mid data)=\frac{P(data\mid model)P(model)}{P(data)}\]</span></p>
+<p><span class="math inline">\(P(model\mid data)\)</span>: probability of a hypothesis given data</p>
+<p><span class="math inline">\(P(data\mid model)\)</span>: the likelihood of our data for each hypothesis</p>
 <p><span class="math inline">\(P(model)\)</span>: the prior probability of the model, before data</p>
+<p><span class="math inline">\(P\left(data\right)\)</span>: a normalizing constant</p>
 </section>
-<section id="bayesian-inference---example-problem" class="slide level3">
-<h3>Bayesian Inference - Example Problem</h3>
+<section id="bayesian-inference" class="slide level3">
+<h3>Bayesian Inference</h3>
 <ul>
-<li><p>40 subjects, half randomly assigned a treatment</p></li>
-<li><p>The treatment is expected to reduce the probability of an event</p></li>
+<li><p>40 subjects, half randomly assigned a treatment expected to reduce the probability of an event</p></li>
+<li><p>By random assignment, we would expect the event to fall evenly across treatment and control groups<sup>1</sup></p></li>
 <li><p>What is the probability <em>p</em> that an observed event occurred within the treatment group?</p></li>
 </ul>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>What if the 40 subjects are not a random draw from a population?</p></li></ol></aside></section>
 <section id="setting-up-our-hypotheses" class="slide level3">
 <h3>Setting Up Our Hypotheses</h3>
 <p><span class="math inline">\(H_0: p=50\%\)</span> No treatment effect</p>
@@ -423,6 +414,494 @@
 <li><p>20 events - 4 events in the treatment group and 16 events in the control group</p></li>
 <li><p>How likely are these four events to have occurred within the treatment group?</p></li>
 </ul>
+</section>
+<section id="frequentist-hypothesis-test" class="slide level3">
+<h3>Frequentist Hypothesis Test</h3>
+<p><span class="math inline">\(P\left(data\geq data_{observed}\mid H_0\right)\)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="jyysbffpcl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jyysbffpcl table {
+  font-family: 'Gill Sans Mt', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jyysbffpcl thead, #jyysbffpcl tbody, #jyysbffpcl tfoot, #jyysbffpcl tr, #jyysbffpcl td, #jyysbffpcl th {
+  border-style: none;
+}
+
+#jyysbffpcl p {
+  margin: 0;
+  padding: 0;
+}
+
+#jyysbffpcl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jyysbffpcl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jyysbffpcl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jyysbffpcl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jyysbffpcl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jyysbffpcl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jyysbffpcl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jyysbffpcl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jyysbffpcl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jyysbffpcl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jyysbffpcl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jyysbffpcl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jyysbffpcl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jyysbffpcl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jyysbffpcl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jyysbffpcl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jyysbffpcl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jyysbffpcl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jyysbffpcl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jyysbffpcl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jyysbffpcl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jyysbffpcl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jyysbffpcl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jyysbffpcl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jyysbffpcl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jyysbffpcl .gt_left {
+  text-align: left;
+}
+
+#jyysbffpcl .gt_center {
+  text-align: center;
+}
+
+#jyysbffpcl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jyysbffpcl .gt_font_normal {
+  font-weight: normal;
+}
+
+#jyysbffpcl .gt_font_bold {
+  font-weight: bold;
+}
+
+#jyysbffpcl .gt_font_italic {
+  font-style: italic;
+}
+
+#jyysbffpcl .gt_super {
+  font-size: 65%;
+}
+
+#jyysbffpcl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jyysbffpcl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jyysbffpcl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jyysbffpcl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jyysbffpcl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jyysbffpcl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jyysbffpcl .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#jyysbffpcl .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#jyysbffpcl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="parameter" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">parameter</th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">conf.low</th>
+<th id="conf.high" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">conf.high</th>
+<th id="method" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">method</th>
+<th id="alternative" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">alternative</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="estimate">0.2</td>
+<td class="gt_row gt_center" headers="statistic">4</td>
+<td class="gt_row gt_center" headers="p.value">0.0118</td>
+<td class="gt_row gt_center" headers="parameter">20</td>
+<td class="gt_row gt_center" headers="conf.low">0.0573</td>
+<td class="gt_row gt_center" headers="conf.high">0.437</td>
+<td class="gt_row gt_center" headers="method">Exact binomial test</td>
+<td class="gt_row gt_center" headers="alternative">two.sided</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><span class="math inline">\(\frac{4}{20} = 20\%\)</span></p>
+<p><span class="math inline">\(p=.012\)</span></p>
 </section>
 <section id="setting-up-the-bayesian-engine" class="slide level3">
 <h3>Setting Up the Bayesian Engine</h3>
@@ -438,7 +917,534 @@
 <h3>Results of the Bayesian Engine</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-777c848c{table-layout:auto;}.cl-7774616c{font-family:'Gill Sans MT';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-77778c20{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7777a822{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7777a823{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7777a82c{background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7777a82d{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-777c848c"><thead><tr style="overflow-wrap:break-word;"><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">hypothesis</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">likelihood</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">prior</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">numerator</span></p></th><th class="cl-7777a822"><p class="cl-77778c20"><span class="cl-7774616c">posterior</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">10%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.090</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.005</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">17.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">20%</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">0.218</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">0.013</span></p></td><td class="cl-7777a82c"><p class="cl-77778c20"><span class="cl-7774616c">42.5%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">30%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.130</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.008</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">25.4%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">40%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.035</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.002</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6.8%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">50%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.005</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">52%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.002</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">7.8%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">60%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.1%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">70%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">80%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a823"><p class="cl-77778c20"><span class="cl-7774616c">0.0%</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">90%</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">6%</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">0.000</span></p></td><td class="cl-7777a82d"><p class="cl-77778c20"><span class="cl-7774616c">0.0%</span></p></td></tr></tbody></table></div>
+<div id="xnaeidabyn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xnaeidabyn table {
+  font-family: 'Gill Sans Mt', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xnaeidabyn thead, #xnaeidabyn tbody, #xnaeidabyn tfoot, #xnaeidabyn tr, #xnaeidabyn td, #xnaeidabyn th {
+  border-style: none;
+}
+
+#xnaeidabyn p {
+  margin: 0;
+  padding: 0;
+}
+
+#xnaeidabyn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xnaeidabyn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xnaeidabyn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xnaeidabyn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xnaeidabyn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xnaeidabyn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xnaeidabyn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xnaeidabyn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xnaeidabyn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xnaeidabyn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xnaeidabyn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xnaeidabyn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xnaeidabyn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xnaeidabyn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xnaeidabyn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xnaeidabyn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xnaeidabyn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xnaeidabyn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xnaeidabyn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xnaeidabyn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xnaeidabyn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xnaeidabyn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xnaeidabyn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xnaeidabyn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xnaeidabyn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xnaeidabyn .gt_left {
+  text-align: left;
+}
+
+#xnaeidabyn .gt_center {
+  text-align: center;
+}
+
+#xnaeidabyn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xnaeidabyn .gt_font_normal {
+  font-weight: normal;
+}
+
+#xnaeidabyn .gt_font_bold {
+  font-weight: bold;
+}
+
+#xnaeidabyn .gt_font_italic {
+  font-style: italic;
+}
+
+#xnaeidabyn .gt_super {
+  font-size: 65%;
+}
+
+#xnaeidabyn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xnaeidabyn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xnaeidabyn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xnaeidabyn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xnaeidabyn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xnaeidabyn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xnaeidabyn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xnaeidabyn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xnaeidabyn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="hypothesis" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">hypothesis</th>
+<th id="likelihood" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">likelihood</th>
+<th id="prior" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">prior</th>
+<th id="numerator" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">numerator</th>
+<th id="posterior" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">posterior</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="hypothesis">10%</td>
+<td class="gt_row gt_center" headers="likelihood">0.090</td>
+<td class="gt_row gt_center" headers="prior">6%</td>
+<td class="gt_row gt_center" headers="numerator">0.005</td>
+<td class="gt_row gt_center" headers="posterior">17.5%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="hypothesis" style="background-color: rgba(128,188,216,0.8); color: #000000; font-weight: bold">20%</td>
+<td class="gt_row gt_center" headers="likelihood" style="background-color: rgba(128,188,216,0.8); color: #000000; font-weight: bold">0.218</td>
+<td class="gt_row gt_center" headers="prior" style="background-color: rgba(128,188,216,0.8); color: #000000; font-weight: bold">6%</td>
+<td class="gt_row gt_center" headers="numerator" style="background-color: rgba(128,188,216,0.8); color: #000000; font-weight: bold">0.013</td>
+<td class="gt_row gt_center" headers="posterior" style="background-color: rgba(128,188,216,0.8); color: #000000; font-weight: bold">42.5%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="hypothesis">30%</td>
+<td class="gt_row gt_center" headers="likelihood">0.130</td>
+<td class="gt_row gt_center" headers="prior">6%</td>
+<td class="gt_row gt_center" headers="numerator">0.008</td>
+<td class="gt_row gt_center" headers="posterior">25.4%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="hypothesis">40%</td>
+<td class="gt_row gt_center" headers="likelihood">0.035</td>
+<td class="gt_row gt_center" headers="prior">6%</td>
+<td class="gt_row gt_center" headers="numerator">0.002</td>
+<td class="gt_row gt_center" headers="posterior">6.8%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="hypothesis">50%</td>
+<td class="gt_row gt_center" headers="likelihood">0.005</td>
+<td class="gt_row gt_center" headers="prior">52%</td>
+<td class="gt_row gt_center" headers="numerator">0.002</td>
+<td class="gt_row gt_center" headers="posterior">7.8%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="hypothesis">60%</td>
+<td class="gt_row gt_center" headers="likelihood">0.000</td>
+<td class="gt_row gt_center" headers="prior">6%</td>
+<td class="gt_row gt_center" headers="numerator">0.000</td>
+<td class="gt_row gt_center" headers="posterior">0.1%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="hypothesis">70%</td>
+<td class="gt_row gt_center" headers="likelihood">0.000</td>
+<td class="gt_row gt_center" headers="prior">6%</td>
+<td class="gt_row gt_center" headers="numerator">0.000</td>
+<td class="gt_row gt_center" headers="posterior">0.0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="hypothesis">80%</td>
+<td class="gt_row gt_center" headers="likelihood">0.000</td>
+<td class="gt_row gt_center" headers="prior">6%</td>
+<td class="gt_row gt_center" headers="numerator">0.000</td>
+<td class="gt_row gt_center" headers="posterior">0.0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="hypothesis">90%</td>
+<td class="gt_row gt_center" headers="likelihood">0.000</td>
+<td class="gt_row gt_center" headers="prior">6%</td>
+<td class="gt_row gt_center" headers="numerator">0.000</td>
+<td class="gt_row gt_center" headers="posterior">0.0%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 <p>A treatment effect of 20 percent is most likely</p>
@@ -447,7 +1453,7 @@
 <section id="from-prior-to-posterior" class="slide level3">
 <h3>From Prior to Posterior</h3>
 
-<img data-src="USAID-MENA-MEL-Workshop---Bayesian-analysis_files/figure-revealjs/unnamed-chunk-5-1.png" width="672" class="r-stretch"></section>
+<img data-src="USAID-MENA-MEL-Workshop---Bayesian-analysis_files/figure-revealjs/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
 <section id="bayesian-analysis-as-science" class="slide level3">
 <h3>Bayesian Analysis as Science</h3>
 <ul>
@@ -509,8 +1515,8 @@
 <ul>
 <li>Consider a logic model where we can assign actual probabilities</li>
 </ul>
-
-<img data-src="grade%20DAG.png" width="248" class="r-stretch"></section>
+<p><img data-src="grade%20DAG.png" style="height:4in"></p>
+</section>
 <section id="putting-the-naive-in-naive-bayes" class="slide level3">
 <h3>Putting the Naive in Naive Bayes</h3>
 <ul>
@@ -567,7 +1573,7 @@
 </div>
 </div>
 </div></div>
-<p>Source: (https://yangxiaozhou.github.io/data/2020/10/20/EM-algorithm-explained.html)</p>
+<p>https://yangxiaozhou.github.io/data/2020/10/20/EM-algorithm-explained.html</p>
 </section>
 <section id="recap-of-bonus-content" class="slide level3">
 <h3>Recap of bonus content</h3>
@@ -577,6 +1583,15 @@
 <li><p>It is important to <em>practically</em> understand Bayes’ Rule, and use it in our every day thinking about the world</p></li>
 <li><p>It is important to <em>conceptually</em> understand how Bayes’ Rule can be applied in more complex ways to help us learn</p></li>
 </ul>
+</section>
+<section id="looking-forward" class="slide level3">
+<h3>Looking forward</h3>
+<p>Stay tuned for sessions on</p>
+<ul>
+<li>Machine Learning</li>
+<li>Large Language Models</li>
+<li>Artificial General Intelligence</li>
+</ul>
 <p>Thank you!</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -584,6 +1599,7 @@
 </div>
 </div>
 </section>
+
     </div>
   </div>
 

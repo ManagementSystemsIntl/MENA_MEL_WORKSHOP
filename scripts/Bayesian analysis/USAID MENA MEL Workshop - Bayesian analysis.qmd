@@ -35,13 +35,12 @@ source("../../../Methods Corner/misc/prep.r")
 
 ### Session Objectives
 
-By the end of this session, participants will be able to:
 
 -   Understand how to derive Bayes' Rule from the laws of probability
 
 -   Understand how to interpret Bayes' Rule in the context of a data analysis
 
--   Understand how thinking like a Bayesian follows the scientific method and should be a normal part of our thinking about the world
+-   Understand how thinking like a Bayesian follows the scientific method and should guide how we think about the world
 
 ### Session Objectives
 
@@ -56,16 +55,6 @@ By the end of this session, participants will be able to:
 ### [Level Set]{style="color:white;"} {background-color="#002F6C"}
 
 [Deriving Bayes' Rule](https://oscarbonilla.com/2009/05/visualizing-bayes-theorem/)
-
-### The Frequentist and the Bayesian
-
-Frequentist hypothesis test: $P(data>data_{observed}|H_0)$
-
-The likelihood: $P(data|model)$
-
-The posterior probability: $P(model|data)$
-
-Bayesian analysis requires us to update our beliefs in light of new data
 
 ### Bayes' Rule
 
@@ -87,7 +76,7 @@ include_graphics("venn-last.png")
 
 $P(A|B)=\frac{P(AB)}{P(B)}$
 
-$P(AB)=P(A|B)P(B)$
+$P(AB)=P(A\mid B)P(B)$
 
 ### How Much of B is in A?
 
@@ -95,17 +84,17 @@ $P(AB)=P(A|B)P(B)$
 include_graphics("venn-last.png")
 ```
 
-$P(B|A)=\frac{P(AB)}{P(A)}$
+$P(B\mid A)=\frac{P(AB)}{P(A)}$
 
-$P(AB)=P(B|A)P(A)$
+$P(AB)=P(B\mid A)P(A)$
 
 ### Putting the Two Together
 
-We can put the two identities together and solve for $A|B$:
+We can put the two identities together and solve for $A\mid B$:
 
-$P(A|B)P(B)=P(B|A)P(A)$
+$P(A\mid B)P(B)=P(B\mid A)P(A)$
 
-$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$
+$P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}$
 
 And that's it. That's Bayes' Rule.
 
@@ -113,27 +102,33 @@ And that's it. That's Bayes' Rule.
 
 We just used the laws of probability to derive Bayes' Rule:
 
-$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$
+$P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}$
 
 Now let's use this in the context of a data analysis
 
-$P(model|data)=\frac{P(data|model)P(model)}{P(data)}$
+$P(model\mid data)=\frac{P(data\mid model)P(model)}{P(data)}$
+
+Can also think in terms of hypothesis and evidence
+
+$P(hypothesis\mid evidence)=\frac{P(evidence\mid hypothesis)P(hypothesis)}{P(evidence)}$
 
 ### Using Bayes' Rule
 
-$$P(model|data)=\frac{P(data|model)P(model)}{P(data)}$$
+$$P(model\mid data)=\frac{P(data\mid model)P(model)}{P(data)}$$
 
-$P(model|data)$: probability of a hypothesis given data
+$P(model\mid data)$: probability of a hypothesis given data
 
-$P(data|model)$: the likelihood of our data for each hypothesis
+$P(data\mid model)$: the likelihood of our data for each hypothesis
 
 $P(model)$: the prior probability of the model, before data
 
-### Bayesian Inference - Example Problem
+$P\left(data\right)$: a normalizing constant
 
--   40 subjects, half randomly assigned a treatment
+### Bayesian Inference
 
--   The treatment is expected to reduce the probability of an event
+-   40 subjects, half randomly assigned a treatment expected to reduce the probability of an event
+
+- By random assignment, we would expect the event to fall evenly across treatment and control groups^[What if the 40 subjects are not a random draw from a population?]
 
 -   What is the probability *p* that an observed event occurred within the treatment group?
 
@@ -146,6 +141,26 @@ $H_1: p \lt 50\%$ Treatment effect
 -   20 events - 4 events in the treatment group and 16 events in the control group
 
 -   How likely are these four events to have occurred within the treatment group?
+
+### Frequentist Hypothesis Test
+
+$P\left(data\geq data_{observed}\mid H_0\right)$
+
+```{r}
+ot <- binom.test(4,20) %>%
+  tidy()
+
+ot %>%
+  gt() %>%
+  opt_table_font(font="Gill Sans Mt",
+                 size=16) %>%
+  cols_align(align="center") 
+
+```
+
+$\frac{4}{20} = 20\%$
+
+$p=.012$
 
 ### Setting Up the Bayesian Engine
 
@@ -177,12 +192,23 @@ posterior <- numerator / denominator
 out <- data.frame(hypothesis=p, likelihood, prior, numerator, posterior) %>%
   round(3)
 
-flextable(out) %>%
-  bg(i = ~posterior > .3,
-     bg="yellow", part="body") %>%
-  set_formatter(hypothesis=percent,
-                prior=percent,
-                posterior = percent) 
+out %>%
+  gt() %>%
+  gt_highlight_rows(rows=2) %>%
+  fmt_percent(column=c(1,3),
+              decimals=0) %>%
+  fmt_percent(column=5,
+              decimals=1) %>%
+  opt_table_font(font="Gill Sans Mt",
+                 size=18) %>%
+  cols_align(align="center") 
+
+# flextable(out) %>%
+#   bg(i = ~posterior > .3,
+#      bg="yellow", part="body") %>%
+#   set_formatter(hypothesis=percent,
+#                 prior=percent,
+#                 posterior = percent) 
 
 ```
 
@@ -225,10 +251,10 @@ ggplot(ot, aes(x=hypothesis, y=value, group=measure, color=measure, fill=measure
 ### Bayesian Analysis as Science
 
 -   Recall what we learned as kids about the scientific method:\
-    - Observe a state of the world\
-    - Develop a hypothesis about how the world works\
-    - Test your hypothesis with new data\
-    - Update your beliefs and repeat
+    -   Observe a state of the world\
+    -   Develop a hypothesis about how the world works\
+    -   Test your hypothesis with new data\
+    -   Update your beliefs and repeat
 
 ### Think Like a Bayesian
 
@@ -248,14 +274,13 @@ ggplot(ot, aes(x=hypothesis, y=value, group=measure, color=measure, fill=measure
 
 ### Bayesian Priors
 
-- The prior probability $P(model)$ reflects our current state of understanding about our hypothesis
+-   The prior probability $P(model)$ reflects our current state of understanding about our hypothesis
 
-- Stakeholders have a prior probability of the hypothesis, even if they don't think of it in terms of a Bayesian analysis
+-   Stakeholders have a prior probability of the hypothesis, even if they don't think of it in terms of a Bayesian analysis
 
-- What if we used the elicitation of prior probability as a qualitative research method? 
+-   What if we used the elicitation of prior probability as a qualitative research method?
 
-
-### Uncertain About Hypothesis 
+### Uncertain About Hypothesis
 
 ```{r}
 include_graphics("beta 3,7.png")
@@ -273,8 +298,6 @@ include_graphics("beta 70,30.png")
 include_graphics("prior elicitation survey screenshot.png")
 ```
 
-
-
 ### Prior Probability Elicitation
 
 ```{r}
@@ -282,52 +305,52 @@ include_graphics("aware WBG.png")
 
 ```
 
-
 ### Naive Bayes
 
-- Consider a logic model where we can assign actual probabilities
+-   Consider a logic model where we can assign actual probabilities
+
+![](grade DAG.png){height=4in}
 
 ```{r}
-include_graphics("grade DAG.png")
+#include_graphics("grade DAG.png")
 
 ```
 
 ### Putting the Naive in Naive Bayes
 
-- Assume each variable is independent of the others, even if we know that is not true ("naive")
+-   Assume each variable is independent of the others, even if we know that is not true ("naive")
 
-- Given the assumption of independence, all we have to do is multiply probabilities together to estimate an outcome
+-   Given the assumption of independence, all we have to do is multiply probabilities together to estimate an outcome
 
 $$posterior \propto prior \times likelihood$$
 
-- Automagically, naive Bayes gives us helpful answers! 
+-   Automagically, naive Bayes gives us helpful answers!
 
 ### Expectation Maximization (EM)
 
-- Expectation maximization is an algorithm that iteratively updates probabilities using Bayes' Rule
+-   Expectation maximization is an algorithm that iteratively updates probabilities using Bayes' Rule
 
-- EM is used to impute missing data, or detect latent variables
+-   EM is used to impute missing data, or detect latent variables
 
-- Starting with a reasonable best-guess of parameter values, the model learns from the data and updates the probabilities
+-   Starting with a reasonable best-guess of parameter values, the model learns from the data and updates the probabilities
 
-- Automagically, the model converges to the best parameter values
+-   Automagically, the model converges to the best parameter values
 
 ### E to the M to the E
 
-Expectation step  
+Expectation step
 
--  For our best-guess of parameter values and observed data, what is the posterior distribution? 
+-   For our best-guess of parameter values and observed data, what is the posterior distribution?
 
-Maximization step  
+Maximization step
 
--  Use the most likely values from the expectation step to make our next best-guess of parameter values
+-   Use the most likely values from the expectation step to make our next best-guess of parameter values
 
-Expectation step.. Maximization step.. 
-
+Expectation step.. Maximization step..
 
 ### EM Climbs the Hill of Likelihood
 
-:::: {.columns}
+::::: columns
 ::: {.column width="50%"}
 ```{r}
 include_graphics("em_flowchart.png")
@@ -335,28 +358,30 @@ include_graphics("em_flowchart.png")
 :::
 
 ::: {.column width="50%"}
-
 ```{r}
 include_graphics("optimization_transfer.png")
 ```
-
-
 :::
-::::
+:::::
 
-Source: (https://yangxiaozhou.github.io/data/2020/10/20/EM-algorithm-explained.html)  
-
+https://yangxiaozhou.github.io/data/2020/10/20/EM-algorithm-explained.html
 
 ### Recap of bonus content
 
-- Bayesian analysis starts simple with Bayes' Rule
+-   Bayesian analysis starts simple with Bayes' Rule
 
-- Because Bayes' Rule is based on the laws of probability, we can build very complex algorithms on top of it
+-   Because Bayes' Rule is based on the laws of probability, we can build very complex algorithms on top of it
 
-- It is important to *practically* understand Bayes' Rule, and use it in our every day thinking about the world
+-   It is important to *practically* understand Bayes' Rule, and use it in our every day thinking about the world
 
-- It is important to *conceptually* understand how Bayes' Rule can be applied in more complex ways to help us learn
+-   It is important to *conceptually* understand how Bayes' Rule can be applied in more complex ways to help us learn
 
-Thank you! 
+### Looking forward
 
+Stay tuned for sessions on 
 
+- Machine Learning
+- Large Language Models
+- Artificial General Intelligence
+
+Thank you!
